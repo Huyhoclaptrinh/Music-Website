@@ -13,20 +13,19 @@ h1 {
 .sign_in_container {
     margin: 150px 50px 0px 50px;
 }
-
+  
 .sign_in_box {
     display: inline-block;
-    padding: 1rem 1rem;
-    margin: 0px 20px 0px 20px;
     vertical-align: middle;
 }
-
+  
 #title_box {
-    margin: 0px 200px 0px 0px;
+    padding: 0px 250px 0px 0px;    
 }
-
+  
 #sign_in {
-    margin: 0px 0px 0px 200px;
+    padding: 0px 0px 0px 250px;
+    border-left: 2px solid $color1;
 }
 
 #email #email_input, #pass #pass_input {
@@ -47,6 +46,10 @@ h1 {
 
 #link_sign_up {
     padding-left: 40px;
+}
+
+input {
+    text-align: left;
 }
 
 #button{
