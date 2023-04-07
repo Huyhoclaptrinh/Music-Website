@@ -1,0 +1,28 @@
+$input_size: 20px;
+$color1: navy;
+
+* {
+    text-align: center;
+}
+
+h1 {
+    color: $color1;
+    margin-left: $input_size;
+}
+
+.sign_in div{
+    padding-top: $input_size;
+}
+
+#button{
+    background-color: $color1;
+    border: none;
+    color: white;
+    padding: 7px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
