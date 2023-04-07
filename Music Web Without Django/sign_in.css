@@ -20,12 +20,10 @@ h1 {
 
 #title_box {
   margin: 0px 200px 0px 0px;
-  box-shadow: 0.5px 0 0 #000;
 }
 
 #sign_in {
   margin: 0px 0px 0px 200px;
-  box-shadow: 0.5px 0 0 #000;
 }
 
 #email #email_input, #pass #pass_input {
