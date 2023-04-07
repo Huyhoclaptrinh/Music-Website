@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -13,38 +9,39 @@
 		<link rel="stylesheet" href="sign_in.css">
 	</head>
 	<body>
-		<!--[if lt IE 7]>
-			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
-		<h1> SIGN IN </h1>
-		<form action="" class="sign_in">
-			<div id="email">
-				<label for="fname">Email:</label><br>
-			</div>
-			
-			<div id="email_input">
-				<input type="text" name="fname"><br>
+		<div class="sign_in_container">
+			<div class="sign_in_box" id="title_box">
+				<h1>MUSIEK</h1>
 			</div>
 
-			<div id="pass">
-				<label for="lname">Password:</label><br>
+			<div class="sign_in_box" id="sign_in">
+				<h1> SIGN IN </h1>
+				<form action="" class="sign_in">
+					<div id="email">
+						<label for="fname">Email:</label>
+						<div id="email_input">
+							<input type="text" name="fname"><br>
+						</div>
+					</div>
+
+					<div id="pass">
+						<label for="lname">Password:</label>
+						<div id="pass_input">
+							<input type="Password" id="lname" name="lname"><br>
+						</div>
+					</div>
+					
+					<div id="link_sign_up">
+						<a href="sign_up.html"> Don't have an account? Sign up</a>
+					</div>
+
+				</form> 
+
+				<form action="sign_up.html">
+					<button id="button" type="submit"> Enter </button>
+				</form>
+
 			</div>
-			
-
-			<div id="pass_input">
-				<input type="Password" id="lname" name="lname"><br>
-			</div>
-			<div id="link_sign_up">
-				<a href="sign_up.html"> Don't have an account? Sign up</a>
-			</div>
-			
-			
-
-		  </form> 
-
-		<form action="sign_up.html">
-			<button id="button" type="submit"> Enter
-		</form>
-
+		</div>
 	</body>
 </html>

@@ -5,16 +5,11 @@ $color1: navy;
     text-align: center;
 }
 
-h1 {
-    color: $color1;
-    margin-left: $input_size;
-}
-
-.sign_in_container {
+.sign_up_container {
     margin: 150px 50px 0px 50px;
 }
 
-.sign_in_box {
+.sign_up_box {
     display: inline-block;
     padding: 1rem 1rem;
     margin: 0px 20px 0px 20px;
@@ -25,28 +20,33 @@ h1 {
     margin: 0px 200px 0px 0px;
 }
 
-#sign_in {
+#sign_up {
     margin: 0px 0px 0px 200px;
 }
 
-#email #email_input, #pass #pass_input {
-    display: inline;
-}
-
-#email, #pass {
+h1 {
     color: $color1;
+    margin-left: $input_size;
 }
 
-#email_input {
-    padding-left: 25px;
-}
-
-.sign_in div{
+.sign_up div{
     padding-top: $input_size;
 }
 
-#link_sign_up {
-    padding-left: 40px;
+#name #name_input, #username #username_input, #email #email_input, #pass #pass_input {
+    display: inline;
+}
+
+#name_input, #email_input {
+    padding-left: 25px;
+}
+
+#name, #username, #email, #pass {
+    color: $color1;
+}
+
+input {
+    text-align: left;
 }
 
 #button{
@@ -58,6 +58,6 @@ h1 {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 20px 2px 0px 150px;
+    margin: 20px 2px 10px 150px;
     cursor: pointer;
 }

@@ -10,13 +10,53 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="sign_up.css">
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <script src="" async defer></script>
+        <div class="sign_up_container">
+            <div class="sign_up_box" id="title_box">
+                <h1>MUSIEK</h1>
+            </div>
+
+            <div class="sign_up_box" id="sign_up">
+                <h1> SIGN UP </h1>
+                <form action="" class="sign_up">
+                    <div id="name">
+                        <label for="fname">Name:</label>
+                        <div id="name_input">
+                            <input type="text" name="fname"><br>
+                        </div>
+                    </div>
+
+                    <div id="username">
+                        <label for="fname">Username:</label>
+                        <div id="username_input">
+                            <input type="text" name="fname"><br>
+                        </div>
+                    </div>
+
+                    <div id="email">
+                        <label for="fname">Email:</label>
+                        <div id="email_input">
+                            <input type="text" name="fname"><br>
+                        </div>
+                    </div>
+
+                    <div id="pass">
+                        <label for="lname">Password:</label>
+                        <div id="pass_input">
+                            <input type="Password" id="lname" name="lname"><br>
+                        </div>
+                    </div>
+
+                </form> 
+
+                <form action="sign_in.html">
+                    <button id="button" type="submit"> Enter </button>
+                </form>
+            </div>
+
+        </div>
+
     </body>
 </html>
