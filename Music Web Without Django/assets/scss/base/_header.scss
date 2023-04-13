@@ -1,70 +1,149 @@
-*{
-    margin: 0px;
-}
-header{
+.header-content {    
     position: absolute;
-    width: 100%;
+    width: 1440px;
     height: 95px;
     left: 0px;
     top: 0px;
-    
     background: #202A44;
-}
-
-header h1{
-    position: absolute;
-    width: 120px;
-    height: 27px;
-    left: 40px;
-    top: 35px;
     
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 36px;
+    h1 {
+        position: absolute;
+        width: 120px;
+        height: 27px;
+        left: 40px;
+        top: 10px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 36px;
+        color: #F9F9F9;
+    }
+
+    .search-input {
+        position: absolute;
+        width: 628px;
+        height: 30px;
+        left: 271px;
+        top: 31px;
+        background: #F9F9F9;
+        border-radius: 20px 0 0 20px;
+    }
+
+    .search-sbm {
+        position: absolute;
+        width: 58px;
+        height: 36px;
+        left: 905px;
+        top: 30.5px;
+        background: #BAB2B2;
+        border-radius: 0px 20px 20px 0px;
+    }
+
+    .search-mic {
+        position: absolute;
+        width: 18.81px;
+        height: 23px;
+        left: 984px;
+        top: 38px;
+        color: white;
+        background: #202A44;
+    }
+
+    .user {
+        position: absolute;
+        width: 190px;
+        height: 36px;
+        left: 1240px;
+        top: 31px;
+        background: #D9D9D9;
+        border-radius: 20px;
+    }
+
+    img {
+        position: absolute;
+        width: 37px;
+        height: 36px;
+        top: 0px;
+        left: 0px;
+        border-radius: 50%;
+    }
+
+    .user-name {
+        position: absolute;
+        width: 81px;
+        height: 14px;
+        left: 60px;
+        top: 10px;
+        font-weight: 400;
+        font-size: 15px;
+        color: #000000;
+    }
+}
+// header{
+//     position: absolute;
+//     width: 100%;
+//     height: 95px;
+//     left: 0px;
+//     top: 0px;
+//     background: #202A44;
+// }
+
+// header h1{
+//     position: absolute;
+//     width: 120px;
+//     height: 27px;
+//     left: 35px;
+//     top: 31px;
+
+//     font-family: 'Inter';
+//     font-style: normal;
+//     font-weight: 400;
+//     font-size: 30px;
+//     line-height: 36px;
+
+//     color: #FFFFFF;
+
+// }
+
+// header #search{
+//     width: 692px;
+//     height: 36px;
+//     padding: 10px;
+//     text-align: center;
+//     border-radius: 20px;
+//     background-color: #D9D9D9;
+// }
+
+// .fa-magnifying-glass{
+//     padding: 5px;
+//     min-width: 40px;
+//     left:100px;
     
-    color: #FFFFFF;
-}
+// }
 
-header #search{
-    width: 692px;
-    height: 36px;
-    padding: 10px;
-    text-align: center;
-    border-radius: 20px;
-    background-color: #D9D9D9;
-}
-
-.fa-magnifying-glass{
-    padding: 5px;
-    min-width: 40px;
-    left:100px;
+// .input_text{
+//     width: 100%;
+//     margin-bottom: 10px;
+//     margin-top: 25px;
     
-}
+// }
 
-.input_text{
-    width: 100%;
-    margin-bottom: 10px;
-    margin-top: 25px;
+// .inout_text .fa-magnifying-glass{
+//     position: absolute;
+// }
+
+// .fa-microphone{
+//     padding: 5px;
+//     min-width: 40px;
+//     left:100px;
+// }
+
+// #account_ava{
+//     width: 190px;
+//     height: 36px;
+//     padding: 10px;
+//     border-radius: 20px;
+//     background-color: #D9D9D9;
     
-}
-
-.inout_text .fa-magnifying-glass{
-    position: absolute;
-}
-
-.fa-microphone{
-    padding: 5px;
-    min-width: 40px;
-    left:100px;
-}
-
-#account_ava{
-    width: 190px;
-    height: 36px;
-    padding: 10px;
-    border-radius: 20px;
-    background-color: #D9D9D9;
-    
-}
+// }
