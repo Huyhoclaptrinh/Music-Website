@@ -1,0 +1,11 @@
+@import './base/_header.scss';
+@import './base/_footer.scss';
+
+@import './content/main_page.scss';
+@import './content/sign_in.scss';
+@import './content/sign_up.scss';// importing core styling file
+@import "./common/fontawesome.scss";
+
+// our project needs Solid + Brands
+@import "./common/solid.scss";
+@import "./common/brands.scss";
