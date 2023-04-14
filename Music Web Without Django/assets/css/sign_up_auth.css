@@ -1,0 +1,62 @@
+.auth {
+  width: 100%;
+  height: 1000px;
+  position: relative;
+  display: flex;
+}
+
+.left-auth {
+  width: 20%;
+  height: 100%;
+}
+
+.mid-auth {
+  text-align: center;
+  width: 60%;
+  height: 100%;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.right-auth {
+  width: 20%;
+  height: 100%;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+.input-code {
+  position: relative;
+  right: -7px;
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.mid-auth #btn {
+  position: relative;
+  text-align: center;
+  background-color: navy;
+  color: white;
+  width: 70px;
+  height: 30px;
+  top: 30px;
+  left: -120px;
+}
+
+.mid-auth a {
+  text-align: center;
+  position: relative;
+  left: 45px;
+}
+
+.input-code input[type=text] {
+  text-align: center;
+}
