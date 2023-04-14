@@ -7,28 +7,29 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script src="./assets/js/style.js" defer></script>
     </head>
     <body>
-        <header>
-            <div class="header">
-                <div class="container header-content">
-                    <div class="row">
-                        <div class="logo">
-                            <h1>MUSIEK</h1>
-                        </div>
-                        
-                        <div class="search">
-                            <form action="#" method="get">
-                                <input type="text" class="search-input">
-                                <button type="text" class="search-sbm">
-                                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                                </button>
-                                <div class="search-mic">
-                                    <i class="fa-solid fa-microphone"></i>
-                                </div>
-                            </form>
-                        </div>
-
+        <!--START HEADER -->
+            <header>
+                <div class="header-content">
+                    <div class="logo">
+                        <h1>MUSIEK</h1>
+                    </div>
+                    
+                    <div class="search">
+                        <form action="#" method="get">
+                            <input type="text" class="search-input">
+                            <button type="text" class="search-sbm">
+                                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                            </button>
+                            <div class="search-mic">
+                                <i class="fa-solid fa-microphone"></i>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="user-content">
                         <div class="user">
                             <div class="image">
                                 <img src="./assets/img/user.jpg" alt="user">
@@ -37,20 +38,91 @@
                             <div class="user-name">Nghia Hoang</div>
                         </div>
                     </div>
+                    
                 </div>
-            </div>
-        </header>
 
-        <section>
-            <div class="section">
-                <div class="section left-bar"></div>
-            </div>
+                </header>
+        <!--END HEADER -->
 
-        </section>
+        <!-- START CONTENT -->
+            <section>
+                <div class="left-bar">
+                    <nav>
+                        <ul>
+                            <li><a href="#" class="active"><i class="fa-sharp fa-solid fa-house" ></i>Home</a></li>
+                            <li><a href="#"><i class="fa-sharp fa-solid fa-rss" ></i>Newsfeed</a></li>
+                            <li><a href="#"><i class="fa-solid fa-list" ></i></i>Library</a></li>
+                            <li><a href="#"><i class="fa-solid fa-gear" ></i>Settings</a></li>
+                            <li><a href="#"><i class="fa-solid fa-circle-xmark"></i></i>Exit</a></li>
+                        </ul>
+                    </nav>
+                </div>
 
-        <footer>
+                <div class="mid-bar">
+                    <div class="friend-slider">
+                        <div class="friend-slider-top">
+                            <p>People you might know</p>
+                        </div>
+                        <div class="friend-slider-bot">
+                            <div class="wrapper">
+                                <i id="left" class="fa-solid fa-angle-left"></i>
+                                <div class="carousel">
+                                    <img src="./assets/img/user.jpg" alt="lumine">
+                                    <img src="./assets/img/user.jpg" alt="lumine">
+                                    <img src="./assets/img/user.jpg" alt="lumine">
+                                    <img src="./assets/img/user.jpg" alt="lumine">
+                                    <img src="./assets/img/user.jpg" alt="lumine">
+                                    <img src="./assets/img/user.jpg" alt="lumine">
+                                    <img src="./assets/img/user.jpg" alt="lumine">
+                                </div>
+                                <i id="right" class="fa-solid fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        </footer>
+                <div class="right-bar">
+                    <p>Si Nghia Kanna</p>
+                </div> 
+
+    
+            </section>
+        <!--END CONTENT -->
+
+        <!--START FOOTER -->
+            <footer>
+                <div class="footer-left">
+                    <ul>
+                        <li><i class="fa-solid fa-forward fa-rotate-180"></i></li>
+                        <li><i class="fa-solid fa-play" ></i></li>
+                        <li><i class="fa-solid fa-forward" ></i></li>
+                        <li><i class="fa-solid fa-shuffle"></i></li>
+                        <li><i class="fa-solid fa-rotate-left"></i></li>
+                        <li>
+                            <div class="slider_container">
+                                <div class="current-time">00:00</div>
+                                <input type="range" min="1" max="100"
+                                  value="0" class="seek_slider" onchange="seekTo()">
+                                <div class="total-duration">03:00</div>
+                            </div>
+                        </li>
+                        <li><i class="fa-solid fa-headphones" ></i></li>
+                    </ul>
+                </div>
+                <div class="footer-mid">
+                    <div class="music-img"></div>
+                    <div class="music-content"></div>
+                </div>
+                
+                <div class="footer-right">
+                    <ul>
+                        <li><i class="fa-solid fa-heart" ></i></li>
+                        <li><i class="fa-solid fa-user-plus" ></i></li>
+                        <li><i class="fa-solid fa-music" ></i></li>
+                    </ul>
+                </div>
+            </footer>
+        <!--END FOOTER -->
 
         <script src="" async defer></script>
     </body>
