@@ -47,3 +47,22 @@ carousel.addEventListener("mousemove", dragging);
 carousel.addEventListener("mouseup", dragStop);
 carousel.addEventListener("mouseleave", dragStop);
 
+const toggleBtn = document.getElementById('toggle-btn');
+const imageDetail = document.querySelectorAll('.your-playlist ul li');
+
+toggleBtn.addEventListener('click', () => {
+  imageDetail.forEach((detail, index) => {
+    if (index >= 10) {
+      if (detail.style.display === 'none') {
+        detail.style.display = 'block';
+      } else {
+        detail.style.display = 'none';
+      }
+    } else {
+      detail.style.display = 'block';
+    }
+  });
+});
+
+
+

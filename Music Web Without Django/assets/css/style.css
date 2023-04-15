@@ -316,15 +316,82 @@ footer i {
 }
 
 .carousel img {
-  height: 400px;
+  height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
   margin-left: 14px;
-  width: 33.3333333333%;
+  width: 300px;
 }
 
 .carousel img:first-child {
   margin-left: 10px;
+}
+
+.history-content-top {
+  position: relative;
+  display: flex;
+  float: left;
+  border-bottom: 1px solid #828282;
+  width: 100%;
+}
+
+.history-content-top-left {
+  font-size: 30px;
+  padding: 20px;
+}
+
+.history-content-top-mid p {
+  font-size: 30px;
+  padding: 20px 45px 20px 0px;
+}
+
+.history-content-top-right p {
+  font-size: 30px;
+  padding: 20px 0px;
+}
+
+.song {
+  width: 100%;
+  position: relative;
+  display: flex;
+  float: left;
+  border: 1px solid black;
+}
+
+.song-img {
+  width: 20%;
+}
+
+.song-img img {
+  width: 70px;
+  padding: 10px;
+}
+
+.song-detail {
+  position: relative;
+  width: 80%;
+  padding: 10px;
+}
+
+.song-detail .song-artist p {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.song-detail .song-name p {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.song-react i {
+  display: flex;
+  float: left;
+  padding: 0px 10px;
+  margin-bottom: 10px;
 }
 
 * {
@@ -10804,13 +10871,12 @@ input {
 .library-top {
   width: 100%;
   height: 30%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(209, 205, 205);
 }
 
 .recent-play-word {
   width: 100%;
   height: 15%;
-  border-bottom: 1px solid black;
   position: relative;
 }
 
@@ -10911,16 +10977,6 @@ input {
   box-sizing: border-box;
   text-align: center;
 }
-@media screen and (max-width: 900px) {
-  .recent-play .carousel img {
-    width: 50%;
-  }
-}
-@media screen and (max-width: 550px) {
-  .recent-play .carousel img {
-    width: 100%;
-  }
-}
 
 .library-bottom {
   width: 100%;
@@ -10930,7 +10986,6 @@ input {
 .your-playlist-word {
   width: 100%;
   height: 7%;
-  border-bottom: 1px solid black;
   position: relative;
 }
 
@@ -10942,6 +10997,48 @@ input {
 
 .your-playlist {
   width: 100%;
+}
+
+.your-playlist ul {
+  list-style: none;
+  display: flex; /* make the ul a flex container */
+  flex-wrap: nowrap; /* make sure the li's don't wrap to the next line */
+}
+
+.your-playlist ul li {
+  display: flex; /* make each li a flex container */
+  flex-direction: column; /* stack the img and detail divs on top of each other */
+  align-items: center; /* center the contents of each li */
+  margin-right: 20px; /* add some spacing between the li's */
+  padding: 20px 20px 20px 0px;
+}
+
+.your-playlist img {
+  width: 100%; /* make the image fill its parent div */
+  height: 100%; /* set the height of the image div to 70% */
+  -o-object-fit: cover;
+     object-fit: cover; /* scale the image to fill its parent div */
+}
+
+.your-playlist .playlist-detail {
+  height: 30%; /* set the height of the detail div to 30% */
+  background-color: #fff; /* add a white background to the detail div */
+  padding: 10px; /* add some padding to the detail div */
+  box-sizing: border-box; /* include padding and border in the element's total width and height */
+  text-align: center; /* center the contents of the detail div */
+}
+
+#toggle-btn {
+  background-color: #202A44;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#toggle-btn i {
+  margin-left: 0px;
 }
 
 section {
