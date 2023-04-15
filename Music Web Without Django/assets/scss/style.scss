@@ -9,7 +9,10 @@
 // our project needs Solid + Brands
 @import "./common/solid.scss";
 @import "./common/brands.scss";
+@import "./common/_responsive.scss";
+
 @import './content/sign_up_auth.scss';
 @import './content/newsfeed.scss';
 @import './content/library.scss';
 @import './content/settings.scss';
+@import './content/content.scss';
