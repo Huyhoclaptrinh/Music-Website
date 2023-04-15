@@ -1,9 +1,4 @@
-.mid-bar {
-  width: 60%;
-  background-color: white;
-  height: 100%;
-}
-.mid-bar .title {
+.title {
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
@@ -17,19 +12,22 @@
   line-height: 48px;
   color: #000000;
 }
-.mid-bar .feed {
+
+.feed {
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
   margin-top: 40px;
 }
-.mid-bar .top-feed {
+
+.top-feed {
   width: 100%;
   height: 10%;
   display: flex;
   align-items: start;
 }
-.mid-bar .top-feed .user-status {
+
+.top-feed .user-status {
   text-align: left;
   margin: 5px 0 0 20px;
   font-family: "Inter";
@@ -39,17 +37,20 @@
   line-height: 24px;
   color: #000000;
 }
-.mid-bar .top-feed img {
+
+.top-feed img {
   width: 37px;
   height: 36px;
   margin-left: 20px;
   border-radius: 50%;
 }
-.mid-bar .mid-feed {
+
+.mid-feed {
   width: 100%;
   height: 10%;
 }
-.mid-bar .mid-feed .user-comment {
+
+.mid-feed .user-comment {
   position: static;
   text-align: left;
   padding: 0 0 0 77px;
@@ -60,90 +61,109 @@
   line-height: 48px;
   color: #000000;
 }
-.mid-bar .bot-feed {
+
+.bot-feed {
   width: 100%;
   height: 90%;
   margin-top: 20px;
   display: flex;
   align-self: start;
 }
-.mid-bar .bot-feed-left img {
+
+.bot-feed-left img {
   width: 200px;
   height: 200px;
   margin-left: 20px;
 }
-.mid-bar .bot-feed-right {
+
+.bot-feed-right {
   width: 68%;
   height: 90%;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
 }
-.mid-bar .bot-feed-right i {
+
+.bot-feed-right i {
   width: 100px;
   height: 100px;
   margin-left: 20px;
   font-size: 100px;
 }
-.mid-bar .bot-feed-right .song-container {
+
+.bot-feed-right .song-container {
   margin-left: 20px;
 }
-.mid-bar .song-container .author-name {
+
+.song-container .author-name {
   font-size: 20px;
   text-align: left;
 }
-.mid-bar .song-container .song-name {
+
+.song-container .song-name {
   font-size: 30px;
   margin-top: 45px;
   text-align: left;
 }
-.mid-bar .icon-container i {
+
+.icon-container i {
   display: block;
   width: 20px;
   height: 20px;
   font-size: 20px;
   margin: 20px 0 0 40px;
 }
-.mid-bar .icon-container .fa-comment {
+
+.icon-container .fa-comment {
   margin-top: 0px;
 }
-.mid-bar .song-container, .mid-bar .icon-container {
+
+.song-container, .icon-container {
   height: -moz-fit-content;
   height: fit-content;
 }
-.mid-bar .bot-feed-right .comment-section {
+
+.bot-feed-right .comment-section {
   width: 100%;
   height: 100%;
 }
-.mid-bar .comment-section {
+
+.comment-section {
   margin-top: 20px;
 }
-.mid-bar .comment-section #comment-input {
+
+.comment-section #comment-input {
   width: 80%;
   height: 30px;
 }
-.mid-bar .comment-section #submit-comment {
+
+.comment-section #submit-comment {
   width: 10%;
   height: 30px;
 }
-.mid-bar .comment-section-bot {
+
+.comment-section-bot {
   display: flex;
   margin-top: 20px;
 }
-.mid-bar .comment-section-bot img {
+
+.comment-section-bot img {
   width: 37px;
   height: 36px;
   margin-left: 20px;
   border-radius: 50%;
 }
-.mid-bar .comment-section-bot .comment-container {
+
+.comment-section-bot .comment-container {
   margin-left: 20px;
 }
-.mid-bar .comment-container .comment-username {
+
+.comment-container .comment-username {
   font-size: 15px;
   text-align: left;
 }
-.mid-bar .comment-container .comment-text {
+
+.comment-container .comment-text {
   font-size: 16px;
   text-align: left;
 }
