@@ -92,9 +92,11 @@
     padding: 20px 45px 20px 0px;
 }
 
-.history-content-top-right  p{
+.history-content-top-right p{
+    position: relative;
     font-size: 30px;
     padding: 20px 0px;
+    left: 15px;
 }
 
 .song{
@@ -102,7 +104,7 @@
     position: relative;
     display: flex;
     float: left;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .song-img{
@@ -120,27 +122,50 @@
     
     width: 80%;
     padding: 10px;
-    
-    
 }
 
-  .song-detail .song-artist  p{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin-bottom: 10px;
-  }
+.song-detail .song-artist  p{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 10px;
+}
 
-  .song-detail .song-name p{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin-bottom: 10px;
-  }
+.song-detail .song-name p{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 10px;
+}
 
-  .song-react i{
+.song-react i{
+  display: flex;
+  float: left;
+  padding: 0px 10px;
+  margin-bottom: 10px;
+}
+
+.friend-content-top{
+    position: relative;
     display: flex;
     float: left;
-    padding: 0px 10px;
-    margin-bottom: 10px;
+    border-bottom: 1px solid #828282;
+    width: 100%;
+  }
+  
+  .friend-content-top-left{
+    font-size: 30px;
+    padding: 20px;
+  }
+  
+  .friend-content-top-mid p{
+    font-size: 30px;
+    padding: 20px 45px 20px 0px;
+  }
+  
+  .friend-content-top-right p{
+    position: relative;
+    font-size: 30px;
+    padding: 20px 0px;
+    left: 133px;
   }
