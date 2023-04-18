@@ -1,8 +1,9 @@
 section {
+  display: -webkit-flex;
   display: flex;
   padding: 0;
   position: relative;
-  top: 95px;
+  top: 96px;
   height: 100%;
 }
 

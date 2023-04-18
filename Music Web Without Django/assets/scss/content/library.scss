@@ -4,22 +4,21 @@
     border-bottom: 1px solid rgb(209, 205, 205);
 }
 
-.recent-play-word{
+.recent-play-word {
+    position: relative;
     width: 100%;
     height: 15%;
-    position:relative;
-}
 
-.recent-play-word h2{
-    position:absolute;
-    left: 33px;
-    top:10px;
+    h2 {
+        text-align: left;
+        margin: 10px 0 0 35px;
+    }
 }
 
 .recent-play{
     width: 100%;
     height: 85%;
-    margin: 0px;
+    margin: 40px 0 0 0;
 
     .playlist-slider-bot {
         width: 100%;
@@ -54,9 +53,11 @@
         left: -23px;
         display: none;
     }
+
     .wrapper i:last-child {
         right: -23px;
     }
+
     .wrapper .carousel {
         white-space: nowrap;
         font-size: 0px;
@@ -64,10 +65,12 @@
         cursor: pointer;
         scroll-behavior: smooth;
     }
-    .carousel.dragging{
+
+    .carousel.dragging {
         cursor: grab;
         scroll-behavior: auto;
     }
+
     .carousel.dragging .image-and-detail {
         pointer-events: none;
     }
@@ -97,22 +100,22 @@
         background-color: #fff;
         width: 150px; /* adjust the width as needed */
         height: 250px; /* adjust the height as needed */
-      }
+    }
 
-      .image-with-bg{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+    .image-with-bg{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-      .image-with-bg img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-      }
-      
-      .image-and-detail .detail {
+    .image-with-bg img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    
+    .image-and-detail .detail {
         // margin-top: 10px; /* adjust the margin as needed */
         font-size: 18px; /* adjust the font size as needed */
         line-height: 1; /* adjust the line height as needed */
@@ -121,25 +124,23 @@
         border: 1px solid black;
         box-sizing: border-box;
         text-align: center;
-        
-      }
+    }
 }
 
-.library-bottom{
+.library-bottom {
     width: 100%;
     height: 70%;
 }
 
-.your-playlist-word{
-    width: 100%;
-    height: 7%;
+.your-playlist-word {
     position: relative;
-}
+    width: 100%;
+    height: 15%;
 
-.your-playlist-word h2{
-    position:absolute;
-    left: 33px;
-    top:10px;
+    h2 {
+        text-align: left;
+        margin: 10px 0 0 35px;
+    }
 }
 
 .your-playlist{
@@ -151,40 +152,40 @@
     list-style: none;
     display: flex; /* make the ul a flex container */
     flex-wrap: nowrap; /* make sure the li's don't wrap to the next line */
-  }
-  
-  .your-playlist ul li {
+}
+
+.your-playlist ul li {
     display: flex; /* make each li a flex container */
     flex-direction: column; /* stack the img and detail divs on top of each other */
     align-items: center; /* center the contents of each li */
     margin-right: 20px; /* add some spacing between the li's */
     padding: 20px 20px 20px 0px;
-  }
-  
-  .your-playlist img {
+}
+
+.your-playlist img {
     width: 100%; /* make the image fill its parent div */
     height: 100%; /* set the height of the image div to 70% */
     object-fit: cover; /* scale the image to fill its parent div */
-  }
-  
-  .your-playlist .playlist-detail {
+}
+
+.your-playlist .playlist-detail {
     height: 30%; /* set the height of the detail div to 30% */
     background-color: #fff; /* add a white background to the detail div */
     padding: 10px; /* add some padding to the detail div */
     box-sizing: border-box; /* include padding and border in the element's total width and height */
     text-align: center; /* center the contents of the detail div */
-  }
+}
 
-  #toggle-btn {
+#toggle-btn {
     background-color: #202A44;
     color: #fff;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
     font-size: 16px;
-  }
+}
   
-  #toggle-btn i {
+#toggle-btn i {
     margin-left: 0px;
-  }
+}
   
