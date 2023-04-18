@@ -252,11 +252,11 @@ footer i {
   position: static;
   width: 50%;
   text-align: left;
-  padding: 0 0 0 20px;
+  padding: 15px 0 0 20px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 25px;
   line-height: 48px;
   color: #000000;
 }
@@ -336,20 +336,23 @@ footer i {
 }
 
 .history-content-top-left {
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px;
 }
 
 .history-content-top-mid p {
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 45px 20px 0px;
+}
+
+.history-content-top-right {
+  margin-left: auto;
 }
 
 .history-content-top-right p {
   position: relative;
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 0px;
-  left: 15px;
 }
 
 .song {
@@ -405,24 +408,31 @@ footer i {
 }
 
 .friend-content-top-left {
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px;
 }
 
 .friend-content-top-mid p {
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 45px 20px 0px;
+}
+
+.friend-content-top-right {
+  margin-left: auto;
 }
 
 .friend-content-top-right p {
   position: relative;
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 0px;
-  left: 133px;
 }
 
 * {
   text-align: center;
+}
+
+body {
+  background-color: aqua;
 }
 
 h1 {
@@ -430,41 +440,57 @@ h1 {
   margin-left: 20px;
 }
 
-.sign_in_container {
-  margin: 150px 50px 0px 50px;
+.title-box h1 {
+  color: navy;
+  margin-left: 20px;
+  position: relative;
+  top: 140px;
+  left: 120px;
 }
 
-.sign_in_box {
+.sign-in-container {
+  background-color: rebeccapurple;
+  position: absolute;
+  margin: 150px 50px 0px 50px;
+  display: flex;
+  left: 500px;
+  top: 180px;
+  padding-bottom: 120px;
+}
+
+.sign-in-box {
   display: inline-block;
   vertical-align: middle;
 }
 
-#title_box {
+.title-box {
   padding: 0px 250px 0px 0px;
 }
 
-#sign_in {
-  padding: 0px 0px 0px 250px;
+.sign-in {
+  position: relative;
+  padding: 0px 100px 0px 100px;
   border-left: 2px solid navy;
+  top: 50px;
 }
 
-#email #email_input, #pass #pass_input {
+.email .email-input, .pass .pass-input {
   display: inline;
 }
 
-#email, #pass {
+.email, .pass {
   color: navy;
 }
 
-#email_input {
+.email-input {
   padding-left: 25px;
 }
 
-.sign_in div {
+.sign-in-form div {
   padding-top: 20px;
 }
 
-#link_sign_up {
+.link-sign-up {
   padding-left: 40px;
 }
 
@@ -472,7 +498,7 @@ input {
   text-align: left;
 }
 
-#button {
+.button {
   background-color: navy;
   border: none;
   color: white;
@@ -489,22 +515,37 @@ input {
   text-align: center;
 }
 
-.sign_up_container {
+.sign-up-container {
+  background-color: rebeccapurple;
+  position: relative;
   margin: 150px 50px 0px 50px;
+  top: 150px;
+  width: 60%;
+  left: 330px;
+  padding-bottom: 100px;
 }
 
-.sign_up_box {
+.title-box-sign-up {
   display: inline-block;
   vertical-align: middle;
+  padding: 0px 160px 0px 0px;
 }
 
-#title_box {
-  padding: 0px 250px 0px 0px;
+.title-box-sign-up h1 {
+  color: navy;
+  margin-left: 20px;
+  position: relative;
+  top: 60px;
+  left: -35px;
 }
 
-#sign_up {
-  padding: 0px 0px 0px 250px;
+.sign-up {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0px 0px 0px 160px;
   border-left: 2px solid navy;
+  position: relative;
+  top: 50px;
 }
 
 h1 {
@@ -512,27 +553,27 @@ h1 {
   margin-left: 20px;
 }
 
-.sign_up div {
+.sign-up-form div {
   padding-top: 20px;
 }
 
-#name #name_input, #username #username_input, #email #email_input, #pass #pass_input {
+.name-sign-up .name-input-sign-up, .username-sign-up .username-input-sign-up, .email-sign-up .email-input-sign-up, .pass-sign-up .pass-input-sign-up {
   display: inline;
 }
 
-#name_input, #email_input {
+.name-input-sign-up, .email-input-sign-up {
   padding-left: 25px;
 }
 
-#name, #username, #email, #pass {
+.name-sign-up, .username-sign-up, .email-sign-up, .pass-sign-up {
   color: navy;
 }
 
-input {
+.sign-up-form input {
   text-align: left;
 }
 
-#button {
+.button-sign-up {
   background-color: navy;
   border: none;
   color: white;
@@ -10838,43 +10879,35 @@ readers do not read off random characters that represent icons */
   position: relative;
   display: flex;
 }
-
-.left-auth {
+.auth .left-auth {
   width: 20%;
   height: 100%;
 }
-
-.mid-auth {
+.auth .mid-auth {
   text-align: center;
   width: 60%;
   height: 100%;
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
-
-.right-auth {
-  width: 20%;
-  height: 100%;
-}
-
-h1 {
+.auth .mid-auth h1 {
   text-transform: uppercase;
 }
-
-.input-code {
+.auth .mid-auth .input-code {
   position: relative;
   right: -7px;
   display: flex;
   justify-content: center;
 }
-
-.input-code input {
+.auth .mid-auth .input-code input {
   width: 50px;
   height: 50px;
   margin-right: 10px;
 }
-
-.mid-auth #btn {
+.auth .mid-auth .input-code input[type=text] {
+  text-align: center;
+}
+.auth .mid-auth #btn {
   position: relative;
   text-align: center;
   background-color: navy;
@@ -10884,15 +10917,14 @@ h1 {
   top: 30px;
   left: -120px;
 }
-
-.mid-auth a {
+.auth .mid-auth a {
   text-align: center;
   position: relative;
   left: 45px;
 }
-
-.input-code input[type=text] {
-  text-align: center;
+.auth .right-auth {
+  width: 20%;
+  height: 100%;
 }
 
 .title {
@@ -11399,7 +11431,7 @@ section {
 
 .left-bar a {
   position: relative;
-  font-size: 35px;
+  font-size: 25px;
   padding: 20px 0px;
   color: #202A44;
   float: left;
@@ -11504,7 +11536,7 @@ section {
 .follow-num-content p {
   position: relative;
   top: 15px;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .right-content {
@@ -11522,27 +11554,33 @@ section {
 }
 
 .right-content-top-left {
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px;
 }
 
 .right-content-top-mid p {
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 45px 20px 0px;
+}
+
+.right-content-top-right1 {
+  margin-left: auto;
 }
 
 .right-content-top-right1 p {
   position: relative;
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 0px;
-  left: 153px;
+}
+
+.right-content-top-right2 {
+  margin-left: auto;
 }
 
 .right-content-top-right2 p {
   position: relative;
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 0px;
-  left: 100px;
 }
 
 .user-img {
@@ -11639,17 +11677,14 @@ section {
   display: flex;
   height: 100%; /* set the height of the parent div */
 }
-
-.upload-left {
+.upload-content .upload-left {
   width: 20%;
 }
-
-.upload-mid {
+.upload-content .upload-mid {
   width: 60%;
   text-align: center;
 }
-
-.upload {
+.upload-content .upload-mid .upload {
   position: relative;
   width: 100%;
   height: 30%;
@@ -11660,31 +11695,16 @@ section {
   align-items: center;
   flex-direction: column;
 }
-
-.upload h2 {
+.upload-content .upload-mid .upload h2 {
   margin: 0;
 }
-
-#btn-upload {
-  margin-top: 10px;
-  font-size: 20px;
-  position: relative;
-  display: flex;
-  left: 50px;
-}
-
-.upload-right {
-  width: 20%;
-}
-
-.btn-container {
+.upload-content .upload-mid .btn-container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
-
-input[type=file] {
+.upload-content .upload-mid input[type=file] {
   position: absolute;
   z-index: -1;
   top: 6px;
@@ -11692,12 +11712,10 @@ input[type=file] {
   font-size: 15px;
   color: rgb(153, 153, 153);
 }
-
-.button-wrap {
+.upload-content .upload-mid .button-wrap {
   position: relative;
 }
-
-.new-button {
+.upload-content .upload-mid .new-button {
   display: inline-block;
   padding: 8px 12px;
   cursor: pointer;
@@ -11706,38 +11724,22 @@ input[type=file] {
   font-size: 16px;
   color: #fff;
 }
+.upload-content .upload-right {
+  width: 20%;
+}
 
 .upload-mid {
   position: relative;
   top: 100px;
 }
-
-.upload-detail-content {
-  position: relative;
-  display: flex;
-  height: 100%; /* set the height of the parent div */
-  border: 1px solid black;
-}
-
-.upload-detail-left {
-  width: 20%;
-}
-
-.upload-detail-mid {
-  width: 60%;
-  text-align: center;
-  border: 1px solid black;
-}
-
-.detail-content {
+.upload-mid .detail-content {
   position: relative;
   width: 100%;
   height: 70%;
   border: 1px solid black;
   top: 50px;
 }
-
-.detail-content-top {
+.upload-mid .detail-content .detail-content-top {
   position: relative;
   display: flex;
   width: 100%;
@@ -11745,61 +11747,53 @@ input[type=file] {
   border-bottom: 1px solid black;
   float: left;
 }
-
-.detail-content-top-left {
+.upload-mid .detail-content .detail-content-top .detail-content-top-left {
   height: 100%;
   width: 30%;
   position: relative;
 }
-
-.detail-content-top-right {
-  height: 100%;
-  width: 70%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.detail-content-top-right p {
-  position: relative;
-  text-align: left;
-  right: -20px;
-  margin-bottom: 10px;
-}
-
-.detail-content-top-right input {
-  position: relative;
-  width: 80%;
-  right: -20px;
-  margin-bottom: 10px;
-}
-
-.detail-content-top-right select {
-  position: relative;
-  width: 40%;
-  right: -20px;
-  margin-bottom: 10px;
-}
-
-.detail-content-top-right textarea {
-  position: relative;
-  width: 80%;
-  right: -20px;
-  margin-bottom: 10px;
-  height: 100px;
-}
-
-.image-setup {
+.upload-mid .detail-content .detail-content-top .detail-content-top-left .image-setup {
   position: relative;
   display: flex;
   width: 100%;
   height: 200px;
   border: 1px solid black;
 }
-
-.image-setup .btn-container {
+.upload-mid .detail-content .detail-content-top .detail-content-top-left .image-setup .btn-container {
   position: relative;
   top: 70px;
+}
+.upload-mid .detail-content .detail-content-top .detail-content-top-right {
+  height: 100%;
+  width: 70%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.upload-mid .detail-content .detail-content-top .detail-content-top-right p {
+  position: relative;
+  text-align: left;
+  right: -20px;
+  margin-bottom: 10px;
+}
+.upload-mid .detail-content .detail-content-top .detail-content-top-right input {
+  position: relative;
+  width: 80%;
+  right: -20px;
+  margin-bottom: 10px;
+}
+.upload-mid .detail-content .detail-content-top .detail-content-top-right select {
+  position: relative;
+  width: 40%;
+  right: -20px;
+  margin-bottom: 10px;
+}
+.upload-mid .detail-content .detail-content-top .detail-content-top-right textarea {
+  position: relative;
+  width: 80%;
+  right: -20px;
+  margin-bottom: 10px;
+  height: 100px;
 }
 
 .privacy {

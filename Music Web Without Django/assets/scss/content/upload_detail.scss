@@ -1,85 +1,90 @@
-.upload-mid{
+.upload-mid {
     position: relative;
     top: 100px;
+
+    .detail-content {
+        position: relative;
+        width: 100%;
+        height: 70%;
+        border: 1px solid black;
+        top: 50px;
+
+        .detail-content-top {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: 90%;
+            border-bottom: 1px solid black;
+            float: left;
+
+            .detail-content-top-left {
+                height: 100%;
+                width: 30%;
+                position: relative;
+
+                .image-setup {
+                    position: relative;
+                    display: flex;
+                    width: 100%;
+                    height: 200px;
+                    border: 1px solid black;
+
+                    .btn-container {
+                        position: relative;
+                        top: 70px;
+                    }
+                }
+            }
+
+            .detail-content-top-right {
+                height: 100%;
+                width: 70%;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+
+                p {
+                    position: relative;
+                    text-align: left;
+                    right: -20px;
+                    margin-bottom: 10px;
+                }
+                
+                input {
+                    position: relative;
+                    width: 80%;
+                    right: -20px;
+                    margin-bottom: 10px;
+                }
+                
+                select {
+                    position: relative;
+                    width: 40%;
+                    right: -20px;
+                    margin-bottom: 10px;
+                }
+                
+                textarea {
+                    position: relative;
+                    width: 80%;
+                    right: -20px;
+                    margin-bottom: 10px;
+                    height: 100px;
+                }
+            }
+        }
+    }
 }
 
-.upload-detail-content{
-    position: relative;
-    display: flex;
-    height: 100%; /* set the height of the parent div */
-    border: 1px solid black;
-}
 
-.upload-detail-left{
-    width: 20%;
-}
 
-.upload-detail-mid{
-    width: 60%;
-    text-align: center;
-    border: 1px solid black;
-}
 
-.detail-content{
-    position: relative;
-    width: 100%;
-    height: 70%;
-    border: 1px solid black;
-    top: 50px;
-}
 
-.detail-content-top{
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 90%;
-    border-bottom: 1px solid black;
-    float: left;
-}
 
-.detail-content-top-left{
-    height: 100%;
-    width: 30%;
-    position: relative;
-    
-}
 
-.detail-content-top-right{
-    height: 100%;
-    width: 70%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
 
-.detail-content-top-right p{
-    position: relative;
-    text-align: left;
-    right: -20px;
-    margin-bottom: 10px;
-}
 
-.detail-content-top-right input{
-    position: relative;
-    width: 80%;
-    right: -20px;
-    margin-bottom: 10px;
-}
 
-.detail-content-top-right select{
-    position: relative;
-    width: 40%;
-    right: -20px;
-    margin-bottom: 10px;
-}
-
-.detail-content-top-right textarea{
-    position: relative;
-    width: 80%;
-    right: -20px;
-    margin-bottom: 10px;
-    height: 100px;
-}
 
 // .detail-content-top-right label{
 //     position: relative;
@@ -94,18 +99,9 @@
 // }
 
 
-.image-setup{
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 200px;
-    border: 1px solid black;
-}
 
-.image-setup .btn-container{
-    position: relative;
-    top: 70px;
-}
+
+
 
 .privacy{
     position: relative;

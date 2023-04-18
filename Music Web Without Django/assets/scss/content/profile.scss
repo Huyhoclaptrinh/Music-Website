@@ -43,26 +43,6 @@
     justify-content: left;
 }
 
-// .profile-content-bottom {
-//     position: relative;
-//     display: flex;
-//     width: 100%;
-//     height: 80%;
-//     float: left;
-// }
-
-// .profile-content-bottom-left{
-//     height: 100%;
-//     width: 100%;
-//     border: 1px solid black;
-// }
-
-// .profile-content-bottom-right{
-//     height: 100%;
-//     width: 30%;
-//     border: 1px solid black;
-// }
-
 .follow-num{
   width: 100%;
   height: 10%;
@@ -81,7 +61,7 @@
 .follow-num-content p{
   position: relative;
   top: 15px;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .right-content{
@@ -99,27 +79,33 @@
 }
 
 .right-content-top-left{
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px;
 }
 
 .right-content-top-mid p{
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 45px 20px 0px;
+}
+
+.right-content-top-right1{
+  margin-left: auto;
 }
 
 .right-content-top-right1 p{
   position: relative;
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 0px;
-  left: 153px;
+}
+
+.right-content-top-right2{
+  margin-left: auto;
 }
 
 .right-content-top-right2 p{
   position: relative;
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 0px;
-  left: 100px;
 }
 
 .user-img{

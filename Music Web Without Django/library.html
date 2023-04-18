@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Musiek</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="assets/css/style.css">
@@ -15,7 +15,9 @@
             <header>
                 <div class="header-content">
                     <div class="logo">
-                        <h1>MUSIEK</h1>
+                        <a href="main_menu.html">
+                            <h1>MUSIEK</h1>
+                        </a>
                     </div>
                     
                     <div class="search">
@@ -31,11 +33,14 @@
                     </div>
                     <div class="user-content">
                         <div class="account">
-                            <div class="image">
-                                <img src="./assets/img/user.jpg" alt="user">
-                            </div>
-
-                            <div class="user-name">Nghia Hoang</div>
+                            <a href="profile.html">
+                                <div class="image">
+                                    <img src="./assets/img/user.jpg" alt="user">
+                                </div>
+    
+                                <div class="user-name">Nghia Hoang</div>
+                            </a>
+                            
                         </div>
                     </div>
                     
@@ -49,11 +54,11 @@
                 <div class="left-bar">
                     <nav>
                         <ul>
-                            <li><a href="#" ><i class="fa-sharp fa-solid fa-house" ></i>Home</a></li>
-                            <li><a href="#"><i class="fa-sharp fa-solid fa-rss" ></i>Newsfeed</a></li>
+                            <li><a href="main_menu.html" ><i class="fa-sharp fa-solid fa-house" ></i>Home</a></li>
+                            <li><a href="newsfeed.html"><i class="fa-sharp fa-solid fa-rss" ></i>Newsfeed</a></li>
                             <li><a href="#" class="active"><i class="fa-solid fa-list" ></i></i>Library</a></li>
-                            <li><a href="#"><i class="fa-solid fa-gear" ></i>Settings</a></li>
-                            <li><a href="#"><i class="fa-solid fa-circle-xmark"></i></i>Exit</a></li>
+                            <li><a href="settings.html"><i class="fa-solid fa-gear" ></i>Settings</a></li>
+                            <li><a href="sign_in.html"><i class="fa-solid fa-circle-xmark"></i></i>Exit</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -305,7 +310,105 @@
                 </div>
 
                 <div class="right-bar">
-                    <p>Si Nghia Kanna</p>
+                    <div class="history-content">
+                        <div class="history-content-top">
+                            <div class="history-content-top-left">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                            </div>
+                            <div class="history-content-top-mid">
+                                <p>Listening history</p>
+                            </div>
+                            <div class="history-content-top-right">
+                                <p>View all</p>
+                            </div>
+                        </div>
+                        <div class="history-content-bottom">
+                            <div class="song">
+                                <div class="song-img"><img src="./assets/img/user.jpg" alt="lumine"></div>
+                                <div class="song-detail">
+                                    <div class="song-artist"><p> Lumine </p></div>
+                                    <div class="song-name"><p> Dung mang com suon </p></div>
+                                    <div class="song-react">
+                                        <i class="fa-solid fa-play"></i>
+                                        <i class="fa-regular fa-heart"></i>
+                                        <i class="fa-regular fa-comment"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="song">
+                                <div class="song-img"><img src="./assets/img/user.jpg" alt="lumine"></div>
+                                <div class="song-detail">
+                                    <div class="song-artist"><p> Lumine </p></div>
+                                    <div class="song-name"><p> Dung mang com suon </p></div>
+                                    <div class="song-react">
+                                        <i class="fa-solid fa-play"></i>
+                                        <i class="fa-regular fa-heart"></i>
+                                        <i class="fa-regular fa-comment"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="song">
+                                <div class="song-img"><img src="./assets/img/user.jpg" alt="lumine"></div>
+                                <div class="song-detail">
+                                    <div class="song-artist"><p> Lumine </p></div>
+                                    <div class="song-name"><p> Dung mang com suon </p></div>
+                                    <div class="song-react">
+                                        <i class="fa-solid fa-play"></i>
+                                        <i class="fa-regular fa-heart"></i>
+                                        <i class="fa-regular fa-comment"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="friend-content">
+                        <div class="friend-content-top">
+                            <div class="friend-content-top-left">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div class="friend-content-top-mid">
+                                <p>Friends</p>
+                            </div>
+                            <div class="friend-content-top-right">
+                                <p>View all</p>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="user-img"><img src="./assets/img/user.jpg" alt="lumine"></div>
+                            <div class="user-detail">
+                                <div class="user-name"><p> Dung mang com suon </p></div>
+                                <div class="user-data">
+                                    <i class="fa-solid fa-user" style="top: 5px; position: relative;"></i>
+                                    <i class="fa-solid fa-music" style="top: 5px; position: relative;"></i>
+                                    <button class="btn-follow">
+                                        <div class="btn-content">
+                                            <i class="fa-solid fa-user"></i> Following
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="user-img"><img src="./assets/img/user.jpg" alt="lumine"></div>
+                            <div class="user-detail">
+                                <div class="user-name"><p> Dung mang com suon </p></div>
+                                <div class="user-data">
+                                    <i class="fa-solid fa-user" style="top: 5px; position: relative;"></i>
+                                    <i class="fa-solid fa-music" style="top: 5px; position: relative;"></i>
+                                    <button class="btn-follow">
+                                        <div class="btn-content">
+                                            <i class="fa-solid fa-user"></i> Following
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-content">
+
+                    </div>
                 </div> 
 
     

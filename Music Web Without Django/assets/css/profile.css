@@ -60,7 +60,7 @@
 .follow-num-content p {
   position: relative;
   top: 15px;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .right-content {
@@ -78,27 +78,33 @@
 }
 
 .right-content-top-left {
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px;
 }
 
 .right-content-top-mid p {
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 45px 20px 0px;
+}
+
+.right-content-top-right1 {
+  margin-left: auto;
 }
 
 .right-content-top-right1 p {
   position: relative;
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 0px;
-  left: 153px;
+}
+
+.right-content-top-right2 {
+  margin-left: auto;
 }
 
 .right-content-top-right2 p {
   position: relative;
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 0px;
-  left: 100px;
 }
 
 .user-img {

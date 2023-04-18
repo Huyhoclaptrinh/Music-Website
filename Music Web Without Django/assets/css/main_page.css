@@ -12,11 +12,11 @@
   position: static;
   width: 50%;
   text-align: left;
-  padding: 0 0 0 20px;
+  padding: 15px 0 0 20px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 25px;
   line-height: 48px;
   color: #000000;
 }
@@ -96,20 +96,23 @@
 }
 
 .history-content-top-left {
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px;
 }
 
 .history-content-top-mid p {
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 45px 20px 0px;
+}
+
+.history-content-top-right {
+  margin-left: auto;
 }
 
 .history-content-top-right p {
   position: relative;
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 0px;
-  left: 15px;
 }
 
 .song {
@@ -165,18 +168,21 @@
 }
 
 .friend-content-top-left {
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px;
 }
 
 .friend-content-top-mid p {
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 45px 20px 0px;
+}
+
+.friend-content-top-right {
+  margin-left: auto;
 }
 
 .friend-content-top-right p {
   position: relative;
-  font-size: 30px;
+  font-size: 25px;
   padding: 20px 0px;
-  left: 133px;
 }

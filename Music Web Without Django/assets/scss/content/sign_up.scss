@@ -5,22 +5,37 @@ $color1: navy;
     text-align: center;
 }
 
-.sign_up_container {
+.sign-up-container {
+    background-color: rebeccapurple;
+    position: relative;
     margin: 150px 50px 0px 50px;
+    top: 150px;
+    width: 60%;
+    left: 330px;
+    padding-bottom: 100px;
 }
   
-.sign_up_box {
+.title-box-sign-up {
     display: inline-block;
     vertical-align: middle;
+    padding: 0px 160px 0px 0px;   
+}
+
+.title-box-sign-up h1{
+    color: navy;
+    margin-left: 20px;
+    position: relative;
+    top: 60px;
+    left: -35px;
 }
   
-#title_box {
-    padding: 0px 250px 0px 0px;    
-}
-  
-#sign_up {
-    padding: 0px 0px 0px 250px;
+.sign-up {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 0px 0px 160px;
     border-left: 2px solid $color1;
+    position: relative;
+    top: 50px;
 }
 
 h1 {
@@ -28,27 +43,27 @@ h1 {
     margin-left: $input_size;
 }
 
-.sign_up div{
+.sign-up-form div{
     padding-top: $input_size;
 }
 
-#name #name_input, #username #username_input, #email #email_input, #pass #pass_input {
+.name-sign-up .name-input-sign-up, .username-sign-up .username-input-sign-up, .email-sign-up .email-input-sign-up, .pass-sign-up .pass-input-sign-up {
     display: inline;
 }
 
-#name_input, #email_input {
+.name-input-sign-up, .email-input-sign-up {
     padding-left: 25px;
 }
 
-#name, #username, #email, #pass {
+.name-sign-up, .username-sign-up, .email-sign-up, .pass-sign-up {
     color: $color1;
 }
 
-input {
+.sign-up-form input {
     text-align: left;
 }
 
-#button{
+.button-sign-up{
     background-color: $color1;
     border: none;
     color: white;
