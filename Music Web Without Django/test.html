@@ -1,19 +1,39 @@
-<html  
-    xmlns="http://www.w3.org/1999/xhtml">  
-    <head>  
-        <title>JavaScript to automatically move from one field to another field</title>  
-<script type="text/javascript">  
-function movetoNext(current, nextFieldID) {  
-    if (current.value.length >= current.maxLength) {  
-        document.getElementById(nextFieldID).focus();  
-    }  
-}  
-</script>  
-    </head>  
-    <body>  
-        <b>Enter your Text:</b>  
-        <input type="text" id="first" size="1" onkeyup="movetoNext(this, 'second')" maxlength="1" />  
-        <input type="text" id="second" size="1" onkeyup="movetoNext(this, 'third')" maxlength="1" />  
-        <input type="text" id="third" size="1" maxlength="1" />  
-    </body>  
-</html>  
+<div class="container">
+    <div class="button-wrap">
+      <label class ="new-button" for="upload"> Upload CV
+      <input id="upload" type="file" >
+      </div>
+</div>
+
+  <style>
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 90vh;
+}
+
+input[type="file"] {
+  position: absolute;
+  z-index: -1;
+  top: 6px;
+  left: 0px;
+  font-size: 15px;
+  color: rgb(153,153,153);
+}
+
+.button-wrap {
+  position: relative;
+}
+
+.new-button {
+    display: inline-block;
+    padding: 8px 12px; 
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #9c27b0;
+    font-size: 16px;
+    color: #fff;
+}
+  </style> 
