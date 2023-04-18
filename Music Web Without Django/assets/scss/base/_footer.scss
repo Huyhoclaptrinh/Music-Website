@@ -1,12 +1,14 @@
-footer{
+footer {
     width: 100%;
     height: 95px;
     background-color: #202A44;
-    // position: sticky;
-    float: left;
-    position: relative;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    // position: relative;
     display: flex;
     text-align: center;
+    z-index: 98;
     .footer-left{
         position: relative;
         width: 70%;

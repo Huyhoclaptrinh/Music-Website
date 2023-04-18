@@ -3,63 +3,41 @@
 }
 
 html{
-    max-width:100%;
+    height: 100%;
+    box-sizing: border-box;
 }
 
-    header{
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100%;
+}
+
+    header {
+        position: fixed;
+        left: 0;
+        top: 0;
         width: 100%;
         height: 95px;
+        box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.75);
+        z-index: 99;
+
         .header-content {    
-            position: relative;
             display: flex;
+            justify-content: space-between;
             width: 100%;
             height: 100%;
-            left: 0px;
-            top: 0px;
             background: #202A44;
         
             .logo{
                 width: 20%;
                 height: 100%;
                 position: relative;
-                
             }
 
-            .logo h1{
-                top: 30px;
-                left: 10px;
-            }
-        
-            .search{
-                position: relative;
-                width: 60%;
-                height: 100%;
-                text-align: center;
-                right: 100px;
-            }
-        
-            .user-content{
-                width: 20%;
-                height: 100%;
-                justify-content: right;
-            }
-        
-            .account {
-                position: relative;
-                width: 190px;
-                height: 36px;
-                top: 31px;
-                background: #D9D9D9;
-                border-radius: 20px;
-                text-align: right;
-            }   
-            
-            h1 {
-                position: absolute;
-                width: 120px;
-                height: 27px;
-                left: 40px;
-                top: 10px;
+            .logo h1 {
+                margin: 30px 0 0 20px;
                 font-family: 'Inter';
                 font-style: normal;
                 font-weight: 400;
@@ -68,35 +46,59 @@ html{
                 color: #F9F9F9;
             }
         
+            .search {
+                width: 80%;
+                height: 100%;
+                margin: 30px 0 0 0; 
+                text-align: center;
+                display: block;
+            }
+
             .search-input {
-                position: absolute;
-                width: 628px;
+                width: 60%;
                 height: 30px;
-                left: 271px;
-                top: 31px;
                 background: #F9F9F9;
                 border-radius: 20px 0 0 20px;
             }
-        
-            .search-sbm {
-                position: absolute;
-                width: 58px;
-                height: 36px;
-                left: 905px;
-                top: 30.5px;
-                background: #BAB2B2;
-                border-radius: 0px 20px 20px 0px;
+
+            .search input {
+                margin: 0;
+                padding-left: 10px;
             }
         
-            .search-mic {
-                position: absolute;
-                width: 18.81px;
-                height: 23px;
-                left: 984px;
-                top: 38px;
+            .search-sbm {
+                position: relative;
+                width: 50px;
+                height: 36px;
+                background: #BAB2B2;
+                left: -5px;
+                border-radius: 0px 20px 20px 0px;
+            }
+
+            .search-sbm i {
+                background: #BAB2B2;
+                color: black;
+            }
+        
+            i {
                 color: white;
                 background: #202A44;
             }
+        
+            .user-content{
+                width: 20%;
+                margin: 30px 0 0 0;
+                height: 100%;
+            }
+        
+            .account {
+                position: relative;
+                width: 190px;
+                height: 36px;
+                background: #D9D9D9;
+                border-radius: 20px;
+                text-align: right;
+            }   
         
             img {
                 position: absolute;
