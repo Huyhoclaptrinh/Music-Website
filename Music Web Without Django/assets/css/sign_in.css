@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-body {
-  background-color: aqua;
-}
-
 h1 {
   color: navy;
   margin-left: 20px;
@@ -20,7 +16,7 @@ h1 {
 }
 
 .sign-in-container {
-  background-color: rebeccapurple;
+  background-color: white;
   position: absolute;
   margin: 150px 50px 0px 50px;
   display: flex;

@@ -7,7 +7,7 @@
 .recent-play-word {
     position: relative;
     width: 100%;
-    height: 15%;
+    height: 5%;
 
     h2 {
         text-align: left;
@@ -91,14 +91,7 @@
     }
 
     .image-and-detail {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
         display: inline-block;
-        background-color: #fff;
-        width: 150px; /* adjust the width as needed */
         height: 250px; /* adjust the height as needed */
     }
 
@@ -129,13 +122,13 @@
 
 .library-bottom {
     width: 100%;
-    height: 70%;
+    height: 1000px;
 }
 
 .your-playlist-word {
     position: relative;
     width: 100%;
-    height: 15%;
+    height: 5%;
 
     h2 {
         text-align: left;

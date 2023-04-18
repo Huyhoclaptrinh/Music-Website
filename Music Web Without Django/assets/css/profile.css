@@ -33,8 +33,7 @@
   border-radius: 50%;
   border: 1px solid black;
   opacity: 1;
-  -o-object-fit: cover;
-     object-fit: cover; /* fit image within container, preserving aspect ratio */
+  object-fit: cover; /* fit image within container, preserving aspect ratio */
 }
 
 .profile-name-side {
@@ -175,7 +174,7 @@
 
 /* Style for the button */
 .rounded-icon-button {
-  position: absolute;
+  position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -186,8 +185,6 @@
   color: #fff;
   font-size: 24px;
   transition: background-color 0.2s;
-  right: 500px;
-  bottom: -100px;
 }
 
 /* Style for the button when hovered */

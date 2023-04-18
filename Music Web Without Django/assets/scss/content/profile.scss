@@ -178,7 +178,7 @@ margin-bottom: 10px;
 
 /* Style for the button */
 .rounded-icon-button {
-  position: absolute;
+  position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -189,8 +189,6 @@ margin-bottom: 10px;
   color: #fff;
   font-size: 24px;
   transition: background-color 0.2s;
-  right: 500px; 
-  bottom: -100px;
 }
 
 /* Style for the button when hovered */
