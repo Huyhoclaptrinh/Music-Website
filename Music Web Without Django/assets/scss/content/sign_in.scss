@@ -5,46 +5,66 @@ $color1: navy;
     text-align: center;
 }
 
+body {
+    background-color: aqua;
+}
+
 h1 {
     color: $color1;
     margin-left: $input_size;
 }
 
-.sign_in_container {
+.title-box h1{
+    color: navy;
+    margin-left: 20px;
+    position: relative;
+    top: 140px;
+    left: 120px;
+}
+
+.sign-in-container {
+    background-color: rebeccapurple;
+    position: absolute;
     margin: 150px 50px 0px 50px;
+    display: flex;
+    left: 500px;
+    top: 180px;
+    padding-bottom: 120px;
 }
   
-.sign_in_box {
+.sign-in-box {
     display: inline-block;
     vertical-align: middle;
 }
   
-#title_box {
+.title-box {
     padding: 0px 250px 0px 0px;    
 }
   
-#sign_in {
-    padding: 0px 0px 0px 250px;
+.sign-in {
+    position: relative;
+    padding: 0px 100px 0px 100px;
     border-left: 2px solid $color1;
+    top: 50px;
 }
 
-#email #email_input, #pass #pass_input {
+.email .email-input, .pass .pass-input {
     display: inline;
 }
 
-#email, #pass {
+.email, .pass {
     color: $color1;
 }
 
-#email_input {
+.email-input {
     padding-left: 25px;
 }
 
-.sign_in div{
+.sign-in-form div{
     padding-top: $input_size;
 }
 
-#link_sign_up {
+.link-sign-up {
     padding-left: 40px;
 }
 
@@ -52,7 +72,7 @@ input {
     text-align: left;
 }
 
-#button{
+.button{
     background-color: $color1;
     border: none;
     color: white;

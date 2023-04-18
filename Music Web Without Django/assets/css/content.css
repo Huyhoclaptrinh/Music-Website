@@ -1,5 +1,4 @@
 section {
-  display: -webkit-flex;
   display: flex;
   padding: 0;
   position: relative;
@@ -25,7 +24,7 @@ section {
 
 .left-bar a {
   position: relative;
-  font-size: 35px;
+  font-size: 25px;
   padding: 20px 0px;
   color: #202A44;
   float: left;

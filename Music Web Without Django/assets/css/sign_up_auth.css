@@ -4,43 +4,35 @@
   position: relative;
   display: flex;
 }
-
-.left-auth {
+.auth .left-auth {
   width: 20%;
   height: 100%;
 }
-
-.mid-auth {
+.auth .mid-auth {
   text-align: center;
   width: 60%;
   height: 100%;
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
-
-.right-auth {
-  width: 20%;
-  height: 100%;
-}
-
-h1 {
+.auth .mid-auth h1 {
   text-transform: uppercase;
 }
-
-.input-code {
+.auth .mid-auth .input-code {
   position: relative;
   right: -7px;
   display: flex;
   justify-content: center;
 }
-
-.input-code input {
+.auth .mid-auth .input-code input {
   width: 50px;
   height: 50px;
   margin-right: 10px;
 }
-
-.mid-auth #btn {
+.auth .mid-auth .input-code input[type=text] {
+  text-align: center;
+}
+.auth .mid-auth #btn {
   position: relative;
   text-align: center;
   background-color: navy;
@@ -50,13 +42,12 @@ h1 {
   top: 30px;
   left: -120px;
 }
-
-.mid-auth a {
+.auth .mid-auth a {
   text-align: center;
   position: relative;
   left: 45px;
 }
-
-.input-code input[type=text] {
-  text-align: center;
+.auth .right-auth {
+  width: 20%;
+  height: 100%;
 }

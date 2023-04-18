@@ -4,93 +4,90 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Musiek</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="./assets/js/style.js" defer></script>
 </head>
 <body>
-    <div class="auth">
-        <div class="left-auth">
-
-        </div>
-    
-        <div class="mid-auth">
-            <h1>verify your account</h1>
-            <p>The verify code has been sent to your email</p>
-            <form onsubmit="event.preventDefault()"></form>
-            <div class="input-code">
-                <input id="box1" type="text" maxlength="1">
-                <input id="box2" type="text" maxlength="1">
-                <input id="box3" type="text" maxlength="1">
-                <input id="box4" type="text" maxlength="1">
-            </div>
-            <a onclick="resendCodeFunction()">Click here if the code isn't sending yet</a>
-            
-            <input id="btn" type="submit">
-            
-        </div>
-    
-        <div class="right-auth">
-    
-        </div>
-    
+  <div class="auth">
+    <div class="left-auth"></div>
+    <div class="mid-auth">
+      <h1>verify your account</h1>
+      <p>The verify code has been sent to your email</p>
+      <form onsubmit="event.preventDefault()"></form>
+      <div class="input-code">
+          <input id="box1" type="text" maxlength="1">
+          <input id="box2" type="text" maxlength="1">
+          <input id="box3" type="text" maxlength="1">
+          <input id="box4" type="text" maxlength="1">
+      </div>
+      <a onclick="resendCodeFunction()">Click here if the code isn't sending yet</a>
+      <input id="btn" name="submit" type="submit">
     </div>
+    <div class="right-auth"></div>
+  </div>
 
-</style>
+  <script>
+		var pressedButton = document.getElementsByName("submit")[0];
+		pressedButton.addEventListener("click", function (event) {
+			alert("You have pressed the button..........");
+			window.location.href = "sign_in.html"; // redirect to signin.html
+		})
+	</script>
 
-<script>
-function moveFocus(event) {
-const arrowKeys = ['ArrowLeft', 'ArrowRight'];
-const inputs = document.querySelectorAll('.input-code input[type="text"]');
-const currentIndex = Array.from(inputs).findIndex(input => input === event.target);
-let nextIndex;
-if (arrowKeys.includes(event.key)) {
-  switch (event.key) {
-    case 'ArrowLeft':
-      nextIndex = currentIndex - 1;
-      break;
-    case 'ArrowRight':
-      nextIndex = currentIndex + 1;
-      break;
-  }
-} else {
-  nextIndex = currentIndex;
-}
-const nextInput = inputs[nextIndex];
-if (nextInput) {
-  nextInput.focus();
-}
-}
-
-document.querySelectorAll('.input-code input[type="text"]').forEach(input => {
-input.addEventListener('keydown', moveFocus);
-input.addEventListener('input', () => {
-  const maxLength = input.getAttribute('maxlength');
-  if (input.value.length >= maxLength) {
-    const nextInput = input.nextElementSibling;
-    if (nextInput) {
-      nextInput.focus();
+  <script>
+  function moveFocus(event) {
+  const arrowKeys = ['ArrowLeft', 'ArrowRight'];
+  const inputs = document.querySelectorAll('.input-code input[type="text"]');
+  const currentIndex = Array.from(inputs).findIndex(input => input === event.target);
+  let nextIndex;
+  if (arrowKeys.includes(event.key)) {
+    switch (event.key) {
+      case 'ArrowLeft':
+        nextIndex = currentIndex - 1;
+        break;
+      case 'ArrowRight':
+        nextIndex = currentIndex + 1;
+        break;
     }
+  } else {
+    nextIndex = currentIndex;
   }
-});
-input.addEventListener('keydown', (event) => {
-  if (event.key === 'Backspace' && input.value.length === 0) {
-    const previousInput = input.previousElementSibling;
-    if (previousInput) {
-      previousInput.value = '';
-      previousInput.focus();
+  const nextInput = inputs[nextIndex];
+  if (nextInput) {
+    nextInput.focus();
+  }
+  }
+  
+  document.querySelectorAll('.input-code input[type="text"]').forEach(input => {
+  input.addEventListener('keydown', moveFocus);
+  input.addEventListener('input', () => {
+    const maxLength = input.getAttribute('maxlength');
+    if (input.value.length >= maxLength) {
+      const nextInput = input.nextElementSibling;
+      if (nextInput) {
+        nextInput.focus();
+      }
     }
-  }
-});
-input.addEventListener('keypress', (event) => {
-  if (event.which < 48 || event.which > 57) {
-    event.preventDefault();
-  }
-});
-});
-    </script> 
+  });
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Backspace' && input.value.length === 0) {
+      const previousInput = input.previousElementSibling;
+      if (previousInput) {
+        previousInput.value = '';
+        previousInput.focus();
+      }
+    }
+  });
+  input.addEventListener('keypress', (event) => {
+    if (event.which < 48 || event.which > 57) {
+      event.preventDefault();
+    }
+  });
+  });
+  </script> 
     
 </body>
 </html>
