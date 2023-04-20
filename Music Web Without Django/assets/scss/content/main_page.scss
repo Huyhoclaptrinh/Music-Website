@@ -54,6 +54,7 @@
         
             i:last-child {
                 right: -23px;
+                z-index: 1;
             }
         
             .carousel {
@@ -143,18 +144,13 @@
     border-bottom: 1px solid black;
 }
 
-.song-img {
-    width:20%;
-
-    img {
-        width:70px;
-        padding: 10px;
-    }
+.song-img img {
+    width:70px;
+    padding: 10px;
 }
 
 .song-detail {
     position: relative;
-    width: 80%;
     padding: 10px;
 
     .song-artist  p {
@@ -172,9 +168,11 @@
     }
 }
 
-.song-react i {
+.song-react {
     display: flex;
-    float: left;
+}
+
+.song-react i {
     padding: 0px 10px;
     margin-bottom: 10px;
 }
@@ -208,5 +206,17 @@
 }
 
 
+
+/*TABLET RESPONSIVE*/
+@media screen and (max-width: 768px) {
+    .friend-slider .friend-slider-info .wrapper i:first-child {
+        left: 0;
+    }
+
+    .friend-slider .friend-slider-info .wrapper i:last-child {
+        right: 0;
+        z-index: 1;
+    }
+}
 
 

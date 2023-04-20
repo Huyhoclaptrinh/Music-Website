@@ -47,6 +47,7 @@
 }
 .friend-slider .friend-slider-info .wrapper i:last-child {
   right: -23px;
+  z-index: 1;
 }
 .friend-slider .friend-slider-info .wrapper .carousel {
   white-space: nowrap;
@@ -79,8 +80,7 @@
   border-radius: 50%;
   max-width: 100%;
   max-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .friend-slider .friend-slider-info .wrapper .carousel .detail {
   font-size: 18px; /* adjust the font size as needed */
@@ -124,9 +124,6 @@
   border-bottom: 1px solid black;
 }
 
-.song-img {
-  width: 20%;
-}
 .song-img img {
   width: 70px;
   padding: 10px;
@@ -134,7 +131,6 @@
 
 .song-detail {
   position: relative;
-  width: 80%;
   padding: 10px;
 }
 .song-detail .song-artist p {
@@ -150,9 +146,11 @@
   margin-bottom: 10px;
 }
 
-.song-react i {
+.song-react {
   display: flex;
-  float: left;
+}
+
+.song-react i {
   padding: 0px 10px;
   margin-bottom: 10px;
 }
@@ -180,4 +178,15 @@
 .friend-content-top-mid p {
   font-size: 25px;
   padding: 20px 45px 20px 0px;
+}
+
+/*TABLET RESPONSIVE*/
+@media screen and (max-width: 768px) {
+  .friend-slider .friend-slider-info .wrapper i:first-child {
+    left: 0;
+  }
+  .friend-slider .friend-slider-info .wrapper i:last-child {
+    right: 0;
+    z-index: 1;
+  }
 }

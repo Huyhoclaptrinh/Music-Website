@@ -55,6 +55,7 @@
     
         i:last-child {
             right: -23px;
+            z-index: 1;
         }
     
         .carousel {
@@ -170,5 +171,15 @@
     }
 }
   
+/*TABLET RESPONSIVE*/
+@media screen and (max-width: 768px) {
+    .recent-play .wrapper i:first-child {
+        left: 0;
+    }
 
+    .recent-play .wrapper i:last-child {
+        right: 0;
+        z-index: 1;
+    }
+}
   
