@@ -17,29 +17,28 @@ body {
     background-color: #202A44;
 }
 
-    header {
-        position: fixed;
-        left: 0;
-        top: 0;
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 95px;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.75);
+    z-index: 99;
+
+    .header-content {    
+        display: flex;
+        justify-content: space-between;
         width: 100%;
-        height: 95px;
-        box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.75);
-        z-index: 99;
-
-        .header-content {    
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
+        height: 100%;
+        background: #202A44;
+    
+        .logo {
+            width: 20%;
             height: 100%;
-            background: #202A44;
-        
-            .logo{
-                width: 20%;
-                height: 100%;
-                position: relative;
-            }
+            position: relative;
 
-            .logo h1 {
+            h1 {
                 margin: 30px 0 0 20px;
                 font-family: 'Inter';
                 font-style: normal;
@@ -48,79 +47,80 @@ body {
                 line-height: 36px;
                 color: #F9F9F9;
             }
-        
-            .search {
-                width: 80%;
-                height: 100%;
-                margin: 30px 0 0 0; 
-                text-align: center;
-                display: block;
-            }
 
-            .search-input {
-                width: 60%;
-                height: 30px;
-                background: #F9F9F9;
-                border-radius: 20px 0 0 20px;
+            a {
+                text-decoration: none;
             }
+        }
 
-            .search input {
-                margin: 0;
-                padding-left: 10px;
-            }
-        
-            .search-sbm {
-                position: relative;
-                width: 50px;
-                height: 36px;
-                background: #BAB2B2;
-                left: -5px;
-                border-radius: 0px 20px 20px 0px;
-            }
+        .search {
+            width: 80%;
+            height: 100%;
+            margin: 30px 0 0 0; 
+            text-align: center;
+            display: block;
+        }
+        .search-input {
+            width: 60%;
+            height: 30px;
+            background: #F9F9F9;
+            border-radius: 20px 0 0 20px;
+            margin: 0;
+            padding-left: 10px;
+        }
+    
+        .search-sbm {
+            position: relative;
+            width: 50px;
+            height: 36px;
+            background: #BAB2B2;
+            left: -5px;
+            border-radius: 0px 20px 20px 0px;
 
-            .search-sbm i {
+            i {
                 background: #BAB2B2;
                 color: black;
             }
-        
-            i {
-                color: white;
-                background: #202A44;
-            }
-        
-            .user-content{
-                width: 20%;
-                margin: 30px 0 0 0;
-                height: 100%;
-            }
-        
-            .account {
-                position: relative;
-                width: 190px;
-                height: 36px;
-                background: #D9D9D9;
-                border-radius: 20px;
-                text-align: right;
-            }   
-        
-            img {
-                position: absolute;
-                width: 37px;
-                height: 36px;
-                top: 0px;
-                left: 0px;
-                border-radius: 50%;
-            }
-        
-            .user-name {
-                position: absolute;
-                width: 81px;
-                height: 14px;
-                left: 60px;
-                top: 10px;
-                font-weight: 400;
-                font-size: 15px;
-                color: #000000;
-            }
+        }
+    
+        i {
+            color: white;
+            background: #202A44;
+        }
+    
+        .user-content {
+            width: 20%;
+            margin: 30px 0 0 0;
+            height: 100%;
+        }
+    
+        .account {
+            position: relative;
+            width: 190px;
+            height: 36px;
+            background: #D9D9D9;
+            border-radius: 20px;
+            text-align: right;
+        }   
+    
+        img {
+            position: absolute;
+            width: 37px;
+            height: 36px;
+            top: 0px;
+            left: 0px;
+            border-radius: 50%;
+        }
+    
+        .user-name {
+            position: absolute;
+            width: 81px;
+            height: 14px;
+            left: 60px;
+            top: 10px;
+            font-weight: 400;
+            font-size: 15px;
+            color: #000000;
         }
     }
+}

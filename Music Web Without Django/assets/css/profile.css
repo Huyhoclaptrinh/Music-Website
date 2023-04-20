@@ -51,7 +51,6 @@
   display: flex;
   float: left;
 }
-
 .follow-num .follow-num-content {
   border-left: 1px solid black;
   width: 33.3333333333%;
@@ -90,7 +89,6 @@
 .right-content-top-right1 {
   margin-left: auto;
 }
-
 .right-content-top-right1 p {
   position: relative;
   font-size: 25px;
@@ -100,7 +98,6 @@
 .right-content-top-right2 {
   margin-left: auto;
 }
-
 .right-content-top-right2 p {
   position: relative;
   font-size: 25px;
@@ -110,7 +107,6 @@
 .user-img {
   width: 20%;
 }
-
 .user-img img {
   position: absolute;
   width: 70px;
@@ -134,7 +130,6 @@
   width: 80%;
   padding: 10px;
 }
-
 .user-detail .user-name p {
   display: flex;
   flex-direction: column;

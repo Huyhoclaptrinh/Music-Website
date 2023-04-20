@@ -9,24 +9,35 @@ footer {
     display: flex;
     text-align: center;
     z-index: 98;
-    .footer-left{
+    
+    .footer-left {
         position: relative;
         width: 70%;
         height: 60%;
         top: 30px;
         right: -40px;
         text-align: center;
-        .footer-left ul li{
-            display:inline-block; 
-            
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            li {
+                display:inline-block; 
+                p {
+                    padding: 10px 20px; 
+                }
+            }
         }
-        .footer-left li p{
+
+        i {
             padding: 10px 20px;
-            
         }
     }
 
-    .footer-mid{
+    .footer-mid {
         float: left;
         position: relative;
         display: flex;
@@ -35,7 +46,7 @@ footer {
         
     }
 
-    .footer-right{
+    .footer-right {
         position: relative;
         width: 15%;
         height: 15%;
@@ -43,19 +54,29 @@ footer {
         top: 30px;
         right: 40px;
         text-align: center;
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            li {
+                display:inline-block; 
+                p {
+                    padding: 10px 20px; 
+                }
+            }
+        }
+    }
+
+    i {
+        padding: 10px 20px;
+        color: #FFFFFF;
     }
 }
 
-.footer-left ul{
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
 
-.footer-left i{
-    padding: 10px 20px;
-}
 
 /* Define the slider width so that it scales properly */
 .slider_container {
@@ -96,7 +117,7 @@ footer {
   }
    
 /* Change the opacity when mouse is hovered */
-.seek_slider:hover{
+.seek_slider:hover {
     opacity: 1.0;
   }
 
@@ -105,35 +126,15 @@ footer {
   color: #FFFFFF;
 }
 
-.music-img{
+.music-img {
     border: 1px solid white;
     height: 100%;
     width: 40%;
 }
 
-.music-content{
+.music-content {
     height: 100%;
     width: 60%;
     border: 1px solid white;
 }
 
-.footer-right ul{
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.footer-right ul li{
-    display:inline-block; 
-    
-}
-.footer-right li p{
-    padding: 10px 20px;
-    
-}
-
-footer i{
-    padding: 10px 20px;
-    color: #FFFFFF;
-}

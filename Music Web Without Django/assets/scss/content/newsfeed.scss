@@ -1,29 +1,30 @@
+.title {
+    width: 100%;
+    height: fit-content;
+    position: static;
+    text-align: left;
+    padding: 0 0 0 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 48px;
+    color: #000000;
+}
 
-    .title {
-        width: 100%;
-        height: fit-content;
-        position: static;
-        text-align: left;
-        padding: 0 0 0 20px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 35px;
-        line-height: 48px;
-        color: #000000;
-    }
-    .feed {
-        width: 100%;
-        height: fit-content;
-        margin-top: 40px;
-    }
-    .top-feed {
-        width: 100%;
-        height: 10%;
-        display: flex;
-        align-items: start;
-    }
-    .top-feed .user-status {
+.feed {
+    width: 100%;
+    height: fit-content;
+    margin-top: 40px;
+}
+
+.top-feed {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: start;
+
+    .user-status {
         text-align: left;
         margin: 5px 0 0 20px;
         font-family: 'Inter';
@@ -33,17 +34,20 @@
         line-height: 24px;
         color: #000000;
     }
-    .top-feed img {
+    
+    img {
         width: 37px;
         height: 36px;
         margin-left: 20px;
         border-radius: 50%;
     }
-    .mid-feed {
-        width: 100%;
-        height: 10%;
-    }
-    .mid-feed .user-comment {
+}
+
+.mid-feed {
+    width: 100%;
+    height: 10%;
+
+    .user-comment {
         position: static;
         text-align: left;
         padding: 0 0 0 77px;
@@ -54,90 +58,107 @@
         line-height: 48px;
         color: #000000;
     }
-    .bot-feed {
-        width: 100%;
-        height: 90%;
-        margin-top: 20px;
-        display: flex;
-        align-self: start;
-    }
-    .bot-feed-left img {
-        width: 200px;
-        height: 200px;
-        margin-left: 20px;
-    }
-    .bot-feed-right {
-        width: 68%;
-        height: 90%;
-        display: flex;
-        flex-wrap: wrap;
-        align-content: flex-start;
-    }
-    .bot-feed-right i {
+}
+
+.bot-feed {
+    width: 100%;
+    height: 90%;
+    margin-top: 20px;
+    display: flex;
+    align-self: start;
+}
+
+.bot-feed-left img {
+    width: 200px;
+    height: 200px;
+    margin-left: 20px;
+}
+
+.bot-feed-right {
+    width: 68%;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    i {
         width: 100px;
         height: 100px;
         margin-left: 20px;
         font-size: 100px;
     }
-    .bot-feed-right .song-container {
+    .song-container {
         margin-left: 20px;
-    }
-    .song-container .author-name {
-        font-size: 20px;
-        text-align: left;
+
+        .author-name {
+            font-size: 20px;
+            text-align: left;
+        }
+
+        .song-name {
+            font-size: 30px;
+            margin-top: 45px;
+            text-align: left;
+        }
     }
 
-    .song-container .song-name {
-        font-size: 30px;
-        margin-top: 45px;
-        text-align: left;
-    }
-    .icon-container i {
-        display: block;
-        width: 20px;
-        height: 20px;
-        font-size: 20px;
-        margin: 20px 0 0 40px;
-    }
-    .icon-container .fa-comment {
-        margin-top: 0px;
-    }
-    .song-container, .icon-container {
-        height: fit-content;
-    }
-    .bot-feed-right .comment-section {
+    .comment-section {
         width: 100%;
         height: 100%;
-    }
-    .comment-section {
         margin-top: 20px;
+        
+        #comment-input {
+            width: 80%;
+            height: 30px;
+        }
+
+        #submit-comment {
+            width: 10%;
+            height: 30px;
+        }
     }
-    .comment-section #comment-input {
-        width: 80%;
-        height: 30px;
-    }
-    .comment-section #submit-comment {
-        width: 10%;
-        height: 30px;
-    }
-    .comment-section-bot {
-        display: flex;
-        margin-top: 20px;
-    }
-    .comment-section-bot img {
+}
+
+
+
+.icon-container i {
+    display: block;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    margin: 20px 0 0 40px; 
+}
+
+.icon-container .fa-comment {
+    margin-top: 0px;
+}
+
+.song-container, .icon-container {
+    height: fit-content;
+}
+
+.comment-section-bot {
+    display: flex;
+    margin-top: 20px;
+
+    img {
         width: 37px;
         height: 36px;
         margin-left: 20px;
         border-radius: 50%;
     }
-    .comment-section-bot .comment-container {
+    .comment-container {
         margin-left: 20px;
+
+        .comment-username {
+            font-size: 15px;
+            text-align: left;
+        }
+        
+        .comment-text {
+            font-size: 16px;
+            text-align: left;
+        }
     }
-    .comment-container .comment-username {
-        font-size: 15px;
-        text-align: left;
-    }
-    .comment-container .comment-text {
-        font-size: 16px;
-        text-align: left;
-    }
+}
+

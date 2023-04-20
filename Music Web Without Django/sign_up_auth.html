@@ -72,6 +72,7 @@
       }
     }
   });
+
   input.addEventListener('keydown', (event) => {
     if (event.key === 'Backspace' && input.value.length === 0) {
       const previousInput = input.previousElementSibling;
@@ -81,6 +82,7 @@
       }
     }
   });
+  
   input.addEventListener('keypress', (event) => {
     if (event.which < 48 || event.which > 57) {
       event.preventDefault();
