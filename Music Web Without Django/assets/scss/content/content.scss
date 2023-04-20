@@ -16,49 +16,50 @@ section {
     position: relative;
     overflow: hidden;
     transform-origin: top left;
-}
 
-.left-bar li{
-    display: inline-block;
-    width: 100%;
-    padding: 0px;
-    float: left;
+    a {
+        position: relative;
+        font-size: 25px;
+        padding:  20px 0px;
+        color: #202A44;
+        float: left;
+        width: 100%;
+        text-align: left;
+        text-decoration: none;
+        display: inline-block;
+        
+    }
     
-}
+    ul{
+        padding: 0px;
 
-.left-bar a {
-    position: relative;
-    font-size: 25px;
-    padding:  20px 0px;
-    color: #202A44;
-    float: left;
-    width: 100%;
-    text-align: left;
-    text-decoration: none;
-    display: inline-block;
+        li a:hover {
+            background-color: #202A44;
+            color: white;
+        }
+        
+        li a.active {
+            background-color: #202A44;
+            color: white;
+        }
+
+        li{
+            display: inline-block;
+            width: 100%;
+            padding: 0px;
+            float: left;
+            
+        }
+        
+    }
     
+    i{
+        padding: 0px 10px 0px 0px;
+        position: relative;
+        color: #1e1e1e;
+    }
 }
 
-.left-bar ul{
-    padding: 0px;
-    
-}
-
-.left-bar li a:hover {
-    background-color: #202A44;
-    color: white;
-}
-
-.left-bar li a.active {
-    background-color: #202A44;
-    color: white;
-}
-
-.left-bar i{
-    padding: 0px 10px 0px 0px;
-    position: relative;
-    color: #1e1e1e;
-}
 .mid-bar{
     width: 60%;  
     background-color: white;

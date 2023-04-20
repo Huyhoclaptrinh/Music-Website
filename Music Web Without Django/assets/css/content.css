@@ -14,14 +14,6 @@ section {
   overflow: hidden;
   transform-origin: top left;
 }
-
-.left-bar li {
-  display: inline-block;
-  width: 100%;
-  padding: 0px;
-  float: left;
-}
-
 .left-bar a {
   position: relative;
   font-size: 25px;
@@ -33,21 +25,23 @@ section {
   text-decoration: none;
   display: inline-block;
 }
-
 .left-bar ul {
   padding: 0px;
 }
-
-.left-bar li a:hover {
+.left-bar ul li a:hover {
   background-color: #202A44;
   color: white;
 }
-
-.left-bar li a.active {
+.left-bar ul li a.active {
   background-color: #202A44;
   color: white;
 }
-
+.left-bar ul li {
+  display: inline-block;
+  width: 100%;
+  padding: 0px;
+  float: left;
+}
 .left-bar i {
   padding: 0px 10px 0px 0px;
   position: relative;
