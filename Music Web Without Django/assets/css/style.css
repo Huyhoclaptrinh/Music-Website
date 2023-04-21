@@ -10880,9 +10880,26 @@ readers do not read off random characters that represent icons */
   content: "\f3f6";
 }
 
-@media screen and (max-width: 900px) {
-  .carousel img {
-    width: 50%;
+@media screen and (max-width: 375px) {
+  .sign-in-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .sign-in-container .title-box {
+    display: none;
+  }
+  .sign-in-container .sign-in {
+    border: none;
+  }
+  .sign-up-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .sign-up-container .title-box-sign-up {
+    display: none;
+  }
+  .sign-up-container .sign-up {
+    border: none;
   }
 }
 @media screen and (max-width: 550px) {
@@ -10910,26 +10927,9 @@ readers do not read off random characters that represent icons */
     border: none;
   }
 }
-@media screen and (max-width: 375px) {
-  .sign-in-container {
-    flex-direction: column;
-    width: 100%;
-  }
-  .sign-in-container .title-box {
-    display: none;
-  }
-  .sign-in-container .sign-in {
-    border: none;
-  }
-  .sign-up-container {
-    flex-direction: column;
-    width: 100%;
-  }
-  .sign-up-container .title-box-sign-up {
-    display: none;
-  }
-  .sign-up-container .sign-up {
-    border: none;
+@media screen and (max-width: 900px) {
+  .carousel img {
+    width: 50%;
   }
 }
 .auth {
@@ -10992,6 +10992,37 @@ readers do not read off random characters that represent icons */
   height: 100%;
 }
 
+@media screen and (max-width: 375px) {
+  .auth {
+    display: flex;
+    margin: auto 0 auto 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .auth .left-auth {
+    width: 20%;
+    height: 100%;
+    display: none;
+  }
+  .auth .mid-auth {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    justify-content: center;
+    justify-items: center;
+  }
+  .auth .right-auth {
+    width: 20%;
+    height: 100%;
+    display: none;
+  }
+}
 .title {
   width: 100%;
   height: -moz-fit-content;
