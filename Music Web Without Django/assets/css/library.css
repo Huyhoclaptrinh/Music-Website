@@ -1,7 +1,6 @@
 .library-top {
   width: 100%;
-  height: 30%;
-  border-bottom: 1px solid rgb(209, 205, 205);
+  height: 22%;
 }
 
 .recent-play-word {
@@ -92,7 +91,8 @@
   width: 150px;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .library-bottom {
@@ -128,7 +128,8 @@
 .your-playlist img {
   width: 100%; /* make the image fill its parent div */
   height: 100%; /* set the height of the image div to 70% */
-  object-fit: cover; /* scale the image to fill its parent div */
+  -o-object-fit: cover;
+     object-fit: cover; /* scale the image to fill its parent div */
 }
 .your-playlist .playlist-detail {
   height: 30%; /* set the height of the detail div to 30% */
@@ -136,6 +137,13 @@
   padding: 10px; /* add some padding to the detail div */
   box-sizing: border-box; /* include padding and border in the element's total width and height */
   text-align: center; /* center the contents of the detail div */
+}
+
+.btn-toggle-warp {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #toggle-btn {

@@ -12,6 +12,7 @@
     width: 20%;
     padding: 10px; /* add padding to .avatar-side */
     box-sizing: border-box; /* include padding in element width */
+    display: flex;
   }
   
   .profile-name-side {
@@ -52,17 +53,24 @@
     float: left;
 
     .follow-num-content{
-      border-left: 1px solid black;
-      width: calc(100%/3);
+        border-left: 1px solid black;
+        width: 33.3333333333%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-bottom: 20px;
+
+        p{
+            position: relative;
+            top: 15px;
+            font-size: 25px;
+        }
       
     }
 }
 
-.follow-num-content p{
-    position: relative;
-    top: 15px;
-    font-size: 25px;
-}
+
 
 .right-content{
     width: 100%;
@@ -145,11 +153,13 @@
     }
 }
 
-.user-data i{
+.user-data {
     display: flex;
-    float: left;
     padding: 0px 10px;
     margin-bottom: 10px;
+    i{
+        padding-right: 10px;
+    }
 }
 
 .btn-content{
@@ -160,20 +170,19 @@
 }
 
 .btn-follow{
-    position: absolute;
     border-color: #202A44;
-    right: 0;
     text-align: right;
+    margin-left: auto;
+    padding-bottom: 10px;
 }
 
 .profile-content-bottom .user-status h2 p{
-    position: absolute;
+    position: relative;
     float: left;
 }
 
 .profile-content-bottom .user-status p{
     position: relative;
-    left: -30px;
 }
 
 /* Style for the button */
@@ -189,6 +198,9 @@
     color: #fff;
     font-size: 24px;
     transition: background-color 0.2s;
+    float: right;
+    margin-right: 15px;
+    margin-top: 150px;
 }
 
 /* Style for the button when hovered */

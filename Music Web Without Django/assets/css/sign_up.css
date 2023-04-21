@@ -1,6 +1,7 @@
 .sign-up-container {
   background-color: white;
   display: flex;
+  width: -moz-max-content;
   width: max-content;
 }
 

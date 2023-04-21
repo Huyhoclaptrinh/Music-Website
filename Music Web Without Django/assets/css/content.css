@@ -1,65 +1,66 @@
 section {
-  display: -webkit-flex;
   display: flex;
   flex-wrap: wrap;
   padding: 0;
-  position: relative;
-  top: 96px;
-  height: 1000px;
+  min-height: 60%;
+  flex-grow: 1;
 }
 
 .left-bar {
   width: 17%;
-  height: 100%;
+  min-height: 100%;
   background: #D9D9D9;
   position: relative;
   overflow: hidden;
   transform-origin: top left;
 }
 .left-bar a {
-  position: relative;
-  font-size: 25px;
-  padding: 20px 0px;
+  font-size: 30px;
   color: #202A44;
-  float: left;
-  width: 100%;
-  text-align: left;
   text-decoration: none;
-  display: inline-block;
+  padding: 20px 20px 20px 0;
+  flex-grow: 1;
+  width: 50%;
 }
 .left-bar ul {
   padding: 0px;
 }
-.left-bar ul li a:hover {
+.left-bar ul li:hover, .left-bar ul a:hover {
   background-color: #202A44;
   color: white;
 }
-.left-bar ul li a.active {
+.left-bar ul li.active, .left-bar ul a.active {
   background-color: #202A44;
   color: white;
 }
 .left-bar ul li {
-  display: inline-block;
+  display: flex;
   width: 100%;
   padding: 0px;
-  float: left;
+  align-items: center;
+  justify-content: center;
 }
 .left-bar i {
-  padding: 0px 10px 0px 0px;
+  font-size: 30px;
   position: relative;
   color: #1e1e1e;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
 }
 
 .mid-bar {
   width: 60%;
   background-color: white;
-  height: 100%;
+  min-height: 100%;
 }
 
 .right-bar {
   width: 23%;
   background: #D9D9D9;
-  height: 100%;
+  min-height: 100%;
   position: relative;
 }
 
@@ -72,6 +73,7 @@ section {
     flex: 1 0 100%;
     display: flex;
     justify-content: center;
+    height: -moz-fit-content;
     height: fit-content;
   }
   .left-bar ul li {
