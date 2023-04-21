@@ -138,9 +138,14 @@ footer {
   text-align: center;
   z-index: 98;
   margin-top: auto;
+  flex-wrap: wrap;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }
 footer .footer-left {
   text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 footer .footer-left ul {
   list-style-type: none;
@@ -160,7 +165,10 @@ footer .footer-left i {
 }
 footer .footer-mid {
   display: flex;
-  width: 15%;
+  width: 10%;
+}
+footer .footer-right {
+  width: 10%;
 }
 footer .footer-right ul {
   list-style-type: none;
@@ -239,6 +247,29 @@ footer i {
   border: 1px solid white;
 }
 
+@media screen and (max-width: 768px) {
+  footer {
+    justify-content: space-between;
+  }
+  footer .footer-left {
+    width: 50%;
+  }
+  .footer-left .slider_container {
+    display: none;
+  }
+  .footer-left .fa-shuffle {
+    display: none;
+  }
+  .footer-left .fa-rotate-left {
+    display: none;
+  }
+  .footer-left .fa-headphones {
+    display: none;
+  }
+  .footer-right {
+    display: none;
+  }
+}
 .friend-slider {
   width: 100%;
   min-height: 35%;
@@ -10973,6 +11004,9 @@ readers do not read off random characters that represent icons */
   .sign-up-container .sign-up {
     border: none;
   }
+  footer .footer-left ul li .slider-container {
+    display: none;
+  }
 }
 @media screen and (max-width: 900px) {
   .carousel img {
@@ -11614,9 +11648,6 @@ section {
 }
 /*TABLET RESPONSIVE*/
 @media screen and (max-width: 768px) {
-  section {
-    top: 140px;
-  }
   .left-bar {
     flex: 1 0 100%;
     display: flex;
@@ -11624,8 +11655,17 @@ section {
     height: -moz-fit-content;
     height: fit-content;
   }
+  .left-bar ul {
+    display: flex;
+    -moz-column-gap: 10px;
+         column-gap: 10px;
+  }
   .left-bar ul li {
     width: 20%;
+  }
+  .left-bar ul li a, .left-bar ul li i {
+    font-size: 15px;
+    margin-left: 10px;
   }
   .right-bar {
     width: 40%;

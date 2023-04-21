@@ -92,10 +92,6 @@ section {
 
 /*TABLET RESPONSIVE*/
 @media screen and (max-width: 768px) {
-    section {
-        top: 140px;
-    }
-
     .left-bar {
         flex: 1 0 100%;
         display: flex;
@@ -103,8 +99,18 @@ section {
         height: fit-content;
     }
 
+    .left-bar ul {
+        display: flex;
+        column-gap: 10px;
+    }
+
     .left-bar ul li {
         width: 20%;
+
+        a, i {
+            font-size: 15px; 
+            margin-left: 10px;
+        }
     }
 
     .right-bar {
