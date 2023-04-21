@@ -130,7 +130,7 @@ header .header-content .user-name {
   }
 }
 footer {
-  width: 100%;
+  max-width: 100%;
   min-height: 20%;
   background-color: #202A44;
   display: flex;
@@ -422,6 +422,53 @@ footer i {
   padding: 20px 45px 20px 0px;
 }
 
+@media screen and (max-width: 375px) {
+  .friend-slider .friend-slider-word h2 {
+    text-align: left;
+  }
+  .history-content-top {
+    position: relative;
+    display: flex;
+    float: left;
+    border-bottom: 1px solid #828282;
+    width: 100%;
+    height: 50px;
+  }
+  .history-content-top .history-content-top-right p {
+    position: relative;
+    font-size: 25px;
+    padding: 10px 0px;
+  }
+  .history-content-top .history-content-top-mid p {
+    font-size: 25px;
+    padding: 10px 5px;
+  }
+  .history-content-top .history-content-top-left {
+    font-size: 25px;
+    padding: 10px;
+  }
+  .friend-content-top {
+    position: relative;
+    display: flex;
+    float: left;
+    border-bottom: 1px solid #828282;
+    width: 100%;
+    height: 50px;
+  }
+  .friend-content-top .friend-content-top-right p {
+    position: relative;
+    font-size: 25px;
+    padding: 10px 0px;
+  }
+  .friend-content-top .friend-content-top-mid p {
+    font-size: 25px;
+    padding: 10px 5px;
+  }
+  .friend-content-top .friend-content-top-left {
+    font-size: 25px;
+    padding: 10px;
+  }
+}
 /*TABLET RESPONSIVE*/
 @media screen and (max-width: 768px) {
   .friend-slider .friend-slider-info .wrapper i:first-child {
@@ -11551,6 +11598,20 @@ section {
   position: relative;
 }
 
+@media screen and (max-width: 375px) {
+  section {
+    flex-direction: column;
+  }
+  .left-bar {
+    width: 100%;
+  }
+  .mid-bar {
+    width: 100%;
+  }
+  .right-bar {
+    width: 100% !important;
+  }
+}
 /*TABLET RESPONSIVE*/
 @media screen and (max-width: 768px) {
   section {

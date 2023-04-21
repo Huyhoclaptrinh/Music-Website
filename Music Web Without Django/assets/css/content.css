@@ -64,6 +64,20 @@ section {
   position: relative;
 }
 
+@media screen and (max-width: 375px) {
+  section {
+    flex-direction: column;
+  }
+  .left-bar {
+    width: 100%;
+  }
+  .mid-bar {
+    width: 100%;
+  }
+  .right-bar {
+    width: 100% !important;
+  }
+}
 /*TABLET RESPONSIVE*/
 @media screen and (max-width: 768px) {
   section {

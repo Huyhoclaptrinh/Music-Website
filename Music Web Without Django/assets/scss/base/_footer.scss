@@ -1,5 +1,5 @@
 footer {
-    width: 100%;
+    max-width: 100%;
     min-height: 20%;
     background-color: #202A44;
     // position: relative;
@@ -123,3 +123,6 @@ footer {
     border: 1px solid white;
 }
 
+@media screen and (max-width: 375px) {
+
+}
