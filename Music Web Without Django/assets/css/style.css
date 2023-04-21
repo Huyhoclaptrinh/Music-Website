@@ -442,16 +442,26 @@ footer i {
     z-index: 1;
   }
 }
+.wrapper {
+  display: flex;
+  margin: auto 0 auto 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .sign-in-container {
   background-color: white;
   display: flex;
-  width: max-content;
+  width: 80%;
 }
 
 .title-box {
   padding: 0;
   display: flex;
   align-items: center;
+  flex-grow: 1;
+  justify-content: center;
 }
 
 .title-box h1 {
@@ -459,19 +469,50 @@ footer i {
 }
 
 .sign-in {
-  padding: 0px 100px 0px 100px;
   border-left: 2px solid navy;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .sign-in h1 {
   color: navy;
   margin: 0;
+  padding: 10px 0 10px 0;
 }
 
 .sign-in input {
   text-align: left;
+}
+
+.sign-in form {
+  padding: 0 0 10px 0;
+}
+
+.sign-in .email {
+  display: flex;
+}
+
+.email .email-input {
+  margin: 0 0 0 auto;
+}
+
+.sign-in .pass {
+  display: flex;
+  margin: 10px 0 0 0;
+}
+
+.pass .pass-input {
+  margin: 0 0 0 10px;
+}
+
+.sign-in .link-sign-up {
+  display: flex;
+  margin: 10px 0 0 0;
+}
+.sign-in .link-sign-up a {
+  margin: 0 0 0 auto;
 }
 
 .button {
@@ -488,13 +529,15 @@ footer i {
 .sign-up-container {
   background-color: white;
   display: flex;
-  width: max-content;
+  width: 80%;
 }
 
 .title-box-sign-up {
   padding: 0;
   display: flex;
   align-items: center;
+  flex-grow: 1;
+  justify-content: center;
 }
 
 .title-box-sign-up h1 {
@@ -502,19 +545,61 @@ footer i {
 }
 
 .sign-up {
-  padding: 0px 100px 0px 100px;
   border-left: 2px solid navy;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .sign-up h1 {
   color: navy;
   margin: 0;
+  padding: 10px 0 10px 0;
 }
 
-.sign-in input {
+.sign-up input {
   text-align: left;
+}
+
+.sign-up form {
+  padding: 0 0 10px 0;
+}
+
+.sign-up .name-sign-up {
+  display: flex;
+  margin: 10px 0 0 0;
+}
+
+.name-sign-up .name-input-sign-up {
+  margin: 0 0 0 auto;
+}
+
+.sign-up .username-sign-up {
+  display: flex;
+  margin: 10px 0 0 0;
+}
+
+.username-sign-up .username-input-sign-up {
+  margin: 0 0 0 auto;
+}
+
+.sign-up .email-sign-up {
+  display: flex;
+  margin: 10px 0 0 0;
+}
+
+.email-sign-up .email-input-sign-up {
+  margin: 0 0 0 auto;
+}
+
+.sign-up .pass-sign-up {
+  display: flex;
+  margin: 10px 0 0 0;
+}
+
+.pass-sign-up .pass-input-sign-up {
+  margin: 0 0 0 10px;
 }
 
 .button-sign-up {
@@ -10815,9 +10900,32 @@ readers do not read off random characters that represent icons */
     width: 100%;
   }
 }
+@media screen and (max-width: 768px) {
+  .sign-in-container {
+    flex-direction: column;
+  }
+  .sign-in-container .title-box {
+    display: none;
+  }
+  .sign-in-container .sign-in {
+    border: none;
+  }
+  .sign-up-container {
+    flex-direction: column;
+  }
+  .sign-up-container .title-box-sign-up {
+    display: none;
+  }
+  .sign-up-container .sign-up {
+    border: none;
+  }
+}
 .auth {
-  width: 100%;
   display: flex;
+  margin: auto 0 auto 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 .auth .left-auth {
   width: 20%;
@@ -10838,6 +10946,7 @@ readers do not read off random characters that represent icons */
 .auth .mid-auth h1 {
   text-transform: uppercase;
   color: navy;
+  margin: 10px 0 10px 0;
 }
 .auth .mid-auth .input-code {
   display: flex;
@@ -10860,7 +10969,7 @@ readers do not read off random characters that represent icons */
   color: white;
   width: 70px;
   height: 30px;
-  margin: 20px auto 0 auto;
+  margin: 20px auto 10px auto;
   cursor: pointer;
 }
 .auth .mid-auth a {
