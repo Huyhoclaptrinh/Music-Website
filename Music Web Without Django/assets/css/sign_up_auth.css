@@ -1,6 +1,9 @@
 .auth {
-  width: 100%;
   display: flex;
+  margin: auto 0 auto 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 .auth .left-auth {
   width: 20%;
@@ -21,6 +24,7 @@
 .auth .mid-auth h1 {
   text-transform: uppercase;
   color: navy;
+  margin: 10px 0 10px 0;
 }
 .auth .mid-auth .input-code {
   display: flex;
@@ -43,7 +47,7 @@
   color: white;
   width: 70px;
   height: 30px;
-  margin: 20px auto 0 auto;
+  margin: 20px auto 10px auto;
   cursor: pointer;
 }
 .auth .mid-auth a {

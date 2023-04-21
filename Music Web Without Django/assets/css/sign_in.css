@@ -1,14 +1,23 @@
+.wrapper {
+  display: flex;
+  margin: auto 0 auto 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .sign-in-container {
   background-color: white;
   display: flex;
-  width: -moz-max-content;
-  width: max-content;
+  width: 80%;
 }
 
 .title-box {
   padding: 0;
   display: flex;
   align-items: center;
+  flex-grow: 1;
+  justify-content: center;
 }
 
 .title-box h1 {
@@ -16,19 +25,50 @@
 }
 
 .sign-in {
-  padding: 0px 100px 0px 100px;
   border-left: 2px solid navy;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .sign-in h1 {
   color: navy;
   margin: 0;
+  padding: 10px 0 10px 0;
 }
 
 .sign-in input {
   text-align: left;
+}
+
+.sign-in form {
+  padding: 0 0 10px 0;
+}
+
+.sign-in .email {
+  display: flex;
+}
+
+.email .email-input {
+  margin: 0 0 0 auto;
+}
+
+.sign-in .pass {
+  display: flex;
+  margin: 10px 0 0 0;
+}
+
+.pass .pass-input {
+  margin: 0 0 0 10px;
+}
+
+.sign-in .link-sign-up {
+  display: flex;
+  margin: 10px 0 0 0;
+}
+.sign-in .link-sign-up a {
+  margin: 0 0 0 auto;
 }
 
 .button {

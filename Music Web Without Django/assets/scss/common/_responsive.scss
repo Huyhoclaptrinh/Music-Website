@@ -8,3 +8,30 @@
         width: 100%;
     }
 }
+@media screen and (max-width: 768px) {
+    //SIGN IN
+    .sign-in-container {
+        flex-direction: column;
+    }
+
+    .sign-in-container .title-box {
+        display: none;
+    }
+
+    .sign-in-container .sign-in {
+        border: none;
+    }
+
+    //SIGN UP
+    .sign-up-container {
+        flex-direction: column;
+    }
+
+    .sign-up-container .title-box-sign-up {
+        display: none;
+    }
+
+    .sign-up-container .sign-up {
+        border: none;
+    }
+}
