@@ -10910,6 +10910,28 @@ readers do not read off random characters that represent icons */
     border: none;
   }
 }
+@media screen and (max-width: 375px) {
+  .sign-in-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .sign-in-container .title-box {
+    display: none;
+  }
+  .sign-in-container .sign-in {
+    border: none;
+  }
+  .sign-up-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .sign-up-container .title-box-sign-up {
+    display: none;
+  }
+  .sign-up-container .sign-up {
+    border: none;
+  }
+}
 .auth {
   display: flex;
   margin: auto 0 auto 0;
