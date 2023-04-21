@@ -1,6 +1,5 @@
 .title {
   width: 100%;
-  height: -moz-fit-content;
   height: fit-content;
   position: static;
   text-align: left;
@@ -15,7 +14,6 @@
 
 .feed {
   width: 100%;
-  height: -moz-fit-content;
   height: fit-content;
   margin-top: 40px;
 }
@@ -131,7 +129,6 @@
 }
 
 .song-container, .icon-container {
-  height: -moz-fit-content;
   height: fit-content;
 }
 
