@@ -89,3 +89,12 @@ function openSettings(event, settingsName) {
 
 // Show default tab
 // document.getElementById("defaultOpen").click();
+document.addEventListener('DOMContentLoaded', function() {
+  // your code here
+  var menuBtn = document.getElementById('navbar-toggle');
+  var navBar = document.getElementById('navbar-menu');
+
+  menuBtn.addEventListener('click', function() {
+    navBar.classList.toggle('active');
+  });
+});

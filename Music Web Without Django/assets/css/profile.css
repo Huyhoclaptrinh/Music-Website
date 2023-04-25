@@ -193,3 +193,207 @@
   background-color: #0062cc;
   cursor: pointer;
 }
+
+.song-container-mobile {
+  margin-left: 20px;
+  display: none;
+}
+.song-container-mobile .fa-circle-play {
+  height: 50px;
+  font-size: 40px;
+}
+.song-container-mobile .author-name-mobile {
+  font-size: 20px;
+  text-align: left;
+}
+.song-container-mobile .song-name-mobile {
+  font-size: 30px;
+  text-align: left;
+}
+
+.icon-container-mobile {
+  margin-left: 20px;
+  display: none;
+}
+
+.comment-section-mobile {
+  display: none;
+}
+
+.song-container-mobile {
+  display: none;
+}
+
+.icon-container-mobile {
+  display: none;
+}
+
+.song-container-mobile {
+  display: none;
+}
+.song-container-mobile .fa-circle-play {
+  display: none;
+}
+.song-container-mobile .author-name-mobile {
+  display: none;
+}
+.song-container-mobile .song-name-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 375px) {
+  .right-bar {
+    width: 100%;
+  }
+  .hidden-button {
+    display: flex;
+    width: 150px;
+    justify-content: center;
+    /* padding-right: 5px; */
+  }
+  .avatar-side {
+    width: 20%;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+  }
+  .profile-content-top {
+    flex-direction: column;
+    padding: 0;
+    justify-content: end;
+    height: 200px !important;
+  }
+  .profile-content-bottom .title {
+    padding: 0;
+  }
+  .profile-content-bottom .title p {
+    padding-left: 10px;
+    font-size: 30px;
+  }
+  .user-status h2 {
+    font-size: 25px;
+  }
+  .user-comment {
+    font-size: 20px !important;
+    line-height: 20px !important;
+    padding: 0 0 0 20px !important;
+  }
+  .bot-feed-left img {
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+  }
+  .bot-feed {
+    flex-wrap: wrap;
+  }
+  .bot-feed-right {
+    display: none !important;
+  }
+  .song-container-mobile {
+    margin-left: 20px;
+    display: block !important;
+  }
+  .song-container-mobile .fa-circle-play {
+    display: block !important;
+    height: 50px;
+    font-size: 40px;
+  }
+  .song-container-mobile .author-name-mobile {
+    display: block !important;
+    font-size: 20px;
+    text-align: left;
+  }
+  .song-container-mobile .song-name-mobile {
+    display: block !important;
+    font-size: 30px;
+    text-align: left;
+  }
+  .icon-container-mobile {
+    margin-left: 20px;
+    display: block !important;
+  }
+  .comment-section-mobile {
+    width: 100%;
+    height: 100%;
+    display: block !important;
+  }
+  .comment-section-mobile .comment-section-top-mobile {
+    margin-left: 18px;
+  }
+  .comment-section-mobile .comment-section-top-mobile #comment-submit-mobile {
+    padding: 8.5px;
+  }
+  .comment-section-mobile #comment-input-mobile {
+    width: 80%;
+    height: 30px;
+  }
+  .comment-section-mobile #submit-comment-mobile {
+    width: 10%;
+    height: 30px;
+  }
+  .comment-section-bot-mobile {
+    display: flex;
+    margin-top: 20px;
+  }
+  .comment-section-bot-mobile img {
+    width: 37px;
+    height: 36px;
+    margin-left: 20px;
+    border-radius: 50%;
+  }
+  .comment-section-bot-mobile .comment-container-mobile {
+    margin-left: 20px;
+  }
+  .comment-section-bot-mobile .comment-container-mobile .comment-username-mobile {
+    font-size: 15px;
+    text-align: left;
+  }
+  .comment-section-bot-mobile .comment-container-mobile .comment-text-mobile {
+    font-size: 16px;
+    text-align: left;
+  }
+  .right-content {
+    width: 100%;
+    height: 0;
+    border-bottom: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .profile-content-bottom .title {
+    padding: 0;
+  }
+  .profile-content-bottom .title p {
+    padding-left: 10px;
+    font-size: 30px;
+  }
+  .mid-bar {
+    height: 1000px;
+  }
+  .right-content {
+    width: 100%;
+    height: 0;
+    border-bottom: 0;
+  }
+  .rounded-icon-button {
+    margin: 0;
+  }
+  .edit-header-image-side {
+    width: 23%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .profile-name-side {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 50%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .avatar-side {
+    width: 30%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+  }
+}
