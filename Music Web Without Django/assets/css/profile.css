@@ -34,7 +34,8 @@
   border-radius: 50%;
   border: 1px solid black;
   opacity: 1;
-  object-fit: cover; /* fit image within container, preserving aspect ratio */
+  -o-object-fit: cover;
+     object-fit: cover; /* fit image within container, preserving aspect ratio */
 }
 
 .profile-name-side {

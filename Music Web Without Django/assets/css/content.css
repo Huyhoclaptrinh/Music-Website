@@ -1,5 +1,4 @@
 section {
-  display: -webkit-flex;
   display: flex;
   flex-wrap: wrap;
   padding: 0;
@@ -74,11 +73,13 @@ section {
     width: 100%;
     display: flex;
     justify-content: center;
+    height: -moz-fit-content;
     height: fit-content;
   }
   .left-bar ul {
     display: flex;
-    column-gap: 10px;
+    -moz-column-gap: 10px;
+         column-gap: 10px;
   }
   .left-bar ul li {
     width: 20%;
