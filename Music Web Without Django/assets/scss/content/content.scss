@@ -75,8 +75,12 @@ section {
 
 /*TABLET RESPONSIVE*/
 @media screen and (max-width: 768px) {
+    section {
+        flex-direction: row;
+    }
+
     .left-bar {
-        flex: 1 0 100%;
+        width: 100%;
         display: flex;
         justify-content: center;
         height: fit-content;
@@ -96,7 +100,11 @@ section {
         }
     }
 
+    .mid-bar {
+        width: 100%;
+    }
+
     .right-bar {
-        width: 40%;
+        width: 100%;
     }
 }

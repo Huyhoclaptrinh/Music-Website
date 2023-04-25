@@ -4,6 +4,7 @@
 
 html {
   height: 100%;
+  width: 100%;
 }
 
 body {
@@ -143,7 +144,7 @@ footer {
 }
 footer .footer-left {
   text-align: center;
-  width: 100%;
+  width: 60%;
 }
 footer .footer-left ul {
   list-style-type: none;
@@ -163,10 +164,10 @@ footer .footer-left i {
 }
 footer .footer-mid {
   display: flex;
-  width: 40%;
+  width: 20%;
 }
 footer .footer-right {
-  width: 40%;
+  width: 10%;
 }
 footer .footer-right ul {
   list-style-type: none;
@@ -291,7 +292,7 @@ footer i {
 .friend-slider .friend-slider-info .playlist-slider-bot {
   width: 100%;
   height: 80%;
-  padding: 0 35px;
+  padding: 0 10px;
   max-width: 90%;
   position: relative;
 }
@@ -363,9 +364,102 @@ footer i {
   margin-top: 10px;
 }
 
+.recommend-slider {
+  width: 100%;
+  min-height: 1000px;
+  border-bottom: 1px solid rgb(209, 205, 205);
+}
+.recommend-slider .recommend-slider-word {
+  position: relative;
+  width: 100%;
+  height: 15%;
+}
+.recommend-slider .recommend-slider-word h2 {
+  text-align: left;
+  margin: 10px 0 0 35px;
+}
+.recommend-slider .recommend-slider-info {
+  width: 100%;
+  height: 85%;
+  margin: 20px 0 0 0;
+}
+.recommend-slider .recommend-slider-info .recommend-slider-bot {
+  width: 100%;
+  height: 80%;
+  padding: 0 35px;
+  max-width: 90%;
+}
+.recommend-slider .recommend-slider-info .wrapper {
+  height: 100%;
+}
+.recommend-slider .recommend-slider-info .wrapper i {
+  top: 50%;
+  background: #202A44;
+  color: #fff;
+  height: 46px;
+  width: 46px;
+  text-align: center;
+  line-height: 46px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  font-size: 1.2rem;
+  transform: translateY(-50%);
+}
+.recommend-slider .recommend-slider-info .wrapper i:first-child {
+  left: -23px;
+  display: none;
+}
+.recommend-slider .recommend-slider-info .wrapper i:last-child {
+  right: -23px;
+  z-index: 1;
+}
+.recommend-slider .recommend-slider-info .wrapper .carousel {
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  font-size: 0px;
+  overflow: hidden;
+  cursor: pointer;
+  scroll-behavior: smooth;
+}
+.recommend-slider .recommend-slider-info .wrapper .carousel .image-and-detail {
+  margin-right: 10px;
+  display: inline-block;
+}
+.recommend-slider .recommend-slider-info .wrapper .carousel .image-and-detail .image-with-bg {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recommend-slider .recommend-slider-info .wrapper .carousel .image-and-detail .image-with-bg img {
+  margin-left: 0px;
+  height: 80%;
+  width: 150px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.recommend-slider .recommend-slider-info .wrapper .carousel .detail {
+  font-size: 18px; /* adjust the font size as needed */
+  line-height: 1; /* adjust the line height as needed */
+  color: black;
+  height: 20%;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.history-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .history-content-top {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   float: left;
   border-bottom: 1px solid #828282;
   width: 100%;
@@ -426,9 +520,15 @@ footer i {
   margin-bottom: 10px;
 }
 
+.friend-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .friend-content-top {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   float: left;
   border-bottom: 1px solid #828282;
   width: 100%;
@@ -11524,8 +11624,11 @@ section {
 
 /*TABLET RESPONSIVE*/
 @media screen and (max-width: 768px) {
+  section {
+    flex-direction: row;
+  }
   .left-bar {
-    flex: 1 0 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     height: fit-content;
@@ -11541,8 +11644,11 @@ section {
     font-size: 15px;
     margin-left: 10px;
   }
+  .mid-bar {
+    width: 100%;
+  }
   .right-bar {
-    width: 40%;
+    width: 100%;
   }
 }
 .profile-content-top {
@@ -11655,16 +11761,10 @@ section {
   padding: 20px 0px;
 }
 
-.user-img {
-  width: 20%;
-}
 .user-img img {
-  position: absolute;
   width: 70px;
-  height: 70px;
+  padding: 10px;
   border-radius: 50%;
-  left: 10px;
-  top: 2px;
 }
 
 .user {
@@ -11690,7 +11790,8 @@ section {
 
 .user-data {
   display: flex;
-  padding: 0px 10px;
+  flex-wrap: wrap;
+  row-gap: 20px;
   margin-bottom: 10px;
 }
 .user-data i {
@@ -11701,6 +11802,7 @@ section {
   padding: 0px 10px;
   top: 3px;
   position: relative;
+  display: flex;
   color: #202A44;
 }
 
