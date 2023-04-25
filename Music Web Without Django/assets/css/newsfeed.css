@@ -156,3 +156,20 @@
   font-size: 16px;
   text-align: left;
 }
+
+@media screen and (max-width: 375px) {
+  .title {
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    position: static;
+    text-align: left;
+    padding: 0 0 0 20px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 48px;
+    color: #000000;
+  }
+}

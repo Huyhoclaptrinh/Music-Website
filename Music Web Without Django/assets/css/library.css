@@ -158,6 +158,24 @@
   margin-left: 0px;
 }
 
+@media screen and (max-width: 375px) {
+  .friend-slider .friend-slider-info .playlist-slider-bot {
+    padding: 15px !important;
+  }
+  .recent-play .playlist-slider-bot {
+    padding: 15px !important;
+  }
+  .your-playlist ul {
+    align-items: self-end;
+  }
+  .playlist-image {
+    height: 150px;
+    width: 150px;
+  }
+  .your-playlist ul {
+    padding-left: 15px;
+  }
+}
 /*TABLET RESPONSIVE*/
 @media screen and (max-width: 768px) {
   .recent-play .wrapper i:first-child {

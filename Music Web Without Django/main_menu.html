@@ -9,12 +9,53 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <script src="https://kit.fontawesome.com/2fb516ca73.js" crossorigin="anonymous"></script>
-        <script src="./assets/js/style.js" defer></script>
+        
     </head>
     <body>
         <!--START HEADER -->
             <header>
                 <div class="header-content">
+                    <div class="menu-logo">
+                        <!-- <i class="fa-solid fa-bars"></i> -->
+                        
+                        <div class="menu-content">
+                                <button class="navbar-toggle">
+                                    <i class="fa-solid fa-bars"></i>
+                                  </button>
+                                <!-- <ul class="navbar-menu">
+                                    <li>
+                                        <form action="#" method="get">
+                                            <input type="text" class="search-input">
+                                            <button type="text" class="search-sbm">
+                                                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                                            </button>
+                                            <i class="fa-solid fa-microphone"></i>
+                                        </form>
+                                    </li>
+                                    <li class="active">
+                                        <i class="fa-sharp fa-solid fa-house" ></i>
+                                        <a class="active" href="#">Home</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa-sharp fa-solid fa-rss" ></i>
+                                        <a href="newsfeed.html">Newsfeed</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-list" ></i>
+                                        <a href="library.html">Library</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-gear" ></i>
+                                        <a href="settings.html">Settings</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-circle-xmark"></i>
+                                        <a href="sign_in.html">Exit</a>
+                                    </li>
+                                </ul> -->
+                        </div>
+                        
+                    </div>
                     <div class="logo">
                         <a href="main_menu.html">
                             <h1>MUSIEK</h1>
@@ -40,6 +81,12 @@
                             </a>
                         </div>
                     </div>
+
+                    <div class="mobile-account">
+                        <a href="profile.html">
+                            <img src="./assets/img/user.jpg" alt="user">
+                        </a>
+                    </div>
                 </div>
             </header>
         <!--END HEADER -->
@@ -49,6 +96,17 @@
                 <div class="left-bar">
                     <nav>
                         <ul>
+                            <li>
+                                <div class="search-mobile">
+                                    <form action="#" method="get">
+                                        <input type="text" class="search-mobile-input">
+                                        <button type="text" class="search-mobile-sbm">
+                                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                                        </button>
+                                        <i class="fa-solid fa-microphone"></i>
+                                    </form>
+                                </div>
+                            </li>
                             <li class="active">
                                 <i class="fa-sharp fa-solid fa-house" ></i>
                                 <a class="active" href="#">Home</a>
@@ -289,5 +347,6 @@
                 </div>
             </footer>
         <!--END FOOTER -->
+        <script src="./assets/js/style.js" defer></script>
     </body>
 </html>
