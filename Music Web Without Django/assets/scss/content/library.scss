@@ -196,7 +196,27 @@
     }
 
     .your-playlist ul {
-        padding-left: 15px;
+        padding-left: 0;
+
+        li{
+            padding: 20px 0px 20px 13px;
+        }
+    }
+
+    .first-row{
+        display: none;
+    }
+
+    .second-row{
+        display: none;
+    }
+
+    .third-row{
+        display: none;
+    }
+
+    .library-top {
+        height: 30%;
     }
 }
 
