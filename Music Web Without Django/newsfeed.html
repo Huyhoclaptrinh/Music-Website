@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <script src="https://kit.fontawesome.com/2fb516ca73.js" crossorigin="anonymous"></script>
         <script src="./assets/js/style.js" defer></script>
+        <script src="assets/lib/node_modules/jquery/dist/jquery.js"></script>
     </head>
     <body>
         <!--START HEADER -->
@@ -19,41 +20,18 @@
                     <!-- <i class="fa-solid fa-bars"></i> -->
                     
                     <div class="menu-content">
-                            <button class="navbar-toggle">
+                            <button id="navbar-toggle">
                                 <i class="fa-solid fa-bars"></i>
                               </button>
-                            <!-- <ul class="navbar-menu">
-                                <li>
-                                    <form action="#" method="get">
-                                        <input type="text" class="search-input">
-                                        <button type="text" class="search-sbm">
-                                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                                        </button>
-                                        <i class="fa-solid fa-microphone"></i>
-                                    </form>
-                                </li>
-                                <li class="active">
-                                    <i class="fa-sharp fa-solid fa-house" ></i>
-                                    <a class="active" href="#">Home</a>
-                                </li>
-                                <li>
-                                    <i class="fa-sharp fa-solid fa-rss" ></i>
-                                    <a href="newsfeed.html">Newsfeed</a>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-list" ></i>
-                                    <a href="library.html">Library</a>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-gear" ></i>
-                                    <a href="settings.html">Settings</a>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-circle-xmark"></i>
-                                    <a href="sign_in.html">Exit</a>
-                                </li>
-                            </ul> -->
                     </div>
+
+                <script>
+                    jQuery(document).ready(function(){
+                        jQuery('#navbar-toggle').on('click', function(event) {        
+                            jQuery('#navigator').toggle('show');
+                        });
+                    });
+                </script>
                     
                 </div>
                 <div class="logo">
@@ -95,7 +73,7 @@
             <section>
                 <div class="left-bar">
                     <nav>
-                        <ul>
+                        <ul id="navigator">
                             <li>
                                 <div class="search-mobile">
                                     <form action="#" method="get">
@@ -172,6 +150,29 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="song-container-mobile">
+                                <i class="fa-solid fa-circle-play"></i>
+                                <div class="author-name-mobile">Kenshi Yonezu</div>
+                                <div class="song-name-mobile">KICK BACK</div>
+                            </div>
+                            <div class="icon-container-mobile">
+                                <i class="fa-solid fa-comment"></i>
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-share"></i>
+                            </div>
+                            <div class="comment-section-mobile">
+                                <div class="comment-section-top-mobile">
+                                    <input type="text" id="comment-input-mobile" placeholder="Write your comment...">
+                                    <button type="button" name="comment-submit" id="comment-submit-mobile">Send</button>
+                                </div>
+                                <div class="comment-section-bot-mobile">
+                                    <img src="./assets/img/user.jpg" alt="song">
+                                    <div class="comment-container-mobile">
+                                        <div class="comment-username-mobile">KannaUwU</div>
+                                        <div class="comment-text-mobile">Nhac nhu dac cau that 🐧</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="feed">
@@ -208,6 +209,29 @@
                                             <div class="comment-username">KannaUwU</div>
                                             <div class="comment-text">Nhac nhu dac cau that 🐧</div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="song-container-mobile">
+                                <i class="fa-solid fa-circle-play"></i>
+                                <div class="author-name-mobile">Kenshi Yonezu</div>
+                                <div class="song-name-mobile">KICK BACK</div>
+                            </div>
+                            <div class="icon-container-mobile">
+                                <i class="fa-solid fa-comment"></i>
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-share"></i>
+                            </div>
+                            <div class="comment-section-mobile">
+                                <div class="comment-section-top-mobile">
+                                    <input type="text" id="comment-input-mobile" placeholder="Write your comment...">
+                                    <button type="button" name="comment-submit" id="comment-submit-mobile">Send</button>
+                                </div>
+                                <div class="comment-section-bot-mobile">
+                                    <img src="./assets/img/user.jpg" alt="song">
+                                    <div class="comment-container-mobile">
+                                        <div class="comment-username-mobile">KannaUwU</div>
+                                        <div class="comment-text-mobile">Nhac nhu dac cau that 🐧</div>
                                     </div>
                                 </div>
                             </div>

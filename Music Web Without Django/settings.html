@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <script src="https://kit.fontawesome.com/2fb516ca73.js" crossorigin="anonymous"></script>
         <script src="./assets/js/style.js" defer></script>
+        <script src="assets/lib/node_modules/jquery/dist/jquery.js"></script>
     </head>
     <body>
         <!--START HEADER -->
@@ -19,41 +20,18 @@
                     <!-- <i class="fa-solid fa-bars"></i> -->
                     
                     <div class="menu-content">
-                            <button class="navbar-toggle">
+                            <button id="navbar-toggle">
                                 <i class="fa-solid fa-bars"></i>
                               </button>
-                            <!-- <ul class="navbar-menu">
-                                <li>
-                                    <form action="#" method="get">
-                                        <input type="text" class="search-input">
-                                        <button type="text" class="search-sbm">
-                                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                                        </button>
-                                        <i class="fa-solid fa-microphone"></i>
-                                    </form>
-                                </li>
-                                <li class="active">
-                                    <i class="fa-sharp fa-solid fa-house" ></i>
-                                    <a class="active" href="#">Home</a>
-                                </li>
-                                <li>
-                                    <i class="fa-sharp fa-solid fa-rss" ></i>
-                                    <a href="newsfeed.html">Newsfeed</a>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-list" ></i>
-                                    <a href="library.html">Library</a>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-gear" ></i>
-                                    <a href="settings.html">Settings</a>
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-circle-xmark"></i>
-                                    <a href="sign_in.html">Exit</a>
-                                </li>
-                            </ul> -->
                     </div>
+
+                <script>
+                    jQuery(document).ready(function(){
+                        jQuery('#navbar-toggle').on('click', function(event) {        
+                            jQuery('#navigator').toggle('show');
+                        });
+                    });
+                </script>
                     
                 </div>
                 <div class="logo">
@@ -95,7 +73,7 @@
             <section>
                 <div class="left-bar">
                     <nav>
-                        <ul>
+                        <ul id="navigator">
                             <li>
                                 <div class="search-mobile">
                                     <form action="#" method="get">
