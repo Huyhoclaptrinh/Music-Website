@@ -23,6 +23,9 @@
   font-size: 20px;
   /* Change background color of buttons on hover */
 }
+.tab button a {
+  text-decoration: none;
+}
 .tab button a:hover {
   padding-bottom: 10px;
   color: #202A44;

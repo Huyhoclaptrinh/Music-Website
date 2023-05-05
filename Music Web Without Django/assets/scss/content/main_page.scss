@@ -213,18 +213,18 @@
 .history-content-top {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: initial;
     float: left;
     border-bottom: 1px solid #828282;
     width: 100%;
 
     .history-content-top-left {
-        font-size: 25px;
+        font-size: 23px;
         padding: 20px;
     }
 
     .history-content-top-mid p {
-        font-size: 25px;
+        font-size: 23px;
         padding: 20px 45px 20px 0px;
     }
 
@@ -233,7 +233,7 @@
 
         p{
             position: relative;
-            font-size: 25px;
+            font-size: 23px;
             padding: 20px 0px;
         }
     }
@@ -288,13 +288,13 @@
 .friend-content-top {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: initial;
     float: left;
     border-bottom: 1px solid #828282;
     width: 100%;
 
     .friend-content-top-left {
-        font-size: 25px;
+        font-size: 23px;
         padding: 20px;
     }
 
@@ -303,20 +303,24 @@
 
         p {
             position: relative;
-            font-size: 25px;
+            font-size: 23px;
             padding: 20px 0px;
         }
     }
 }
 
 .friend-content-top-mid p {
-    font-size: 25px;
+    font-size: 23px;
     padding: 20px 45px 20px 0px;
 }
 
 
 
 @media screen and (max-width: 375px) {
+    .friend-slider{
+        min-height: 20% !important;
+    }
+
     .friend-slider .friend-slider-word h2 {
         text-align: left;
     }

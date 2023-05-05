@@ -125,6 +125,18 @@
     }
 }
 
+.first-row-mobile{
+    display: none;
+}
+
+.second-row-mobile{
+    display: none;
+}
+
+.third-row-mobile{
+    display: none;
+}
+
 .your-playlist{
     width: 100%;
     
@@ -217,6 +229,38 @@
 
     .library-top {
         height: 30%;
+    }
+
+    .recent-play .wrapper .carousel .image-and-detail .image-with-bg img {
+        width: 161px;
+    }
+
+    .detail h3 {
+        margin-bottom: 0 !important;
+    }
+
+    .first-row-mobile{
+        display: block;
+    }
+    
+    .second-row-mobile{
+        display: block;
+    }
+    
+    .third-row-mobile{
+        display: block;
+    }
+
+    .recent-play-word h2 {
+        text-align: left;
+        padding-left: 20px ;
+        margin: 10px 0 0 0  !important;
+    }
+
+    .your-playlist-word h2 {
+        text-align: left;
+        padding-left: 20px ;
+        margin: 0 !important;
     }
 }
 

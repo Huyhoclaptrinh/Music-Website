@@ -146,10 +146,10 @@ header {
     
         .user-name {
             position: absolute;
-            width: 81px;
+            // width: 81px;
             height: 14px;
             left: 60px;
-            top: 10px;
+            top: 7px;
             font-weight: 400;
             font-size: 15px;
             color: #000000;
@@ -173,6 +173,22 @@ header {
     }
 }
 
+// .menu-logo{
+//     display: none;
+// }
+
+nav .navbar-toggler {
+    display: none;
+}
+
+.nav-con{
+    display: none;
+}
+
+div .container-fluid{
+    display: none;
+}
+
 @media screen and (max-width: 375px) {
     
     //HEADER
@@ -183,6 +199,10 @@ header {
     header .header-content {
         column-gap: 30px;
         justify-content: space-around !important;
+
+        i{
+            background: none !important;
+        }
     }
 
     .header-content .logo {
@@ -229,6 +249,10 @@ header {
                     background: #BAB2B2 !important;
                     color: black !important;
                 }
+            }
+
+            i{
+                color: white !important;
             }
         
             .micro-mobile-sbm{
@@ -322,6 +346,10 @@ header {
         display: block !important;
         padding: 10px 0 !important;
         margin-top: 5px;
+    }
+
+    .menu-logo{
+        display: block;
     }
      
 }
