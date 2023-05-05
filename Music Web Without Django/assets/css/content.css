@@ -122,39 +122,6 @@ section {
   .search-mobile i {
     margin: 0;
   }
-  .search-mobile-input {
-    width: 200px;
-    height: 24px;
-    background: #F9F9F9;
-    border-radius: 20px 0 0 20px;
-    margin: 0;
-    padding-left: 10px;
-    display: block !important;
-  }
-  .search-mobile-sbm {
-    position: relative;
-    width: 50px;
-    height: 30px;
-    background: #BAB2B2;
-    border-radius: 0px 20px 20px 0px;
-    display: block !important;
-  }
-  .search-mobile-sbm i {
-    background: #BAB2B2 !important;
-    color: black !important;
-  }
-  .micro-mobile-sbm {
-    position: relative;
-    width: 50px;
-    height: 36px;
-    background: #202A44;
-    left: -5px;
-    margin-left: 10px;
-  }
-  .micro-mobile-sbm i {
-    background: #202A44;
-    color: black;
-  }
 }
 /*TABLET RESPONSIVE*/
 @media screen and (max-width: 768px) {

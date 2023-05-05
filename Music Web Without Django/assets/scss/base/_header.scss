@@ -206,6 +206,45 @@ header {
         flex-direction: column;
 
         #navigator{
+            .search-mobile-input {
+                width: 200px ;
+                height: 24px;
+                background: #F9F9F9;
+                border-radius: 20px 0 0 20px ;
+                margin: 0 ;
+                padding-left: 10px ;
+                display: block !important;
+            }
+        
+            .search-mobile-sbm {
+                position: relative ;
+                width: 50px ;
+                height: 26px ;
+                background: #BAB2B2;
+                border-radius: 0px 20px 20px 0px ;
+                display: block !important;
+                
+        
+                i {
+                    background: #BAB2B2 !important;
+                    color: black !important;
+                }
+            }
+        
+            .micro-mobile-sbm{
+                position: relative;
+                width: 50px;
+                height: 26px;
+                background: #202A44;
+                left: -5px;
+                margin-left: 10px;
+                i {
+                    background: #202A44;
+                    color: black;
+                    width: 35px;
+                }
+            }
+
             a {
                 font-size: 18px;
                 color: white;
@@ -279,7 +318,7 @@ header {
     }
 
     .mobile-account img{
-        height: 36px !important;
+        height: 55px !important;
         display: block !important;
         padding: 10px 0 !important;
         margin-top: 5px;
