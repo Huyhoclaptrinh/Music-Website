@@ -45,8 +45,7 @@ header {
         height: 100%;
         background: #202A44;
 
-        .menu-logo{
-            width: 20%;
+        #menu-logo{
             display: none;
         }
     
@@ -182,8 +181,8 @@ header {
     }
 
     header .header-content {
-        justify-content: unset !important;
-        column-gap: 40px;
+        column-gap: 30px;
+        justify-content: space-around !important;
     }
 
     .header-content .logo {
@@ -200,11 +199,56 @@ header {
         }
     
 
-    .menu-logo{
+    #menu-logo{
         padding: 10px;
         display: flex !important;
-        justify-content: center;
         align-items: center; 
+        flex-direction: column;
+
+        #navigator{
+            a {
+                font-size: 18px;
+                color: white;
+                text-decoration: none;
+                padding: 20px 20px 20px 0;
+                flex-grow: 1;
+                width: 50%;
+            }
+            
+            ul{
+                padding: 0px;
+        
+                li:hover ,a:hover {
+                    background-color: #202A44;
+                    color: white;
+                }
+                
+                li.active,a.active {
+                    background-color: #202A44;
+                    color: white;
+                }
+        
+                li{
+                    display: flex;
+                    width: 100%;
+                    padding: 0px;
+                    align-items: center;
+                    justify-content: center;
+                }
+                
+            }
+            
+            i{
+                font-size: 18px;
+                position: relative;
+                color: #1e1e1e;
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+            }
+        }
 
         .menu-content{
               
