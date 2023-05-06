@@ -196,6 +196,15 @@ div .container-fluid{
         padding: 0;
     }
 
+    header .header-content .account {
+        margin: 0 !important;
+    }
+
+    header .header-content img {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
     header .header-content {
         column-gap: 30px;
         justify-content: space-around !important;
@@ -349,6 +358,10 @@ div .container-fluid{
     }
 
     .menu-logo{
+        display: block;
+    }
+
+    nav .navbar-toggler {
         display: block;
     }
      

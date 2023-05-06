@@ -153,6 +153,13 @@ div .container-fluid {
   header {
     padding: 0;
   }
+  header .header-content .account {
+    margin: 0 !important;
+  }
+  header .header-content img {
+    width: 50px !important;
+    height: 50px !important;
+  }
   header .header-content {
     -moz-column-gap: 30px;
          column-gap: 30px;
@@ -280,6 +287,9 @@ div .container-fluid {
   .menu-logo {
     display: block;
   }
+  nav .navbar-toggler {
+    display: block;
+  }
 }
 /*TABLET RESPONSIVE*/
 @media screen and (max-width: 768px) {
@@ -327,6 +337,7 @@ footer .footer-left ul {
   flex-direction: row;
   justify-content: center;
   padding: 20px;
+  margin-bottom: 0;
 }
 footer .footer-left ul li {
   display: inline-block;
@@ -350,6 +361,7 @@ footer .footer-right ul {
   flex-direction: row;
   justify-content: flex-end;
   padding: 20px;
+  margin-bottom: 0;
 }
 footer .footer-right ul li {
   display: inline-block;
@@ -11571,6 +11583,7 @@ readers do not read off random characters that represent icons */
   position: relative;
   width: 100%;
   height: 5%;
+  padding-bottom: 40px;
 }
 .recent-play-word h2 {
   text-align: left;
@@ -11637,10 +11650,13 @@ readers do not read off random characters that represent icons */
   font-size: 18px; /* adjust the font size as needed */
   line-height: 1; /* adjust the line height as needed */
   color: black;
-  height: 20%;
+  height: 25%;
   border: 1px solid black;
   box-sizing: border-box;
   text-align: center;
+}
+.recent-play .wrapper .carousel .image-and-detail .detail h3 {
+  margin-bottom: 0;
 }
 .recent-play .wrapper .carousel .image-and-detail .image-with-bg {
   width: 100%;
@@ -11652,7 +11668,7 @@ readers do not read off random characters that represent icons */
   margin-left: 0px;
   height: 80%;
   border-bottom: 1px solid black;
-  width: 150px;
+  width: 163px;
   max-width: 100%;
   max-height: 100%;
   -o-object-fit: contain;
