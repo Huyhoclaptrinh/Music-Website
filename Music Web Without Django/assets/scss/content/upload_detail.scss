@@ -132,3 +132,54 @@
     }
 }
 
+.detail-content-mobile{
+    display: none;
+}
+
+@media screen and (max-width: 375px) {
+    .detail-content{
+        display: none;
+    }
+
+    .upload-mid {
+        flex-direction: column;
+    }
+
+    .upload-content .upload-mid .btn-container {
+        align-items: flex-end;
+    }
+
+    .detail-content-mobile{
+        display: block;
+
+        .image-setup {
+            position: relative;
+            display: flex;
+            width: 235px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        .detail-input{
+            width: 235px;
+        }
+
+        .privacy{
+            top: 0;
+            label, input{
+                left: 0;
+            }
+
+            #age2{
+                left: 0;
+            }
+        }
+
+        .btn-submit{
+            position: relative;
+            background-color: #202A44; 
+            color: white; 
+          }
+    }
+}
+
