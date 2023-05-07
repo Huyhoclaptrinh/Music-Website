@@ -388,6 +388,8 @@ div .container-fluid{
     .header-content .search {
         order: 3;
         flex: 1 0 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .mobile-account img{

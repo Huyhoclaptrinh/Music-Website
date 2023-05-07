@@ -107,7 +107,7 @@
   margin-left: 18px;
 }
 .bot-feed-right .comment-section .comment-section-top #comment-submit {
-  padding: 8.5px;
+  padding: 0;
 }
 .bot-feed-right .comment-section #comment-input {
   width: 80%;

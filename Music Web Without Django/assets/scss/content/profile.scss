@@ -65,6 +65,7 @@
             position: relative;
             top: 15px;
             font-size: 25px;
+            margin: 0;
         }
       
     }
@@ -254,6 +255,15 @@
     }
 }
 
+.hidden-button{
+    display: flex;
+    align-items: baseline;
+    p{
+        margin-bottom: 0;
+        font-size: 14px;
+    }
+}
+
 
 @media screen and (max-width: 375px) {
     .right-bar {
@@ -395,6 +405,12 @@
         width: 100%;
         height: 0; 
         border-bottom: 0;
+    }
+
+    .profile-name-side{
+        h1{
+            font-size: 20px;
+        }
     }
 }
 
