@@ -1,4 +1,5 @@
 section {
+  display: -webkit-flex;
   display: flex;
   flex-wrap: wrap;
   padding: 0;
@@ -76,7 +77,7 @@ section {
   display: none;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 525px) {
   .mid-bar {
     width: 100% !important;
     height: 1600px !important;
@@ -124,7 +125,7 @@ section {
   }
 }
 /*TABLET RESPONSIVE*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   section {
     flex-direction: row;
   }
@@ -132,13 +133,11 @@ section {
     width: 100%;
     display: flex;
     justify-content: center;
-    height: -moz-fit-content;
     height: fit-content;
   }
   .left-bar ul {
     display: flex;
-    -moz-column-gap: 10px;
-         column-gap: 10px;
+    column-gap: 10px;
     margin: 0;
   }
   .left-bar ul li {

@@ -225,7 +225,7 @@
 
     .history-content-top-mid p {
         font-size: 23px;
-        padding: 20px 45px 20px 0px;
+        padding: 20px 10px 20px 0px;
     }
 
     .history-content-top-right{
@@ -311,12 +311,12 @@
 
 .friend-content-top-mid p {
     font-size: 23px;
-    padding: 20px 45px 20px 0px;
+    padding: 20px 20px 20px 0px;
 }
 
 
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 525px) {
     .friend-slider{
         min-height: 20% !important;
     }
@@ -387,7 +387,7 @@
 }
 
 /*TABLET RESPONSIVE*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .friend-slider .friend-slider-info .wrapper i:first-child {
         left: 0;
     }

@@ -121,7 +121,7 @@
   display: none;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 525px) {
   .detail-content {
     display: none;
   }

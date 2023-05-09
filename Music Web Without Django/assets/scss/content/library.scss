@@ -194,7 +194,7 @@
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 525px) {
     .friend-slider .friend-slider-info .playlist-slider-bot {
         padding: 15px !important;
     }
@@ -271,7 +271,7 @@
 
   
 /*TABLET RESPONSIVE*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .recent-play .wrapper i:first-child {
         left: 0;
     }

@@ -85,7 +85,7 @@ section {
     display: none;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 525px) {
     //CONTENT
     .mid-bar{
         width: 100% !important;
@@ -144,7 +144,7 @@ section {
 }
 
 /*TABLET RESPONSIVE*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     section {
         flex-direction: row;
     }

@@ -48,7 +48,7 @@ footer {
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
-            padding: 20px;
+            padding: 20px 0;
             margin-bottom: 0;
 
             li {
@@ -79,7 +79,7 @@ footer {
    
   /* Modify the appearance of the slider */
 .seek_slider {
-    width: 700px;
+    width: 395px;
 }
 
 /* Modify the appearance of the slider */
@@ -128,10 +128,10 @@ footer {
     border: 1px solid white;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 525px) {
 
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     footer {
         justify-content: space-between;
     }

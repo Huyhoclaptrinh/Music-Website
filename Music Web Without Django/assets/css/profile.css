@@ -34,8 +34,7 @@
   border-radius: 50%;
   border: 1px solid black;
   opacity: 1;
-  -o-object-fit: cover;
-     object-fit: cover; /* fit image within container, preserving aspect ratio */
+  object-fit: cover; /* fit image within container, preserving aspect ratio */
 }
 
 .profile-name-side {
@@ -251,7 +250,7 @@
   font-size: 14px;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 525px) {
   .right-bar {
     width: 100%;
   }
@@ -371,7 +370,7 @@
     font-size: 20px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .profile-content-bottom .title {
     padding: 0;
   }
