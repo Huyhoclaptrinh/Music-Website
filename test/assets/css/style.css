@@ -855,11 +855,11 @@ footer i {
   padding: 0 0 10px 0;
 }
 
-.sign-in .email {
+.sign-in .username {
   display: flex;
 }
 
-.email .email-input {
+.username .username-input {
   margin: 0 0 0 auto;
 }
 

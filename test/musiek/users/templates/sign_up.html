@@ -24,35 +24,37 @@
                 
                 <div class="sign-up">
                     <h1> SIGN UP </h1>
-                    <form action="" class="sign-up-form">
+                    <form method="post" action="{% url 'signup' %}" class="sign-up-form">
+                        {% csrf_token %}
                         <div class="name-sign-up">
                             <label for="fname">Name:</label>
                             <div class="name-input-sign-up">
-                                <input type="text" name="fname"><br>
+                                <input type="text" name="name" required><br>
                             </div>
                         </div>
                         <div class="username-sign-up">
                             <label for="fname">Username:</label>
                             <div class="username-input-sign-up">
-                                <input type="text" name="fname"><br>
+                                <input type="text" name="username" required><br>
                             </div>
                         </div>
                         <div class="email-sign-up">
                             <label for="fname">Email:</label>
                             <div class="email-input-sign-up">
-                                <input type="text" name="fname"><br>
+                                <input type="text" name="email" required><br>
                             </div>
                         </div>
                         <div class="pass-sign-up">
                             <label for="lname">Password:</label>
                             <div class="pass-input-sign-up">
-                                <input type="Password" id="lname" name="lname"><br>
+                                <input type="Password" id="lname" name="password" required><br>
                             </div>
                         </div>
-                    </form> 
-                    <form action="{% url 'auth' %}">
                         <button class="button-sign-up" type="submit"> Enter </button>
-                    </form>
+                    </form> 
+                    {% comment %} <form action="{% url 'signin' %}">
+                        <button class="button-sign-up" type="submit"> Enter </button>
+                    </form> {% endcomment %}
                 </div>
             </div>
         </div>

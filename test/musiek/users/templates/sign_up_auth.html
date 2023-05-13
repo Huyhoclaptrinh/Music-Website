@@ -38,7 +38,7 @@
 		var pressedButton = document.getElementsByName("submit")[0];
 		pressedButton.addEventListener("click", function (event) {
 			alert("You have pressed the button..........");
-			window.location.href = "/signin/"; // redirect to signin.html
+			window.location.href = "{% url 'signin' %}"; // redirect to signin.html
 		})
 	</script>
 

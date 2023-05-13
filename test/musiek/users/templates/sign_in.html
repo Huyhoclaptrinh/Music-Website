@@ -23,26 +23,28 @@
 				</div>
 				<div class="sign-in">
 					<h1> SIGN IN </h1>
-					<form action="" class="sign-in-form">
+					<form action="{% url 'signin' %}" class="sign-in-form" method="POST">
+						{% csrf_token %}
 						<div class="email">
-							<label for="fname">Email:</label>
+							<label for="fname">Username:</label>
 							<div class="email-input">
-								<input type="text" name="fname"><br>
+								<input name="username" id="id_email" required><br>
 							</div>
 						</div>
 						<div class="pass">
 							<label for="lname">Password:</label>
 							<div class="pass-input">
-								<input type="Password" class="lname" name="lname"><br>
+								<input type="Password" name="password" id="id_password" required><br>
 							</div>
 						</div>
 						<div class="link-sign-up">
 							<a href="{% url 'signup' %}"> Don't have an account? Sign up</a>
 						</div>
-					</form> 
-					<form action="{% url 'home' %}">
 						<button class="button" type="submit"> Enter </button>
-					</form>
+					</form> 
+					{% comment %} <form action="{% url 'home' %}"> {% endcomment %}
+					{% comment %} <button class="button" type="submit"> Enter </button> {% endcomment %}
+					{% comment %} </form> {% endcomment %}
 				</div>
 			</div>
 		</div>

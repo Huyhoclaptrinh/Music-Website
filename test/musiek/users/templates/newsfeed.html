@@ -124,7 +124,7 @@
                                     <ul>
                                         <li >
                                             <i class="fa-sharp fa-solid fa-house" ></i>
-                                            <a href="/home/">Home</a>
+                                            <a href="{% url 'home' %}">Home</a>
                                         </li>
                                         <li class="active">
                                             <i class="fa-sharp fa-solid fa-rss" ></i>
@@ -132,11 +132,11 @@
                                         </li>
                                         <li>
                                             <i class="fa-solid fa-list" ></i>
-                                            <a href="/signin/home/library/">Library</a>
+                                            <a href="{% url 'library' %}">Library</a>
                                         </li>
                                         <li>
                                             <i class="fa-solid fa-gear" ></i>
-                                            <a href="/signin/home/settings/">Settings</a>
+                                            <a href="{% url 'setting' %}">Settings</a>
                                         </li>
                                         <li>
                                             <i class="fa-solid fa-circle-xmark"></i>

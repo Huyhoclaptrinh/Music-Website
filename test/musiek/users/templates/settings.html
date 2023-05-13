@@ -124,15 +124,15 @@
                                     <ul>
                                         <li >
                                             <i class="fa-sharp fa-solid fa-house" ></i>
-                                            <a href="/signin/home/" >Home</a>
+                                            <a href="{% url 'home' %}" >Home</a>
                                         </li>
                                         <li>
                                             <i class="fa-sharp fa-solid fa-rss" ></i>
-                                            <a href="/signin/home/newsfeed/">Newsfeed</a>
+                                            <a href="{% url 'newsfeed' %}">Newsfeed</a>
                                         </li>
                                         <li>
                                             <i class="fa-solid fa-list" ></i>
-                                            <a href="/signin/home/library/">Library</a>
+                                            <a href="{% url 'library' %}">Library</a>
                                         </li>
                                         <li class="active">
                                             <i class="fa-solid fa-gear" ></i>

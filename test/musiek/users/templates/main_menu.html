@@ -37,16 +37,19 @@
                               </svg></button>
                           </form>
                     </div>
+                    
                     <div class="user-content col-md-3">
+                        {% if user.is_authenticated %}
                         <div class="account">
                             <a href="{% url 'profile' %}">
                                 <div class="image">
                                     <img src="{% static 'img/user.jpg' %}" alt="user">
                                 </div>
     
-                                <div class="user-name">Nghia Hoang</div>
+                                <div class="user-name">{{username}}</div>
                             </a>
                         </div>
+                        {% endif%}
                     </div>
 
                     <!-- <div class="mobile-account">
