@@ -1,3 +1,5 @@
+{% load sass_tags %}
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,12 +8,13 @@
         <title>Musiek</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="{% sass_src 'scss/style.scss' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'node_modules/bootstrap-icons/font/bootstrap-icons.css' %}">
         <script src="https://kit.fontawesome.com/2fb516ca73.js" crossorigin="anonymous"></script>
-        <script src="assets/lib/node_modules/jquery/dist/jquery.js"></script>
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <script src="{% static 'lib/node_modules/jquery/dist/jquery.js' %}"></script>
+        
     </head>
     <body>
         <!--START HEADER -->
@@ -177,7 +180,7 @@
                         <ul>
                             <li >
                                 <i class="fa-sharp fa-solid fa-house" ></i>
-                                <a href="main_menu.html">Home</a>
+                                <a href="users/">Home</a>
                             </li>
                             <li class="active">
                                 <i class="fa-sharp fa-solid fa-rss" ></i>
@@ -464,7 +467,7 @@
                 </div>
             </footer>
         <!--END FOOTER -->
-        <script src="./assets/js/style.js" ></script>
-        <script src="./assets/js/bootstrap.min.js" ></script>
+        <script src="{% static 'js/style.js' %}" defer></script>
+        <script src="{% static 'js/bootstrap.min.js' %}" ></script>
     </body>
 </html>

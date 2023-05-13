@@ -1,0 +1,63 @@
+{% load sass_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Musiek</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% sass_src 'scss/style.scss' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'node_modules/bootstrap-icons/font/bootstrap-icons.css' %}">
+        <script src="https://kit.fontawesome.com/2fb516ca73.js" crossorigin="anonymous"></script>
+        <script src="{% static 'lib/node_modules/jquery/dist/jquery.js' %}"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="sign-up-container">
+                <div class="title-box-sign-up">
+                    <h1>MUSIEK</h1>
+                </div>
+                
+                <div class="sign-up">
+                    <h1> SIGN UP </h1>
+                    <form action="" class="sign-up-form">
+                        <div class="name-sign-up">
+                            <label for="fname">Name:</label>
+                            <div class="name-input-sign-up">
+                                <input type="text" name="fname"><br>
+                            </div>
+                        </div>
+                        <div class="username-sign-up">
+                            <label for="fname">Username:</label>
+                            <div class="username-input-sign-up">
+                                <input type="text" name="fname"><br>
+                            </div>
+                        </div>
+                        <div class="email-sign-up">
+                            <label for="fname">Email:</label>
+                            <div class="email-input-sign-up">
+                                <input type="text" name="fname"><br>
+                            </div>
+                        </div>
+                        <div class="pass-sign-up">
+                            <label for="lname">Password:</label>
+                            <div class="pass-input-sign-up">
+                                <input type="Password" id="lname" name="lname"><br>
+                            </div>
+                        </div>
+                    </form> 
+                    <form action="{% url 'auth' %}">
+                        <button class="button-sign-up" type="submit"> Enter </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'js/style.js' %}" defer></script>
+        <script src="{% static 'js/bootstrap.min.js' %}" ></script>
+    </body>
+</html>

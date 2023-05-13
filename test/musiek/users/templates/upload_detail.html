@@ -1,0 +1,193 @@
+{% load sass_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Musiek</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% sass_src 'scss/style.scss' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'node_modules/bootstrap-icons/font/bootstrap-icons.css' %}">
+        <script src="https://kit.fontawesome.com/2fb516ca73.js" crossorigin="anonymous"></script>
+        <script src="{% static 'lib/node_modules/jquery/dist/jquery.js' %}"></script>
+    </head>
+    <body>
+        <!--START HEADER -->
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <a href="main_menu.html">
+                        <h1>MUSIEK</h1>
+                    </a>
+                </div>
+                <div class="search">
+                    <form action="#" method="get">
+                        <input type="text" class="search-input">
+                        <button type="text" class="search-sbm">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        </button>
+                        <button type="text" class="micro-sbm">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="user-content">
+                    <div class="account">
+                        <a href="profile.html">
+                            <div class="image">
+                                <img src="./assets/img/user.jpg" alt="user">
+                            </div>
+
+                            <div class="user-name">Nghia Hoang</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--END HEADER -->
+
+        <!-- START CONTENT -->
+        <section>
+            <div  class="left-bar"></div>
+            <div class="mid-bar">
+                <div class="upload-content">
+                    <div class="upload-left"></div>
+                    <div class="upload-mid">
+                        <h1>Basic Info</h1>
+                        <div class="detail-content">
+                            <div class="detail-content-top">
+                                <div class="detail-content-top-left">
+                                    <div class="image-setup">
+                                        <div class="btn-container">
+                                            <div class="button-wrap">
+                                              <label class ="new-button" for="btn-upload"> Upload
+                                              <input id="btn-upload" type="file" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="detail-content-top-right">
+                                    <p>Title</p>
+                                    <input type="text" >
+                                    <p>Artist</p>
+                                    <input type="text" >
+                                    <p>Genre</p>
+                                    <select name="None" id="cars">
+                                        <option value="volvo">None</option>
+                                        <option value="D">Dung</option>
+                                        <option value="M">Mang</option>
+                                        <option value="C">Com</option>
+                                        <option value="S">Suon</option>
+                                    </select>
+                                    <p>Caption</p>
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                    <div class="privacy">
+                                        <p>Privacy:</p>
+                                        <input type="radio" id="age1" name="age" value="60">
+                                        <label for="privacy1">Public</label>
+                                        <input type="radio" id="age2" name="age" value="60">
+                                        <label for="privacy2">Private</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detail-content-bottom">
+                                <button class="btn-cancel">
+                                    Cancel
+                                </button>
+                                <button class="btn-submit">
+                                    Submit
+                                </button>
+                            </div>
+
+                            
+                        </div>
+                        <div class="detail-content-mobile">
+                            <div class="image-setup">
+                                <div class="btn-container">
+                                    <div class="button-wrap">
+                                      <label class ="new-button" for="btn-upload">
+                                        <p> Upload </p> 
+                                      <input id="btn-upload" type="file" >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p>Title</p>
+                            <input type="text" class="detail-input">
+                            <p>Artist</p>
+                            <input type="text" class="detail-input">
+                            <p>Genre</p>
+                            <select name="None" id="cars">
+                                <option value="volvo">None</option>
+                                <option value="D">Dung</option>
+                                <option value="M">Mang</option>
+                                <option value="C">Com</option>
+                                <option value="S">Suon</option>
+                            </select>
+                            <p>Caption</p>
+                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <div class="privacy">
+                                <p>Privacy:</p>
+                                <input type="radio" id="age1" name="age" value="60">
+                                <label for="privacy1">Public</label>
+                                <input type="radio" id="age2" name="age" value="60">
+                                <label for="privacy2">Private</label>
+                            </div>
+
+                            <button class="btn-cancel">
+                                Cancel
+                            </button>
+                            <button class="btn-submit">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                    <div class="upload-right"></div>
+                </div>
+            </div>
+            <div class="right-bar"></div> 
+        </section>
+        <!--END CONTENT -->
+
+        <!--START FOOTER -->
+        <footer>
+            <div class="footer-left">
+                <ul>
+                    <li><i class="fa-solid fa-forward fa-rotate-180"></i></li>
+                    <li><i class="fa-solid fa-play" ></i></li>
+                    <li><i class="fa-solid fa-forward" ></i></li>
+                    <li><i class="fa-solid fa-shuffle"></i></li>
+                    <li><i class="fa-solid fa-rotate-left"></i></li>
+                    <li>
+                        <div class="slider_container">
+                            <div class="current-time">00:00</div>
+                            <input type="range" min="1" max="100"
+                              value="0" class="seek_slider">
+                            <div class="total-duration">03:00</div>
+                        </div>
+                    </li>
+                    <li><i class="fa-solid fa-headphones" ></i></li>
+                </ul>
+            </div>
+            <div class="footer-mid">
+                <div class="music-img"></div>
+                <div class="music-content"></div>
+            </div>
+            
+            <div class="footer-right">
+                <ul>
+                    <li><i class="fa-solid fa-heart" ></i></li>
+                    <li><i class="fa-solid fa-user-plus" ></i></li>
+                    <li><i class="fa-solid fa-music" ></i></li>
+                </ul>
+            </div>
+        </footer>
+        <!--END FOOTER -->
+        <script src="{% static 'js/style.js' %}" defer></script>
+        <script src="{% static 'js/bootstrap.min.js' %}" ></script>
+    </body>
+</html>
