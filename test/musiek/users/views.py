@@ -8,18 +8,18 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 def signIn(request):
-    if request.method == "POST":
-      username = request.POST['username']
-      password = request.POST['password']
-      user = authenticate(username=username,password=password)
-      if user is not None:
-        login(request,user)
-        return render(request,'main_menu.html')
-      else:
-        messages.error(request,"Error")
-        return redirect('/')
-    
-    return render(request,'sign_in.html')
+  if request.method == "POST":
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username,password=password)
+    if user is not None:
+      login(request,user)
+      return redirect("home")
+    else:
+      messages.error(request,"Error")
+      return redirect('/')
+  
+  return render(request,'sign_in.html')
 
 def signUp(request):
   if request.method == "POST":
@@ -51,7 +51,7 @@ def signUp(request):
     myuser = User.objects.create_user(username, email, password)
     myuser.name = name
     myuser.save()
-    messages.success(request, "Successfull")
+    messages.success(request, "Successful")
 
     return redirect('/')
   return render(request,'sign_up.html')
