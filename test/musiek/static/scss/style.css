@@ -9682,8 +9682,7 @@ section {
     padding-bottom: 10px; } }
 
 .upload-mid {
-  position: relative;
-  top: 100px; }
+  position: relative; }
   .upload-mid .detail-content {
     position: relative;
     width: 100%;
