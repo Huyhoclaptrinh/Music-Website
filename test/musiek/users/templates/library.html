@@ -1,305 +1,317 @@
-{% extends 'base-musiek.html' %}
+{% extends 'base/base-musiek.html' %}
+{% block header %}
+    {% include 'base/base-header.html' %}
+{% endblock header %}
+{% block footer %}
+    {% include 'base/base-footer.html' %}
+{% endblock footer %}
+{% block left %}
+    {% include 'base/base-left-content.html' %}
+{% endblock left %}
 {% block content %}
     {% load static %}
-<div class="mid-bar">
-                <div class="library-top">
-                    <div class="recent-play-word">
-                        <h2>Recently Played</h2>
-                    </div>
-                    <div class="recent-play">
-                        <div class="playlist-slider-bot">
-                            <div class="wrapper">
-                                <i id="left" class="fa-solid fa-angle-left"></i>
-                                <div class="carousel">
-                                    <div class="image-and-detail">
-                                        <div class="image-with-bg">
-                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+    <div class="mid-bar">
+                    <div class="library-top">
+                        <div class="recent-play-word">
+                            <h2>Recently Played</h2>
+                        </div>
+                        <div class="recent-play">
+                            <div class="playlist-slider-bot">
+                                <div class="wrapper">
+                                    <i id="left" class="fa-solid fa-angle-left"></i>
+                                    <div class="carousel">
+                                        <div class="image-and-detail">
+                                            <div class="image-with-bg">
+                                                <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                            </div>
+                                            <div class="detail">
+                                                <h3>Image 1 Title</h3>
+                                                <p>Image 1 Description</p>
+                                            </div>
                                         </div>
-                                        <div class="detail">
-                                            <h3>Image 1 Title</h3>
-                                            <p>Image 1 Description</p>
+                                        <div class="image-and-detail">
+                                            <div class="image-with-bg">
+                                                <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                            </div>
+                                            <div class="detail">
+                                                <h3>Image 1 Title</h3>
+                                                <p>Image 1 Description</p>
+                                            </div>
+                                        </div>
+                                        <div class="image-and-detail">
+                                            <div class="image-with-bg">
+                                                <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                            </div>
+                                            <div class="detail">
+                                                <h3>Image 1 Title</h3>
+                                                <p>Image 1 Description</p>
+                                            </div>
+                                        </div>
+                                        <div class="image-and-detail">
+                                            <div class="image-with-bg">
+                                                <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                            </div>
+                                            <div class="detail">
+                                                <h3>Image 1 Title</h3>
+                                                <p>Image 1 Description</p>
+                                            </div>
+                                        </div>
+                                        <div class="image-and-detail">
+                                            <div class="image-with-bg">
+                                                <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                            </div>
+                                            <div class="detail">
+                                                <h3>Image 1 Title</h3>
+                                                <p>Image 1 Description</p>
+                                            </div>
+                                        </div>
+                                        <div class="image-and-detail">
+                                            <div class="image-with-bg">
+                                                <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                            </div>
+                                            <div class="detail">
+                                                <h3>Image 1 Title</h3>
+                                                <p>Image 1 Description</p>
+                                            </div>
+                                        </div>
+                                        <div class="image-and-detail">
+                                            <div class="image-with-bg">
+                                                <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                            </div>
+                                            <div class="detail">
+                                                <h3>Image 1 Title</h3>
+                                                <p>Image 1 Description</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="image-and-detail">
-                                        <div class="image-with-bg">
-                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                        </div>
-                                        <div class="detail">
-                                            <h3>Image 1 Title</h3>
-                                            <p>Image 1 Description</p>
-                                        </div>
-                                    </div>
-                                    <div class="image-and-detail">
-                                        <div class="image-with-bg">
-                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                        </div>
-                                        <div class="detail">
-                                            <h3>Image 1 Title</h3>
-                                            <p>Image 1 Description</p>
-                                        </div>
-                                    </div>
-                                    <div class="image-and-detail">
-                                        <div class="image-with-bg">
-                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                        </div>
-                                        <div class="detail">
-                                            <h3>Image 1 Title</h3>
-                                            <p>Image 1 Description</p>
-                                        </div>
-                                    </div>
-                                    <div class="image-and-detail">
-                                        <div class="image-with-bg">
-                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                        </div>
-                                        <div class="detail">
-                                            <h3>Image 1 Title</h3>
-                                            <p>Image 1 Description</p>
-                                        </div>
-                                    </div>
-                                    <div class="image-and-detail">
-                                        <div class="image-with-bg">
-                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                        </div>
-                                        <div class="detail">
-                                            <h3>Image 1 Title</h3>
-                                            <p>Image 1 Description</p>
-                                        </div>
-                                    </div>
-                                    <div class="image-and-detail">
-                                        <div class="image-with-bg">
-                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                        </div>
-                                        <div class="detail">
-                                            <h3>Image 1 Title</h3>
-                                            <p>Image 1 Description</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i id="right" class="fa-solid fa-angle-right"></i>
-                            </div>   
+                                    <i id="right" class="fa-solid fa-angle-right"></i>
+                                </div>   
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="library-bottom">
-                    <div class="your-playlist-word">
-                        <h2>Your Playlist</h2>
-                    </div>
-                    <div class="your-playlist">
-                        <div class="first-row">
-                            <ul>
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-                            </ul>
+                    <div class="library-bottom">
+                        <div class="your-playlist-word">
+                            <h2>Your Playlist</h2>
                         </div>
-                        <div class="first-row-mobile">
-                            <ul>
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
+                        <div class="your-playlist">
+                            <div class="first-row">
+                                <ul>
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
 
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-                            </ul>
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="first-row-mobile">
+                                <ul>
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="second-row">
+                                <ul>
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="second-row-mobile">
+                                <ul>
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="third-row">
+                                <ul>
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="third-row-mobile">
+                                <ul>
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="playlist-image">
+                                            <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                        </div>
+                                        <div class="playlist-detail">
+                                        SI Zing 
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="second-row">
-                            <ul>
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="btn-toggle-warp">
+                            <button id="toggle-btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
                         </div>
-                        <div class="second-row-mobile">
-                            <ul>
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="third-row">
-                            <ul>
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="third-row-mobile">
-                            <ul>
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="playlist-image">
-                                        <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                    </div>
-                                    <div class="playlist-detail">
-                                      SI Zing 
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="btn-toggle-warp">
-                        <button id="toggle-btn">
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                    </div>
-                          
-                </div>    
-</div>
+                            
+                    </div>    
+    </div>
 {% endblock content %}
+{% block right %}
+    {% include 'base/base-right-content.html' %}
+{% endblock right %}

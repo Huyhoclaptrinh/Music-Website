@@ -1,0 +1,35 @@
+{% load sass_tags %}
+{% load static %}
+<footer>
+    <div class="footer-left">
+        <ul>
+            <li><i class="fa-solid fa-forward fa-rotate-180"></i></li>
+            <li><i class="fa-solid fa-play" ></i></li>
+            <li><i class="fa-solid fa-forward" ></i></li>
+            <li><i class="fa-solid fa-shuffle"></i></li>
+            <li><i class="fa-solid fa-rotate-left"></i></li>
+            <li>
+                <div class="slider_container">
+                    <div class="current-time">00:00</div>
+                    <input type="range" min="1" max="100"
+                      value="0" class="seek_slider" onchange="seekTo()">
+                    <div class="total-duration">03:00</div>
+                </div>
+            </li>
+            <li><i class="fa-solid fa-headphones" ></i></li>
+        </ul>
+    </div>
+    <div class="footer-mid">
+        <div class="music-img">
+            <!-- <img src="assets/img/Đề-1-cc_02.jpg" alt="" style="height: 10%;"> -->
+        </div>
+        <div class="music-content"></div>
+    </div>
+    <div class="footer-right">
+        <ul>
+            <li><i class="fa-solid fa-heart" ></i></li>
+            <li><i class="fa-solid fa-user-plus" ></i></li>
+            <li><i class="fa-solid fa-music" ></i></li>
+        </ul>
+    </div>
+</footer>
