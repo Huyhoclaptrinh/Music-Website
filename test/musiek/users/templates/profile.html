@@ -39,12 +39,17 @@
                     </div>
                     
                     <div class="user-content col-md-3">
+                        {% if user.is_authenticated %}
                         <div class="account">
-                            <div class="image">
-                                <img src="./assets/img/user.jpg" alt="user">
-                            </div>
-                            <div class="user-name">Nghia Hoang</div>
+                            <a href="{% url 'profile' %}">
+                                <div class="image">
+                                    <img src="{% static 'img/user.jpg' %}" alt="user">
+                                </div>
+    
+                                <div class="user-name">{{username}}</div>
+                            </a>
                         </div>
+                        {% endif%}
                     </div>
                 </div>
             </header>
@@ -52,12 +57,12 @@
 
         <!-- START CONTENT -->
             <section>
-                <div  class="left-bar"></div>
+                <div class="left-bar"></div>
                 <div class="mid-bar">
                     <div class="profile-content-top">
                         <div class="avatar-side">
                             <div class="image">
-                                <img src="./assets/img/user.jpg" alt="user">
+                                <img src="{% static 'img/user.jpg' %}" alt="user">
                             </div>
                         </div>
                         <div class="profile-name-side">
@@ -73,7 +78,7 @@
                         </div>
                         <div class="feed">
                             <div class="top-feed">
-                                <img src="./assets/img/user.jpg" alt="user">
+                                <img src="{% static 'img/user.jpg' %}" alt="user">
                                 <div class="user-status">
                                     <h2>KannaUwU</h2>
                                     <p>2 days ago</p>
@@ -84,7 +89,7 @@
                             </div>
                             <div class="bot-feed">
                                 <div class="bot-feed-left">
-                                    <img src="./assets/img/user.jpg" alt="song">
+                                    <img src="{% static 'img/user.jpg' %}" alt="song">
                                 </div>
                                 <div class="bot-feed-right">
                                     <i class="fa-solid fa-circle-play"></i>
@@ -103,7 +108,7 @@
                                             <button type="button" name="comment-submit" id="comment-submit">Send</button>
                                         </div>
                                         <div class="comment-section-bot">
-                                            <img src="./assets/img/user.jpg" alt="song">
+                                            <img src="{% static 'img/user.jpg' %}" alt="song">
                                             <div class="comment-container">
                                                 <div class="comment-username">KannaUwU</div>
                                                 <div class="comment-text">Nhac nhu dac cau that 🐧</div>
@@ -129,7 +134,7 @@
                                             <button type="button" name="comment-submit" id="comment-submit-mobile">Send</button>
                                         </div>
                                         <div class="comment-section-bot-mobile">
-                                            <img src="./assets/img/user.jpg" alt="song">
+                                            <img src="{% static 'img/user.jpg' %}" alt="song">
                                             <div class="comment-container-mobile">
                                                 <div class="comment-username-mobile">KannaUwU</div>
                                                 <div class="comment-text-mobile">Nhac nhu dac cau that 🐧</div>
@@ -177,7 +182,7 @@
 
                         <div class="right-content-bottom1">
                             <div class="song">
-                                <div class="song-img"><img src="./assets/img/user.jpg" alt="lumine"></div>
+                                <div class="song-img"><img src="{% static 'img/user.jpg' %}" alt="lumine"></div>
                                 <div class="song-detail">
                                     <div class="song-artist"><p> Lumine </p></div>
                                     <div class="song-name"><p> Dung mang com suon </p></div>
@@ -189,7 +194,7 @@
                                 </div>
                             </div>
                             <div class="song">
-                                <div class="song-img"><img src="./assets/img/user.jpg" alt="lumine"></div>
+                                <div class="song-img"><img src="{% static 'img/user.jpg' %}" alt="lumine"></div>
                                 <div class="song-detail">
                                     <div class="song-artist"><p> Lumine </p></div>
                                     <div class="song-name"><p> Dung mang com suon </p></div>
@@ -216,7 +221,7 @@
                         </div>
                         <div class="right-content-bottom2">
                             <div class="user">
-                                <div class="user-img"><img src="./assets/img/user.jpg" alt="lumine"></div>
+                                <div class="user-img"><img src="{% static 'img/user.jpg' %}" alt="lumine"></div>
                                 <div class="user-detail">
                                     <div class="user-name"><p> Dung mang com suon </p></div>
                                     <div class="user-data">
@@ -231,7 +236,7 @@
                                 </div>
                             </div>
                             <div class="user">
-                                <div class="user-img"><img src="./assets/img/user.jpg" alt="lumine"></div>
+                                <div class="user-img"><img src="{% static 'img/user.jpg' %}" alt="lumine"></div>
                                 <div class="user-detail">
                                     <div class="user-name"><p> Dung mang com suon </p></div>
                                     <div class="user-data">

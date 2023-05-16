@@ -714,12 +714,13 @@ footer {
 
 .sign-in .link-sign-up {
   display: flex;
-  margin: 10px 0 0 0; }
+  margin: 10px 0 10px 0; }
   .sign-in .link-sign-up a {
     margin: 0 0 0 auto; }
 
 .button {
   background-color: navy;
+  float: right;
   border: none;
   color: white;
   padding: 7px 30px;
@@ -784,13 +785,14 @@ footer {
 
 .sign-up .pass-sign-up {
   display: flex;
-  margin: 10px 0 0 0; }
+  margin: 10px 0 10px 0; }
 
 .pass-sign-up .pass-input-sign-up {
   margin: 0 0 0 10px; }
 
 .button-sign-up {
   background-color: navy;
+  float: right;
   border: none;
   color: white;
   padding: 7px 30px;
@@ -9332,8 +9334,7 @@ section {
 
 .right-content {
   width: 100%;
-  height: 45%;
-  border-bottom: 1px solid black; }
+  height: 45%; }
 
 .right-content-top {
   position: relative;

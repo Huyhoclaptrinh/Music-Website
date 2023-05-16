@@ -15,12 +15,13 @@ def signIn(request):
         user = authenticate(username=username,password=password)
 
         if user is not None:
+           global u_name
            login(request,user)
            u_name = user.username
            return render(request,'main_menu.html',{'username':u_name})
         else:
            messages.error(request,"Error")
-           return redirect('signin')
+           return redirect('/')
     
     return render(request,'sign_in.html')
 
@@ -51,13 +52,13 @@ def signUp(request):
            messages.error(request,"Password must be more than 7 characters!!")
            return redirect('signup')
 
-        myuser = User.objects.create_user(username, email,password)
+        myuser = User.objects.create_user(username, email, password)
         myuser.name = name
 
         myuser.save()
 
         messages.success(request,"Successfull")
-        return redirect('signin')
+        return redirect('/')
 
     return render(request,'sign_up.html')
 
@@ -65,19 +66,19 @@ def signUpAuth(request):
   return render(request,'sign_up_auth.html')
 
 def Home(request):
-  return render(request,'main_menu.html')
+  return render(request,'main_menu.html', {'username':u_name})
 
 def Newsfeed(request):
-  return render(request,'newsfeed.html')
+  return render(request,'newsfeed.html', {'username':u_name})
 
 def Library(request):
-  return render(request,'library.html')
+  return render(request,'library.html', {'username':u_name})
 
 def Setting(request):
-  return render(request,'settings.html')
+  return render(request,'settings.html', {'username':u_name})
 
 def Profile(request):
-  return render(request,'profile.html')
+  return render(request,'profile.html', {'username':u_name})
 
 def Upload(request):
   return render(request,'upload.html')
