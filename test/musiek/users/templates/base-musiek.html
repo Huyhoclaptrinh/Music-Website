@@ -47,7 +47,7 @@
                                     <img src="{% static 'img/user.jpg' %}" alt="user">
                                 </div>
     
-                                <div class="user-name">{{username}}</div>
+                                <div class="user-name">{{ user.username }}</div>
                             </a>
                         </div>
                         {% endif%}
@@ -78,9 +78,11 @@
                                                 <i class="fa-sharp fa-solid fa-house" ></i>
                                                 <a class="active" href="#">Home</a>
                                             </li>
-                                            <li>
+                                            {% url 'newsfeed' as url %}
+                                            <li {% if "/people/" in request.path %}class="active"{% endif %} >
                                                 <i class="fa-sharp fa-solid fa-rss" ></i>
-                                                <a href="{% url 'newsfeed' %}">Newsfeed</a>
+                                                <p>cc<p>
+                                                <a {% if request.path == url %} class="active" {% endif %} href="{{url}}">Newsfeed</a>
                                             </li>
                                             <li>
                                                 <i class="fa-solid fa-list" ></i>
