@@ -9629,6 +9629,7 @@ section {
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: row;
       width: 100%; }
     .upload-content .upload-mid input[type="file"] {
       position: absolute;
@@ -9637,8 +9638,6 @@ section {
       left: 0px;
       font-size: 15px;
       color: #999999; }
-    .upload-content .upload-mid .button-wrap {
-      position: relative; }
     .upload-content .upload-mid .new-button {
       display: inline-block;
       padding: 8px 12px;
@@ -9646,6 +9645,21 @@ section {
       border-radius: 4px;
       background-color: #202A44;
       font-size: 16px;
+      color: #fff; }
+      .upload-content .upload-mid .new-button p {
+        margin-bottom: 0; }
+    .upload-content .upload-mid .new-button-submit {
+      display: inline-block;
+      padding: 8px 12px;
+      margin: 0 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      background-color: #202A44;
+      font-size: 16px;
+      color: #fff; }
+    .upload-content .upload-mid .btn-submit {
+      border: none;
+      background-color: #202A44;
       color: #fff; }
   .upload-content .upload-right {
     width: 20%; }

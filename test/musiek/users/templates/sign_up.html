@@ -11,6 +11,7 @@
                 <h1> SIGN UP </h1>
                 <form method="post" action="{% url 'signup' %}" class="sign-up-form">
                     {% csrf_token %}
+                    {% if messages.errors %}<div class="error-msg">{{ messages.errors }}</div>{% endif %}
                     <div class="name-sign-up">
                         <label for="fname">Name:</label>
                         <div class="name-input-sign-up">

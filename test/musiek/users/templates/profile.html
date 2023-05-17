@@ -12,98 +12,94 @@
 {% block content %}
     {% load static %}
     <div class="mid-bar">
-                        <div class="profile-content-top">
-                            <div class="avatar-side">
-                                <div class="image">
-                                    <img src="{% static 'img/user.jpg' %}" alt="user">
+        <div class="profile-content-top">
+            <div class="avatar-side">
+                <div class="image">
+                    <img src="{% static 'img/user.jpg' %}" alt="user">
+                </div>
+            </div>
+            <div class="profile-name-side">
+                <h1>{{user.username}}</h1>
+            </div>
+            <div class="edit-header-image-side">
+                <button class="hidden-button" onClick="action();"><i class="fa-solid fa-camera" ></i><p>Edit header image</p> </button>
+            </div>
+        </div>
+        <div class="profile-content-bottom">
+            <div class="title">
+                <p>Recent posts</p>
+            </div>
+            <div class="feed">
+                <div class="top-feed">
+                    <img src="{% static 'img/user.jpg' %}" alt="user">
+                    <div class="user-status">
+                        <h2>KannaUwU</h2>
+                        <p>2 days ago</p>
+                    </div>
+                </div>
+                <div class="mid-feed">
+                    <div class="user-comment">Nhạc chất lừ (nghe mãi không chán)</div>
+                </div>
+                <div class="bot-feed">
+                    <div class="bot-feed-left">
+                        <img src="{% static 'img/user.jpg' %}" alt="song">
+                    </div>
+                    <div class="bot-feed-right">
+                        <i class="fa-solid fa-circle-play"></i>
+                        <div class="song-container">
+                            <div class="author-name">Kenshi Yonezu</div>
+                            <div class="song-name">KICK BACK</div>
+                        </div>
+                        <div class="icon-container">
+                            <i class="fa-solid fa-comment"></i>
+                            <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-share"></i>
+                        </div>
+                        <div class="comment-section">
+                            <div class="comment-section-top">
+                                <input type="text" id="comment-input" placeholder="Write your comment...">
+                                <button type="button" name="comment-submit" id="comment-submit">Send</button>
+                            </div>
+                            <div class="comment-section-bot">
+                                <img src="{% static 'img/user.jpg' %}" alt="song">
+                                <div class="comment-container">
+                                    <div class="comment-username">KannaUwU</div>
+                                    <div class="comment-text">Nhac nhu dac cau that 🐧</div>
                                 </div>
-                            </div>
-                            <div class="profile-name-side">
-                                <h1>{{user.username}}</h1>
-                            </div>
-                            <div class="edit-header-image-side">
-                                <button class="hidden-button" onClick="action();"><i class="fa-solid fa-camera" ></i><p>Edit header image</p> </button>
                             </div>
                         </div>
-                        <div class="profile-content-bottom">
-                            <div class="title">
-                                <p>Recent posts</p>
-                            </div>
-                            <div class="feed">
-                                <div class="top-feed">
-                                    <img src="{% static 'img/user.jpg' %}" alt="user">
-                                    <div class="user-status">
-                                        <h2>KannaUwU</h2>
-                                        <p>2 days ago</p>
-                                    </div>
-                                </div>
-                                <div class="mid-feed">
-                                    <div class="user-comment">Nhạc chất lừ (nghe mãi không chán)</div>
-                                </div>
-                                <div class="bot-feed">
-                                    <div class="bot-feed-left">
-                                        <img src="{% static 'img/user.jpg' %}" alt="song">
-                                    </div>
-                                    <div class="bot-feed-right">
-                                        <i class="fa-solid fa-circle-play"></i>
-                                        <div class="song-container">
-                                            <div class="author-name">Kenshi Yonezu</div>
-                                            <div class="song-name">KICK BACK</div>
-                                        </div>
-                                        <div class="icon-container">
-                                            <i class="fa-solid fa-comment"></i>
-                                            <i class="fa-solid fa-heart"></i>
-                                            <i class="fa-solid fa-share"></i>
-                                        </div>
-                                        <div class="comment-section">
-                                            <div class="comment-section-top">
-                                                <input type="text" id="comment-input" placeholder="Write your comment...">
-                                                <button type="button" name="comment-submit" id="comment-submit">Send</button>
-                                            </div>
-                                            <div class="comment-section-bot">
-                                                <img src="{% static 'img/user.jpg' %}" alt="song">
-                                                <div class="comment-container">
-                                                    <div class="comment-username">KannaUwU</div>
-                                                    <div class="comment-text">Nhac nhu dac cau that 🐧</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    
-                                        <div class="song-container-mobile">
-                                            <i class="fa-solid fa-circle-play"></i>
-                                            <div class="author-name-mobile">Kenshi Yonezu</div>
-                                            <div class="song-name-mobile">KICK BACK</div>
-                                        </div>
-                                        <div class="icon-container-mobile">
-                                            <i class="fa-solid fa-comment"></i>
-                                            <i class="fa-solid fa-heart"></i>
-                                            <i class="fa-solid fa-share"></i>
-                                        </div>
-                                        <div class="comment-section-mobile">
-                                            <div class="comment-section-top-mobile">
-                                                <input type="text" id="comment-input-mobile" placeholder="Write your comment...">
-                                                <button type="button" name="comment-submit" id="comment-submit-mobile">Send</button>
-                                            </div>
-                                            <div class="comment-section-bot-mobile">
-                                                <img src="{% static 'img/user.jpg' %}" alt="song">
-                                                <div class="comment-container-mobile">
-                                                    <div class="comment-username-mobile">KannaUwU</div>
-                                                    <div class="comment-text-mobile">Nhac nhu dac cau that 🐧</div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                </div>
-                                <a href="upload/">
-                                    <button class="rounded-icon-button">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </a>
+                    </div>                             
+                    <div class="song-container-mobile">
+                        <i class="fa-solid fa-circle-play"></i>
+                        <div class="author-name-mobile">Kenshi Yonezu</div>
+                        <div class="song-name-mobile">KICK BACK</div>
+                    </div>
+                    <div class="icon-container-mobile">
+                        <i class="fa-solid fa-comment"></i>
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-solid fa-share"></i>
+                    </div>
+                    <div class="comment-section-mobile">
+                        <div class="comment-section-top-mobile">
+                            <input type="text" id="comment-input-mobile" placeholder="Write your comment...">
+                            <button type="button" name="comment-submit" id="comment-submit-mobile">Send</button>
+                        </div>
+                        <div class="comment-section-bot-mobile">
+                            <img src="{% static 'img/user.jpg' %}" alt="song">
+                            <div class="comment-container-mobile">
+                                <div class="comment-username-mobile">KannaUwU</div>
+                                <div class="comment-text-mobile">Nhac nhu dac cau that 🐧</div>
                             </div>
                         </div>
-                        
+                    </div>
+                </div>
+                <a href="upload/">
+                    <button class="rounded-icon-button">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </a>
+            </div>
+        </div>           
     </div>
 {% endblock content %}
 {% block right %}

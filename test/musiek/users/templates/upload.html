@@ -6,31 +6,33 @@
     {% include 'base/base-footer.html' %}
 {% endblock footer %}
 {% block left %}
-<div class="left-bar"></div>
+    <div class="left-bar"></div>
 {% endblock left %}
-{% load static %}
-
 {% block content %}
-<div class="mid-bar">
-    <div class="upload-content">
-        <div class="upload-left"></div>
-        <div class="upload-mid">
-            <div class="upload">
-                <h1>Upload your track or album here</h1>
-                <div class="btn-container">
-                    <div class="button-wrap">
-                        <label class ="new-button" for="btn-upload"> 
-                            <p>Upload</p> 
-                        <input id="btn-upload" type="file" >
+    {% load static %}
+    <div class="mid-bar">
+        <div class="upload-content">
+            <div class="upload-left"></div>
+            <div class="upload-mid">
+                <div class="upload">
+                    <h1>Upload your track or album here</h1>
+                    <div class="btn-container">
+                        <div class="button-wrap">
+                            <label class ="new-button" for="btn-upload"> 
+                                <p>Upload</p> 
+                            <input id="btn-upload" type="file" >
+                        </div>
+                        <div class="button-wrap-submit">
+                            <label class ="new-button-submit" for="btn-submit">  
+                            <input class ="btn-submit" id="btn-submit" type="submit" >
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="upload-right"></div>
         </div>
-        <div class="upload-right"></div>
     </div>
-</div>
 {% endblock content %}
-
 {% block right %}
     <div class="right-bar"></div> 
 {% endblock right %}

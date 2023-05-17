@@ -78,11 +78,9 @@ WSGI_APPLICATION = 'musiek.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fodoo',
-        'USER': 'kita',
-        'PASSWORD': 'kita',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'musiek',
+        'USER': 'kanna',
+        'PASSWORD': 'admin',
     }
 }
 

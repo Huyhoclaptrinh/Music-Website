@@ -11,9 +11,9 @@ def signIn(request):
   if request.method == "POST":
     username = request.POST['username']
     password = request.POST['password']
-    user = authenticate(username=username,password=password)
+    user = authenticate(username=username, password=password)
     if user is not None:
-      login(request,user)
+      login(request, user)
       return redirect("home")
     else:
       messages.error(request,"Error")
@@ -76,26 +76,5 @@ def Profile(request):
 
 def Upload(request):
   return render(request,'upload.html')
-
-# class SignUpForm(forms.ModelForm):
-#     class Meta:
-#         model = userRegister
-#         fields = ['fullname', 'username', 'email', 'password']
-#         widgets = {
-#             'password': forms.PasswordInput
-#         }
-
-# def form_submit_view(request):
-#     if request.method == 'POST':
-#         form = SignUpForm(request.POST)
-#         if form.is_valid():
-#             form.save()  # Save the form data to the database
-
-#             # Redirect to a success page or perform any additional actions
-
-#     else:
-#         form = SignUpForm()
-
-#     return render(request, 'sign_up.html', {'form': form})
 
 
