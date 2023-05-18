@@ -62,19 +62,10 @@ def signUpAuth(request):
 def Home(request):
   return render(request,'main_menu.html')
 
-def Newsfeed(request):
-  return render(request,'newsfeed.html')
-
-def Library(request):
-  return render(request,'library.html')
-
 def Setting(request):
   return render(request,'settings.html')
 
 def Profile(request):
   return render(request,'profile.html')
-
-def Upload(request):
-  return render(request,'upload.html')
 
 

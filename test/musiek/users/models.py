@@ -1,55 +1,33 @@
 # Create your models here.
 from django.db import models
+from musics.models import Library, History
 
-class userRegister(models.Model):
-  user_id = models.IntegerField()
+class UserRegister(models.Model):
+  user_id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
   fullname = models.CharField(max_length=255)
   username = models.CharField(max_length=255)
-  email = models.CharField(max_length=255)
+  email = models.CharField(max_length=255, unique=True)
   password = models.CharField(max_length=255)
-  dob = models.DateField()
-  GenderType = models.TextChoices("GenderType", "MALE FEMALE")
-  gender = models.CharField(blank=True, choices=GenderType.choices, max_length=10)
-  ava = models.ImageField(upload_to='static/img')
-  wall = models.ImageField(upload_to='static/img')
+  dob = models.DateField(auto_now_add=True)
+  GENDER_TYPE = (("MALE", "Male"), ("FEMALE", "Female"))
+  gender = models.CharField(blank=True, choices=GENDER_TYPE, max_length=10)
+  ava = models.ImageField(upload_to='static/img', default=None)
+  wall = models.ImageField(upload_to='static/img', default=None)
 
-class Music(models.Model):
-  music_id = models.IntegerField()
-  name = models.CharField(max_length=255)
-  author = models.CharField(max_length=255)
-  genre = models.CharField(max_length=255)
-  img = models.ImageField(upload_to='static/img')
-  total_played = models.IntegerField()
-  total_likes = models.IntegerField()
-  total_comments = models.IntegerField()
+  def __str__(self):
+    return self.fullname + " Object"
 
-class Post(models.Model):
-  post_id = models.IntegerField()
-  user_id = models.IntegerField()
-  music_id = models.IntegerField()
-  content = models.CharField(max_length=255)
-  date = models.DateField()
+class UserLibrary(models.Model):
+  library_id = models.ForeignKey(Library, on_delete=models.CASCADE)
+  user_id = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
 
-class Comment(models.Model):
-  comment_id = models.IntegerField()
-  user_id = models.IntegerField()
-  post_id = models.IntegerField()
-  content = models.CharField(max_length=255)
-  date = models.DateField()
+class UserHistory(models.Model):
+  history_id = models.ForeignKey(History, on_delete=models.CASCADE)
+  user_id = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
 
-class Library(models.Model):
-  user_id = models.IntegerField()
-  music_id = models.IntegerField()
+# class MusicRecommend(models.Model):
 
-class History(models.Model):
-  user_id = models.IntegerField()
-  music_id = models.IntegerField()
-  date = models.DateField()  
-
-class musicRecommend(models.Model):
-  user_id = models.IntegerField()
-  music_id = models.IntegerField()
-
-class friendRecommend(models.Model):
-  user_id_1 = models.IntegerField()
-  user_id_2 = models.IntegerField()
+class FriendRecommend(models.Model):
+  data_id = models.AutoField(primary_key=True)
+  user_id = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
+  meta_data = models.TextField()
