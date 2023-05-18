@@ -6,6 +6,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.core.files.storage import FileSystemStorage
+
 
 def signIn(request):
   if request.method == "POST":
@@ -75,6 +77,17 @@ def Profile(request):
   return render(request,'profile.html')
 
 def Upload(request):
+  if request.method == "POST":
+    upload_file = request.FILES['document']
+
+    fs = FileSystemStorage()
+    filename = fs.save(upload_file.name, upload_file)
+    uploaded_file_url = fs.url(filename)
+    return redirect('detail/')
+
   return render(request,'upload.html')
+
+def UploadDetail(request):
+  return render(request,'upload_detail.html')
 
 

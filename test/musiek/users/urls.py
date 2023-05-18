@@ -11,5 +11,6 @@ urlpatterns = [
     path('settings/', views.Setting, name='setting'),
     path('profile/', views.Profile, name='profile'),
     path('profile/upload/', views.Upload, name='upload'),
+    path('detail/', views.UploadDetail, name='upload_detail'),
     # path('form_submit/', views.form_submit_view, name='form_submit'),
 ]
