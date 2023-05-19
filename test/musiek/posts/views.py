@@ -22,3 +22,6 @@ def Upload(request):
 
 def UploadDetail(request):
   return render(request,'upload_detail.html')
+
+# def UploadFile(request):
+#   return
