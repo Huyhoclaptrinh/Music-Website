@@ -68,4 +68,3 @@ def Setting(request):
 def Profile(request):
   return render(request,'profile.html')
 
-

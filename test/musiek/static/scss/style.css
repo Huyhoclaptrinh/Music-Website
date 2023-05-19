@@ -9782,14 +9782,12 @@ section {
     cursor: pointer; }
   .detail-content-bottom .btn-cancel {
     position: relative;
-    top: 25px;
     left: 220px;
     background-color: white;
     color: black;
     border: 2px solid black; }
   .detail-content-bottom .btn-submit {
     position: relative;
-    top: 25px;
     left: 220px;
     background-color: #202A44;
     color: white; }
