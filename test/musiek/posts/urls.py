@@ -4,7 +4,8 @@ from . import views
 urlpatterns = [
     path('newsfeed/', views.Newsfeed, name='newsfeed'), 
     path('profile/', views.Profile, name='profile'),
-    path('profile/upload/', views.Upload, name='upload'),
-    path('upload/detail/', views.UploadDetail, name='upload_detail'),
+    # path('profile/upload/', views.Upload, name='upload'),
+    path('profile/upload/', views.UploadDetail, name='upload_detail'),
+    # path('profile/upload_post/', views.upload_post, name='upload_post'),
     # path('', views.UploadFile, name="upload_file"),
 ]

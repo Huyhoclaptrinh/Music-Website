@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import messages
 from posts.models import Post
-
+from users.models import UserRegister
 
 def signIn(request):
     if request.method == "POST":
@@ -23,41 +23,41 @@ def signIn(request):
 
     return render(request, "sign_in.html")
 
-
 def signUp(request):
     if request.method == "POST":
         name = request.POST["name"]
-        global username
         username = request.POST["username"]
         email = request.POST["email"]
         password = request.POST["password"]
         errors = []
-        if User.objects.filter(username=username):
-            errors.append("Username already exist! Please try some other username.")
 
-        if User.objects.filter(email=email).exists():
-            errors.append("Email Already Registered!!")
+        if UserRegister.objects.filter(username=username).exists():
+            errors.append("Username already exists! Please try a different username.")
+
+        if UserRegister.objects.filter(email=email).exists():
+            errors.append("Email is already registered.")
 
         if len(username) > 20:
-            errors.append("Username must be under 20 charcters!!")
+            errors.append("Username must be under 20 characters.")
 
         if not username.isalnum():
-            errors.append("Username must be Alpha-Numeric!!")
+            errors.append("Username must be alphanumeric.")
 
         if len(password) < 7:
-            errors.append("Password must be more than 7 characters!!")
+            errors.append("Password must be at least 7 characters long.")
 
         if errors:
             for error in errors:
                 messages.error(request, error)
-                return redirect("signup")
-
-        myuser = User.objects.create_user(username, email, password)
-        myuser.name = name
-        myuser.save()
+            return redirect("signup")
+        
+        user_register = UserRegister(email=email, fullname=name, username=username, password=password)
+        # Set other fields as necessary
+        user_register.save()
         messages.success(request, "Successful")
 
         return redirect("/")
+    
     return render(request, "sign_up.html")
 
 
@@ -74,5 +74,4 @@ def Setting(request):
 
 
 def Profile(request):
-    data = Post.objects.get(username)
-    return render(request, "profile.html", {'data': data})
+    return render(request, "profile.html")

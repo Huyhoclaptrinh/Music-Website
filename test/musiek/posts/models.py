@@ -11,7 +11,7 @@ class Post(models.Model):
     post_id = models.BigAutoField(
         auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
     )
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
     upload_file = models.FileField(upload_to="audio")
     name = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
