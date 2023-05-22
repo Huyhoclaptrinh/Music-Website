@@ -6,6 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import messages
+from posts.models import Post
 
 
 def signIn(request):
@@ -26,6 +27,7 @@ def signIn(request):
 def signUp(request):
     if request.method == "POST":
         name = request.POST["name"]
+        global username
         username = request.POST["username"]
         email = request.POST["email"]
         password = request.POST["password"]
@@ -72,4 +74,5 @@ def Setting(request):
 
 
 def Profile(request):
-    return render(request, "profile.html")
+    data = Post.objects.get(username)
+    return render(request, "profile.html", {'data': data})

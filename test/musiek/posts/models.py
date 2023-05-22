@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import UserRegister
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 import os
 from django.conf import settings
@@ -10,7 +11,7 @@ class Post(models.Model):
     post_id = models.BigAutoField(
         auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
     )
-    user_id = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     upload_file = models.FileField(upload_to="audio")
     name = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
@@ -69,6 +70,7 @@ class Music(models.Model):
     music_id = models.BigAutoField(
         auto_created=True, serialize=False, primary_key=True, verbose_name="ID"
     )
+
     post = models.ForeignKey(
         "Post",
         on_delete=models.CASCADE,
