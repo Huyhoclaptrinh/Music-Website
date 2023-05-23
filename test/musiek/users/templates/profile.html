@@ -34,7 +34,7 @@
                 <div class="top-feed">
                     <img src="{% static 'img/user.jpg' %}" alt="user">
                     <div class="user-status">
-                        <h2>{{user.username}}</h2>
+                        <h2>{{post.user_id.username}}</h2>
                         <p>{{ post.date|timesince }} ago</p>
                     </div>
                 </div>
