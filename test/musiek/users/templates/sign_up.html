@@ -35,6 +35,43 @@
                             <input type="Password" id="lname" name="password" required><br>
                         </div>
                     </div>
+
+                    {% comment %} <div class="pass-sign-up">
+                        <label for="lname">Rewrite Password:</label>
+                        <div class="pass-input-sign-up">
+                            <input type="Password" id="lname" name="re_password" required><br>
+                        </div>
+                    </div> {% endcomment %}
+
+                    <div>
+                        <label for="gender">Gender:</label>
+
+                        <select id="gender" name="gender">
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select> 
+                    </div>
+
+                    <div>
+                        <label for="birthday">Birthday:</label>
+                        <input type="date" id="birthday" name="birthday">
+                        
+                    </div>
+
+                    <div class="button-wrap">
+                        <label for="birthday">Avatar:</label>
+                        {% comment %} <label class ="new-button" for="btn-upload"> 
+                            <p>Upload</p>  {% endcomment %}
+                        <input id="btn-upload" type="file" name="avatar">
+                    </div>
+
+                    <div class="button-wrap">
+                        <label for="birthday">Wall:</label>
+                        {% comment %} <label class ="new-button" for="btn-upload"> 
+                            <p>Upload</p>  {% endcomment %}
+                        <input id="btn-upload" type="file" name="wall">
+                    </div>
+
                     <button class="button-sign-up" type="submit"> Enter </button>
                 </form> 
                 {% comment %} <form action="{% url 'signin' %}">

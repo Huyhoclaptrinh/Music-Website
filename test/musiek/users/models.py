@@ -1,6 +1,6 @@
 # Create your models here.
 from django.db import models
-
+from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 
 class UserRegister(AbstractUser):
@@ -9,10 +9,10 @@ class UserRegister(AbstractUser):
     )
     fullname = models.CharField(max_length=255)
     email = models.EmailField(max_length=255)
-    dob = models.DateField(auto_now_add=True)
+    birthday = models.DateField(auto_now_add=True)
     GENDER_TYPE = (("M", "Male"), ("F", "Female"))
     gender = models.CharField(blank=True, choices=GENDER_TYPE, max_length=10)
-    ava = models.ImageField(upload_to="img", default=None)
+    avatar = models.ImageField(upload_to="img", default=None)
     wall = models.ImageField(upload_to="img", default=None)
 
     def __str__(self):

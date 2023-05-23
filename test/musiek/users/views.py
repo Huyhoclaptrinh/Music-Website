@@ -29,6 +29,11 @@ def signUp(request):
         username = request.POST["username"]
         email = request.POST["email"]
         password = request.POST["password"]
+        # repassword = request.POST["re_password"]
+        gender = request.POST["gender"]
+        birthday = request.POST["birthday"]
+        avatar = request.POST["avatar"]
+        wall = request.POST["wall"]
         errors = []
 
         if UserRegister.objects.filter(username=username).exists():
@@ -51,9 +56,12 @@ def signUp(request):
                 messages.error(request, error)
             return redirect("signup")
         
-        user_register = UserRegister(email=email, fullname=name, username=username, password=password)
+        user_register = UserRegister(email=email, fullname=name, username=username, password=password,gender=gender,birthday=birthday,avatar=avatar,wall=wall)
         # Set other fields as necessary
+    
+        user_register.set_password(user_register.password)
         user_register.save()
+        
         messages.success(request, "Successful")
 
         return redirect("/")

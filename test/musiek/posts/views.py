@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
-from .models import Post
+from .models import Post, Music
+import json
 
 # Create your views here.
 
 
 def Newsfeed(request):
-    return render(request, "newsfeed.html")
+    data = Music.objects.all()  # Retrieve all instances of the model
+    return render(request, "newsfeed.html", {'data': data})
 
 
 # def Profile(request):
@@ -15,6 +17,8 @@ def Newsfeed(request):
 
 # def Upload(request):
 #     return render(request, "upload.html")
+
+
 
 
 def UploadDetail(request):
@@ -36,14 +40,21 @@ def UploadDetail(request):
             content=content
         )
         post.save()
-        recent_posts = Post.objects.order_by('-date')[:5]  # Get the latest 5 posts, adjust as needed
+        recent_posts = Post.objects.filter(user_id=request.user).order_by('-date')[:5].values()
+        if recent_posts is not None:
+            response = redirect('profile')
 
-        return render(request, 'profile.html', {'recent_posts': recent_posts})
+            response.set_cookie('recent_posts', json.dumps(recent_posts))
+            return response
     
     return render(request, "upload_detail.html")
 
 def Profile(request):
-    return render(request, 'profile.html')
+    recent_posts = request.COOKIES.get('recent_posts')
+    recent_posts = json.loads(recent_posts)
+    response = render(request, "profile.html", {'recent_posts': recent_posts})
+    response.delete_cookie('recent_posts')
+    return response
 
 # def UploadFile(request):
 #   return

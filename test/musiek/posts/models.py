@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 import os
 from django.conf import settings
 from django.core.files.storage import default_storage
-
+from django.urls import reverse
 
 class Post(models.Model):
     post_id = models.BigAutoField(

@@ -29,8 +29,11 @@
                 <div class="bot-feed-right">
                     <i class="fa-solid fa-circle-play"></i>
                     <div class="song-container">
-                        <div class="author-name">Kenshi Yonezu</div>
-                        <div class="song-name">KICK BACK</div>
+                        {% for item in data %}
+                            <div class="author-name">{{ item.author }}</div>
+                            <div class="song-name">{{ item.name }}</div>
+                        {% endfor %}
+                        
                     </div>
                     <div class="icon-container">
                         <i class="fa-solid fa-comment"></i>
