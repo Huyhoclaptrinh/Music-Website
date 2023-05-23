@@ -14,7 +14,7 @@
 <!-- Tempus Dominus Bootstrap 4 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
-{% endblock css%}
+{% endblock css %}
 {% block header %}
     {% include 'base/base-header.html' %}
 {% endblock header %}
@@ -22,27 +22,51 @@
     {% include 'base/base-footer.html' %}
 {% endblock footer %}
 {% block left %}
+    {% load static %}
     <div class="left-bar"></div>
 {% endblock left %}
 {% block content %}
     {% load static %}
     <div class="mid-bar">
+        <h2>History</h2>
         <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-            {{ form.date }}
-            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-            </div>
+            <form method="GET" action="{% url 'history' %}">
+                {% csrf_token %}
+                {{ form.date }}
+                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" name="selected_date" value="{{ selected_date|default:'' }}">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </form>
         </div>
-          
+    
+        <div>
+            {% if user_history %}
+                <ul>
+                    {% for user_history_entry in user_history %}
+                        {% for music_entry in user_history_entry.history_id.music_id.all %}
+                            <li>{{ music_entry.name }} by {{ music_entry.author }}</li>
+                        {% endfor %}
+                    {% empty %}
+                        <li>No listening history available.</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No listening history available for the selected date.</p>
+            {% endif %}
+        </div>
+    
         <script>
-          $(function () {
-            $("#datetimepicker1").datetimepicker({
-              format: 'DD/MM/YYYY',
+            $(function () {
+                $("#datetimepicker1").datetimepicker({
+                    format: 'YYYY-MM-DD',
+                });
             });
-          });
         </script>
-    </div>
+    </div>    
 {% endblock content %}
 {% block right %}
+    {% load static %}
     <div class="right-bar"></div>
 {% endblock right %}

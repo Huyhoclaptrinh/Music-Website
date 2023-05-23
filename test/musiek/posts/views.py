@@ -55,9 +55,7 @@ def UploadDetail(request):
 
 def Profile(request):
     recent_posts = Post.objects.filter(user_id=request.user).order_by('-date')[:5]
-    post = Post.objects.get(Post.post_id)
-    username = post.user_id.username
-    return render(request, "main_page/profile.html", {'recent_posts': recent_posts, 'username': username})
+    return render(request, "main_page/profile.html", {'recent_posts': recent_posts})
 
 # def UploadFile(request):
 #   return

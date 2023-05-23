@@ -70,6 +70,7 @@ class Music(models.Model):
     music_id = models.BigAutoField(
         auto_created=True, serialize=False, primary_key=True, verbose_name="ID"
     )
+
     post = models.ForeignKey(
         "Post",
         on_delete=models.CASCADE,

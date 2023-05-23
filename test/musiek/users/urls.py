@@ -10,6 +10,6 @@ urlpatterns = [
     path('auth/', views.signUpAuth, name='auth'),
     path('home/', views.Home, name='home'),
     path('settings/', views.Setting, name='setting'),
-    path('profile/', views.Profile, name='profile'),
+
     # path('form_submit/', views.form_submit_view, name='form_submit'),
 ]
