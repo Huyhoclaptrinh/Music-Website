@@ -6,7 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import messages
-from posts.models import Post
+from posts.models import Post, Music
 from users.models import UserRegister
 
 def signIn(request):
@@ -21,7 +21,7 @@ def signIn(request):
             messages.error(request, "Error")
             return redirect("/")
 
-    return render(request, "sign_in.html")
+    return render(request, "authentication/sign_in.html")
 
 def signUp(request):
     if request.method == "POST":
@@ -66,20 +66,24 @@ def signUp(request):
 
         return redirect("/")
     
-    return render(request, "sign_up.html")
+    return render(request, "authentication/sign_up.html")
 
 
 def signUpAuth(request):
-    return render(request, "sign_up_auth.html")
+    return render(request, "authentication/sign_up_auth.html")
 
 
 def Home(request):
-    return render(request, "main_menu.html")
+    music = Music.objects.first()
+    context = {
+        'music': music,
+    }
+    return render(request, "main_page/main_menu.html", context)
 
 
 def Setting(request):
-    return render(request, "settings.html")
+    return render(request, "main_page/settings.html")
 
 
 def Profile(request):
-    return render(request, "profile.html")
+    return render(request, "main_page/profile.html")

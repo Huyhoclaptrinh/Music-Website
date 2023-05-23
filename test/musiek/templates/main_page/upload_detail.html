@@ -1,0 +1,124 @@
+{% extends 'base/base-musiek.html' %}
+{% block header %}
+    {% include 'base/base-header.html' %}
+{% endblock header %}
+{% block left %}
+    <div class="left-bar"></div>
+{% endblock left %}
+{% block content %}
+    {% load static %}
+    <div class="mid-bar">
+        <div class="upload-content">
+            
+            <div class="upload-left"></div>
+            <div class="upload-mid">
+                <form method="post" action="{% url 'upload_detail' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h1>Basic Info</h1>
+                    <div class="detail-content">
+                        <div class="detail-content-top">
+                            <div class="detail-content-top-left">
+                                <div class="image-setup">
+                                    <div class="btn-container">
+                                        <div class="button-wrap">
+                                            <label class ="new-button" for="btn-upload"> 
+                                                Upload
+                                                <input id="btn-upload" type="file" name="img" required>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detail-content-top-right">
+                                <p>Upload your file</p>
+                                    <label class ="new-button" > 
+                                        <input type="file" name="upload_file" required>
+                                        Upload
+                                    </label>
+                                <p>Title</p>
+                                <input type="text" name="name" required>
+                                <p>Artist</p>
+                                <input type="text" name="author" required>
+                                <p>Genre</p>
+                                {% comment %} <select name="None" id="cars">
+                                    <option value="volvo">None</option>
+                                    <option value="D">Dung</option>
+                                    <option value="M">Mang</option>
+                                    <option value="C">Com</option>
+                                    <option value="S">Suon</option>
+                                </select> {% endcomment %}
+                                <input type="text" name="genre" required>
+                                <p>Caption</p>
+                                <textarea name="content" id="" cols="30" rows="10" required></textarea>
+                                <div class="privacy">
+                                    <p>Privacy:</p>
+                                    <input type="radio" id="age1" name="age" value="60">
+                                    <label for="privacy1">Public</label>
+                                    <input type="radio" id="age2" name="age" value="60">
+                                    <label for="privacy2">Private</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-content-bottom">
+                            <button class="btn-cancel">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn-submit">
+                                Submit
+                            </button>
+                        </div>  
+                    </div>
+                </form>
+
+                <div class="detail-content-mobile">
+                <form method="post" enctype="multipart/form-data">
+                {% comment %} {% csrf_token %} {% endcomment %}
+                    <div class="image-setup">
+                        <div class="btn-container">
+                            <div class="button-wrap">
+                              <label class ="new-button" for="btn-upload">
+                                <p> Upload </p> 
+                              <input id="btn-upload" type="file" >
+                            </div>
+                        </div>
+                    </div>
+                    <p>Upload your file</p>
+                    <input type="file" name="upload_file" required>
+                    <p>Title</p>
+                    <input type="text" name="name" class="detail-input" required>
+                    <p>Artist</p>
+                    <input type="text" name="author" class="detail-input" required>
+                    <p>Genre</p>
+                    {% comment %} <select name="None" id="cars">
+                        <option value="volvo">None</option>
+                        <option value="D">Dung</option>
+                        <option value="M">Mang</option>
+                        <option value="C">Com</option>
+                        <option value="S">Suon</option>
+                    </select> {% endcomment %}
+                    <input type="text" name="genre" placeholder="Genre" class="detail-input" required>
+                    <p>Caption</p>
+                    <textarea name="content" id="" cols="30" rows="10" required></textarea>
+                    <div class="privacy">
+                        <p>Privacy:</p>
+                        <input type="radio" id="age1" name="age" value="60">
+                        <label for="privacy1">Public</label>
+                        <input type="radio" id="age2" name="age" value="60">
+                        <label for="privacy2">Private</label>
+                    </div>
+                    <button class="btn-cancel">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn-submit">
+                        Submit
+                    </button>
+                </div>
+                </form>
+            </div>
+            <div class="upload-right"></div>
+        </div>
+    </div>
+{% endblock content %}
+{% block right %}
+    <div class="right-bar"></div> 
+{% endblock right %}

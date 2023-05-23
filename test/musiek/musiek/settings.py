@@ -59,7 +59,7 @@ ROOT_URLCONF = 'musiek.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -140,10 +140,12 @@ SASS_PROCESSOR_INCLUDE_DIRS = [
 ]
 
 SASS_PRECISION = 8
+DEBUG = True
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
 MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
 
 AUTH_USER_MODEL = "users.UserRegister"
 

@@ -1,0 +1,99 @@
+{% load sass_tags %}
+{% load static %}
+<div class="right-bar">
+    <div class="history-content">
+        <div class="history-content-top">
+            <div class="history-content-top-left">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <div class="history-content-top-mid">
+                <p>Listening history</p>
+            </div>
+            <div class="history-content-top-right">
+                <a href="{% url 'history' %}">View all</a>
+            </div>
+        </div>
+        <div class="history-content-bottom">
+            <div class="song">
+                <div class="song-img"><img src="{% static 'img/user.jpg' %}" alt="lumine"></div>
+                <div class="song-detail">
+                    <div class="song-artist"><p> Lumine </p></div>
+                    <div class="song-name"><p> Dung mang com suon </p></div>
+                    <div class="song-react">
+                        <i class="fa-solid fa-play"></i>
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-comment"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="song">
+                <div class="song-img"><img src="{% static 'img/user.jpg' %}" alt="lumine"></div>
+                <div class="song-detail">
+                    <div class="song-artist"><p> Lumine </p></div>
+                    <div class="song-name"><p> Dung mang com suon </p></div>
+                    <div class="song-react">
+                        <i class="fa-solid fa-play"></i>
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-comment"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="song">
+                <div class="song-img"><img src="{% static 'img/user.jpg' %}" alt="lumine"></div>
+                <div class="song-detail">
+                    <div class="song-artist"><p> Lumine </p></div>
+                    <div class="song-name"><p> Dung mang com suon </p></div>
+                    <div class="song-react">
+                        <i class="fa-solid fa-play"></i>
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-comment"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="friend-content">
+        <div class="friend-content-top">
+            <div class="friend-content-top-left">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="friend-content-top-mid">
+                <p>Friends</p>
+            </div>
+            <div class="friend-content-top-right">
+                <p>View all</p>
+            </div>
+        </div>
+        <div class="user">
+            <div class="user-img"><img src="{% static 'img/user.jpg' %}" alt="lumine"></div>
+            <div class="user-detail">
+                <div class="user-name"><p> Dung mang com suon </p></div>
+                <div class="user-data">
+                    <i class="fa-solid fa-user" style="top: 5px; position: relative;"></i>
+                    <i class="fa-solid fa-music" style="top: 5px; position: relative;"></i>
+                    <button class="btn-follow">
+                        <div class="btn-content">
+                            <i class="fa-solid fa-user"></i> Following
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="user">
+            <div class="user-img"><img src="{% static 'img/user.jpg' %}" alt="lumine"></div>
+            <div class="user-detail">
+                <div class="user-name"><p> Dung mang com suon </p></div>
+                <div class="user-data">
+                    <i class="fa-solid fa-user" style="top: 5px; position: relative;"></i>
+                    <i class="fa-solid fa-music" style="top: 5px; position: relative;"></i>
+                    <button class="btn-follow">
+                        <div class="btn-content">
+                            <i class="fa-solid fa-user"></i> Following
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-content"></div>
+</div> 

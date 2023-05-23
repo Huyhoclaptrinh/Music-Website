@@ -1,0 +1,98 @@
+{% load sass_tags %}
+{% load static %}
+<footer>
+    <div class="footer-left">
+        {% comment %} <ul>
+            <li>
+                <div class="btn-toggle-warp">
+                    <button id="toggle-btn">
+                        <i class="fa-solid fa-forward fa-rotate-180"></i>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <div class="btn-toggle-warp">
+                    <button id="toggle-btn">
+                        <i class="fa-solid fa-play" ></i>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <div class="btn-toggle-warp">
+                    <button id="toggle-btn">
+                        <i class="fa-solid fa-forward" ></i>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <div class="btn-toggle-warp">
+                    <button id="toggle-btn">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <div class="btn-toggle-warp">
+                    <button id="toggle-btn">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <div class="slider_container">
+                    <div class="current-time">00:00</div>
+                    <input type="range" min="1" max="100"
+                      value="0" class="seek_slider" onchange="seekTo()">
+                    <div class="total-duration">03:00</div>
+                </div>
+            </li>
+
+            <li>
+                <div class="btn-toggle-warp">
+                    <button id="toggle-btn">
+                        <i class="fa-solid fa-headphones" ></i>
+                    </button>
+                </div>
+            </li>
+        </ul> {% endcomment %}
+        {% comment %} {% if first_time %}
+        <audio controls=""  name="media" style="margin-left: 20px;margin-bottom: 10px;width: 1230px;height:30px"><source src="{{last_played.song_file.url}}" type="audio/mpeg" ></audio>
+              {% else %} {% endcomment %}
+        <audio class="audio" controls="" autoplay name="media"><source src="{{ music.upload_file.url }}" type="audio/mpeg" ></audio>
+                {% comment %} {% endif %} {% endcomment %}
+    </div>
+    <div class="footer-mid">
+        <div class="music-img">
+            <img src={{music.img.url}}>
+        </div>
+        <div class="music-content">
+            <p>{{ music.name }}</p>
+            <p>{{ music.author }}</p>
+        </div>
+    </div>
+    <div class="footer-right">
+        <ul>
+            <li>
+                <div class="btn-toggle-warp">
+                    <button id="toggle-btn">
+                        <i class="fa-solid fa-heart" ></i>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <div class="btn-toggle-warp">
+                    <button id="toggle-btn">
+                        <i class="fa-solid fa-user-plus" ></i>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <div class="btn-toggle-warp">
+                    <button id="toggle-btn">
+                        <i class="fa-solid fa-music" ></i>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</footer>
