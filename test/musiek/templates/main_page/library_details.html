@@ -23,6 +23,7 @@
                 {% for song in library.music_id.all %}
                     <li>
                         {{ song.name }} by {{ song.author }}
+                        <button class="play-btn" data-file="{{ song.upload_file.url }}" data-name="{{ song.name }}" data-author="{{ song.author }}" data-img="{{ song.img.url }}">Play</button>
                         {% if is_creator %}
                             <form method="post" action="{% url 'remove_song' library_id=library.library_id song_id=song.music_id %}">
                                 {% csrf_token %}
@@ -48,7 +49,32 @@
                 <p>This is not your library, so you cannot modify it.</p>
             {% endif %}
         </div>
-    </div>    
+    </div>
+    <script>
+        // JavaScript code to handle play button click event
+        const playButtons = document.querySelectorAll('.play-btn');
+    
+        playButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const audioPlayer = document.querySelector('.audio');
+                const musicImg = document.querySelector('.music-img img');
+                const musicName = document.querySelector('.music-content p:nth-child(1)');
+                const musicAuthor = document.querySelector('.music-content p:nth-child(2)');
+    
+                // Get the data attributes from the button
+                const fileUrl = this.dataset.file;
+                const name = this.dataset.name;
+                const author = this.dataset.author;
+                const imgUrl = this.dataset.img;
+    
+                // Set the corresponding values in the footer
+                audioPlayer.src = fileUrl;
+                musicImg.src = imgUrl;
+                musicName.textContent = name;
+                musicAuthor.textContent = author;
+            });
+        });
+    </script>
 {% endblock content %}
 {% block right %}
     {% load static %}

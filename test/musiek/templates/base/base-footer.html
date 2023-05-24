@@ -58,7 +58,7 @@
         {% comment %} {% if first_time %}
         <audio controls=""  name="media" style="margin-left: 20px;margin-bottom: 10px;width: 1230px;height:30px"><source src="{{last_played.song_file.url}}" type="audio/mpeg" ></audio>
               {% else %} {% endcomment %}
-        <audio class="audio" controls="" autoplay name="media"><source src="{{ music.upload_file.url }}" type="audio/mpeg" ></audio>
+        <audio class="audio" controls="" autoplay name="media"><source src="" type="audio/mpeg" ></audio>
                 {% comment %} {% endif %} {% endcomment %}
     </div>
     <div class="footer-mid">
@@ -96,3 +96,16 @@
         </ul>
     </div>
 </footer>
+<script>
+    
+    {% comment %} let personName = sessionStorage.getItem("last_played");
+    if(!personName) {
+        // ajax
+
+
+
+        sessionStorage.setItem("last_played", res);
+    } {% endcomment %}
+
+    {% comment %} document.getElementById("demo").innerHTML = personName; {% endcomment %}
+</script>
