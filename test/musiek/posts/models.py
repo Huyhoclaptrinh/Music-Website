@@ -106,6 +106,9 @@ class Music(models.Model):
             raise ValidationError(
                 "Cannot delete the Music instance while the corresponding Post still exists."
             )
+        
+    def __str__(self):
+        return self.name + " by " + self.author
 
 
 class Comment(models.Model):

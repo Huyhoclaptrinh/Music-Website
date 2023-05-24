@@ -14,22 +14,38 @@
     <div class="mid-bar">
         <div class="library-details">
             <h1>{{ library.name }}</h1>
-            <p>Created by: {{ user_library.user_id.username }}</p>
             <!-- Display additional library details here -->
+        
+            <p>Created by: {{ user_library.user_id.username }}</p>
+        
             <h2>Songs:</h2>
             <ul>
                 {% for song in library.music_id.all %}
-                    <li>{{ song.name }} by {{ song.author }}</li>
+                    <li>
+                        {{ song.name }} by {{ song.author }}
+                        {% if is_creator %}
+                            <form method="post" action="{% url 'remove_song' library_id=library.library_id song_id=song.music_id %}">
+                                {% csrf_token %}
+                                <button type="submit">Remove</button>
+                            </form>
+                        {% endif %}
+                    </li>
                 {% endfor %}
             </ul>
-
+        
             {% if is_creator %}
-                <form method="post" action="{% url 'delete_library' library_id=user_library.library_id.library_id %}">
+                <h2>Add Songs:</h2>
+                <form method="post" action="{% url 'library_details' library_id=library.library_id %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Add Songs</button>
+                </form>
+                <form method="post" action="{% url 'delete_library' library_id=library.library_id %}">
                     {% csrf_token %}
                     <button type="submit">Delete Library</button>
                 </form>
             {% else %}
-                <p>This is not your library, so you cannot delete it.</p>
+                <p>This is not your library, so you cannot modify it.</p>
             {% endif %}
         </div>
     </div>    

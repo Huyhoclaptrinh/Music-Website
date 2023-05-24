@@ -1,4 +1,5 @@
 from django import forms
+from .models import Music
 
 class DateForm(forms.Form):
     date = forms.DateTimeField(
@@ -9,3 +10,6 @@ class DateForm(forms.Form):
             'data-date-format': 'YYYY-MM-DD',
         })
     )
+
+class AddSongForm(forms.Form):
+    selected_songs = forms.ModelMultipleChoiceField(queryset=Music.objects.all(), widget=forms.CheckboxSelectMultiple)

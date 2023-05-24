@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import UserHistory, Music, UserLibrary, Library
+from .forms import AddSongForm
 import datetime
 # Create your views here.
 
@@ -50,9 +51,39 @@ def library_details(request, library_id):
 
     library = user_library.library_id
 
-    return render(request, "main_page/library_details.html", {'user_library': user_library, 'library': library, 'is_creator': is_creator})
+    # Handle form submission for adding songs
+    if request.method == 'POST':
+        form = AddSongForm(request.POST)
+
+        if form.is_valid() and is_creator:
+            selected_songs = form.cleaned_data['selected_songs']
+
+            # Add the selected songs to the library
+            library.music_id.add(*selected_songs)
+
+            return redirect('library_details', library_id=library_id)
+    else:
+        form = AddSongForm()
+
+    return render(request, "main_page/library_details.html", {'user_library': user_library, 'library': library, 'is_creator': is_creator, 'form': form})
 
 def delete_library(request, library_id):
     library = Library.objects.get(library_id=library_id)
     library.delete()
     return redirect('library')
+
+def remove_song(request, library_id, song_id):
+    # Retrieve the UserLibrary object based on library_id
+    user_library = get_object_or_404(UserLibrary, library_id=library_id)
+
+    # Check if the logged-in user is the creator of the library
+    if user_library.user_id != request.user:
+        return redirect('library_details', library_id=library_id)
+
+    # Retrieve the Music object based on song_id
+    music = get_object_or_404(Music, music_id=song_id)
+
+    # Remove the Music object from the library
+    user_library.library_id.music_id.remove(music)
+
+    return redirect('library_details', library_id=library_id)
