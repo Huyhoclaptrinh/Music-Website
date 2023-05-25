@@ -2,6 +2,17 @@ from urllib.parse import urlencode
 from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
 from .models import Post, Music
+from django.core.files.storage import default_storage
+from django.http import (
+    FileResponse,
+    Http404,
+    HttpResponse,
+    HttpResponseNotFound,
+    JsonResponse,
+)
+
+
+import os
 # Create your views here.
 
 
@@ -9,6 +20,10 @@ def Newsfeed(request):
     data = Music.objects.all()  # Retrieve all instances of the model
     return render(request, "main_page/newsfeed.html", {'data': data})
 
+def getNewMusic(request):
+    music = Music.objects.first()  # Retrieve all instances of the model
+    url = music.upload_file.url
+    return  JsonResponse({"url": url, "status": True})
 
 # def Profile(request):
 #     return render(request, "profile.html")
@@ -35,6 +50,7 @@ def UploadDetail(request):
             img=img,
             content=content
         )
+
         post.save()
         
         # Access the ID of the saved post

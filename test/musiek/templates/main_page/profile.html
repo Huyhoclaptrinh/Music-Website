@@ -29,49 +29,51 @@
             <div class="title">
                 <p>Recent posts</p>
             </div>
-            <div class="feed">
-                {% for post in recent_posts %}
-                <div class="top-feed">
-                    <img src="{% static 'img/user.jpg' %}" alt="user">
-                    <div class="user-status">
-                        <h2>{{post.user_id.username}}</h2>
-                        <p>{{ post.date|timesince }} ago</p>
-                    </div>
-                </div>
-                <div class="mid-feed">
-                    <div class="user-comment">{{ post.content }}</div>
-                </div>
-                <div class="bot-feed">
-                    <div class="bot-feed-left">
-                        <img src="{{ post.img.url }}" alt="song">
-                    </div>
-                    <div class="bot-feed-right">
-                        <i class="fa-solid fa-circle-play"></i>
-                        <div class="song-container">
-                            <div class="author-name">{{ post.name }}</div>
-                            <div class="song-name">{{ post.author }}</div>
+            {% for post in recent_posts %}
+                <div class="feed">
+                    <div class="top-feed">
+                        <img src="{% static 'img/user.jpg' %}" alt="user">
+                        <div class="user-status">
+                            <h2>{{post.user_id.username}}</h2>
+                            <p>{{ post.date|timesince }} ago</p>
                         </div>
-                        
-                        <div class="icon-container">
-                            <i class="fa-solid fa-comment"></i>
-                            <i class="fa-solid fa-heart"></i>
-                            <i class="fa-solid fa-share"></i>
+                    </div>
+                    <div class="mid-feed">
+                        <div class="user-comment">{{ post.content }}</div>
+                    </div>
+                    <div class="bot-feed">
+                        <div class="bot-feed-left">
+                            <img src="{{ post.img.url }}" alt="song">
                         </div>
-                        <div class="comment-section">
-                            <div class="comment-section-top">
-                                <input type="text" id="comment-input" placeholder="Write your comment...">
-                                <button type="button" name="comment-submit" id="comment-submit">Send</button>
+                        <div class="bot-feed-right">
+                            <i class="fa-solid fa-circle-play"></i>
+                            <div class="song-container">
+                                <div class="author-name">{{ post.name }}</div>
+                                <div class="song-name">{{ post.author }}</div>
                             </div>
-                            <div class="comment-section-bot">
-                                <img src="{% static 'img/user.jpg' %}" alt="song">
-                                <div class="comment-container">
-                                    <div class="comment-username">KannaUwU</div>
-                                    <div class="comment-text">Nhac nhu dac cau that 🐧</div>
+
+                            <div class="icon-container">
+                                <i class="fa-solid fa-comment"></i>
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-share"></i>
+                            </div>
+                            <div class="comment-section">
+                                <div class="comment-section-top">
+                                    <input type="text" id="comment-input" placeholder="Write your comment...">
+                                    <button type="button" name="comment-submit" id="comment-submit">Send</button>
+                                </div>
+                                <div class="comment-section-bot">
+                                    <img src="{% static 'img/user.jpg' %}" alt="song">
+                                    <div class="comment-container">
+                                        <div class="comment-username">KannaUwU</div>
+                                        <div class="comment-text">Nhac nhu dac cau that 🐧</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div> 
-                {% endfor %}                            
+                        </div> 
+                    </div>
+                </div>
+            {% endfor %}                            
                     <div class="song-container-mobile">
                         <i class="fa-solid fa-circle-play"></i>
                         <div class="author-name-mobile">Kenshi Yonezu</div>

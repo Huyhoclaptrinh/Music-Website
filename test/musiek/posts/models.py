@@ -6,6 +6,8 @@ import os
 from django.conf import settings
 from django.core.files.storage import default_storage
 from django.urls import reverse
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 
 class Post(models.Model):
     post_id = models.BigAutoField(
@@ -49,7 +51,7 @@ class Post(models.Model):
                 music_instance.author = self.author
                 music_instance.genre = self.genre
                 music_instance.img = self.img
-                music_instance.save(force_post_update=True)
+                music_instance.save()
 
     def delete(self, *args, **kwargs):
         if self.upload_file:
@@ -78,38 +80,46 @@ class Music(models.Model):
         null=True,
         blank=True,
     )
-    upload_file = models.FileField(null=True)
+    upload_file = models.FileField(null=True, upload_to="audio")
     name = models.CharField(max_length=255, null=True)
     author = models.CharField(max_length=255, null=True)
     genre = models.CharField(max_length=255, null=True)
     img = models.ImageField(upload_to="img", null=True)
 
-    def clean(self):
-        if not self.post:
-            raise ValidationError("A Music instance must be associated with a Post.")
+    # def clean(self):
+    #     if not self.post:
+    #         raise ValidationError("A Music instance must be associated with a Post.")
 
     def save(self, *args, **kwargs):
-        is_post_update = False
-        if "force_post_update" in kwargs:
-            is_post_update = kwargs.pop("force_post_update")
-        if self.pk and not is_post_update:
-            raise ValidationError(
-                "Editing the Music instance directly is not allowed. Please edit the associated Post."
-            )
-        else:
-            super().save(*args, **kwargs)
+        # is_post_update = False
+        # if "force_post_update" in kwargs:
+        #     is_post_update = kwargs.pop("force_post_update")
+        # if self.pk and not is_post_update:
+        #     raise ValidationError(
+        #         "Editing the Music instance directly is not allowed. Please edit the associated Post."
+        #     )
+        # else:
+        super().save(*args, **kwargs)
 
-    def delete(self, using=None, keep_parents=False):
-        if self.post is None:
-            super().delete(using, keep_parents)
-        else:
-            raise ValidationError(
-                "Cannot delete the Music instance while the corresponding Post still exists."
-            )
+    # def delete(self, using=None, keep_parents=False):
+    #     if self.post is None:
+    #         super().delete(using, keep_parents)
+    #     else:
+    #         raise ValidationError(
+    #             "Cannot delete the Music instance while the corresponding Post still exists."
+    #         )
         
     def __str__(self):
         return self.name + " by " + self.author
-
+    
+@receiver(post_delete, sender=Music)
+def delete_music_files(sender, instance, **kwargs):
+# Delete the associated audio file
+    if instance.upload_file:
+        instance.upload_file.delete(save=False)
+    # Delete the associated image file
+    if instance.img:
+        instance.img.delete(save=False)
 
 class Comment(models.Model):
     comment_id = models.BigAutoField(

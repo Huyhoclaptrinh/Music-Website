@@ -74,11 +74,7 @@ def signUpAuth(request):
 
 
 def Home(request):
-    music = Music.objects.last()
-    context = {
-        'music': music,
-    }
-    return render(request, "main_page/main_menu.html", context)
+    return render(request, "main_page/main_menu.html")
 
 
 def Setting(request):

@@ -143,9 +143,22 @@ SASS_PRECISION = 8
 DEBUG = True
 STATIC_URL = '/static/'
 
+STAGE = 'dev'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
+
+MEDIA_URL_AUDIO = MEDIA_URL + 'audio/'
+MEDIA_URL_IMG = MEDIA_URL + 'img/'
+
+MEDIA_ROOT_AUDIO = os.path.join(MEDIA_ROOT, 'audio')
+MEDIA_ROOT_IMG = os.path.join(MEDIA_ROOT, 'img')
+
+# FILE_UPLOAD_HANDLERS = [
+#     'django.core.files.uploadhandler.MemoryFileUploadHandler',
+#     'django.core.files.uploadhandler.TemporaryFileUploadHandler',
+#     'django.core.files.uploadhandler.FileSystemHandler',
+# ]
 
 AUTH_USER_MODEL = "users.UserRegister"
 

@@ -19,7 +19,7 @@
             {% for song in songs %}
                 <label>
                     <input type="checkbox" name="selected_songs" value="{{ song.music_id }}">
-                    {{ song.name }}
+                    {{ song.name }} by
                     {{ song.author }}
                 </label>
             {% endfor %}
