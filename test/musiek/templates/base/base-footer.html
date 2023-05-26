@@ -143,16 +143,10 @@
         musicAuthor.textContent = songData.author;
 
         // If the audio player was previously played, resume playback from the stored time
-        if (isAudioPlayed && storedPlaybackTime) {
-            audioPlayer.currentTime = parseFloat(storedPlaybackTime);
-            
-            if (!isAudioPlayed) {
-                audioPlayer.pause();
-            }
-            else {
-                audioPlayer.play();
-            }
-        }
+        //if (isAudioPlayed && storedPlaybackTime) {
+        audioPlayer.currentTime = parseFloat(storedPlaybackTime);
+        audioPlayer.play();
+        //}
     }
 
     // Play button click event listener
