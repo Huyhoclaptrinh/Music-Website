@@ -15,7 +15,6 @@ from django.http import (
 import os
 # Create your views here.
 
-
 def Newsfeed(request):
     data = Music.objects.all()  # Retrieve all instances of the model
     return render(request, "main_page/newsfeed.html", {'data': data})
@@ -23,7 +22,7 @@ def Newsfeed(request):
 def getNewMusic(request):
     music = Music.objects.first()  # Retrieve all instances of the model
     url = music.upload_file.url
-    return  JsonResponse({"url": url, "status": True})
+    return JsonResponse({"url": url, "status": True})
 
 # def Profile(request):
 #     return render(request, "profile.html")

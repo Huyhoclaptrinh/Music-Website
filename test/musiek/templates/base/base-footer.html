@@ -58,7 +58,7 @@
         {% comment %} {% if first_time %}
         <audio controls=""  name="media" style="margin-left: 20px;margin-bottom: 10px;width: 1230px;height:30px"><source src="{{last_played.song_file.url}}" type="audio/mpeg" ></audio>
               {% else %} {% endcomment %}
-        <audio class="audio" controls="" autoplay name="media" loop><source id="audio-source" src="" type="audio/mpeg" ></audio>
+        <audio class="audio" controls="" name="media" autoplay loop><source id="audio-source" src="" type="audio/mpeg" ></audio>
                 {% comment %} {% endif %} {% endcomment %}
     </div>
     <div class="footer-mid">
@@ -98,60 +98,79 @@
 </footer>
 <script>
     let audioPlayer = document.querySelector('.audio');
-    let isAudioPlayed = true;
     let storedPlaybackTime = sessionStorage.getItem("playback_time");
+    let isAudioPlayed = sessionStorage.getItem("audio_played");
     let url = "/get_music/";
     // Retrieve the last played song from sessionStorage
     let lastPlayed = sessionStorage.getItem("last_played");
-    // add async keyword here
     
-    const start = async function(a,b) {
-        const response = await fetch(url, {
-        method: "GET", // *GET, POST, PUT, DELETE, etc.
+    const start = async function() {
+      const response = await fetch(url, {
+        method: "GET",
         headers: {
-        "Content-Type": "application/json",
-
+          "Content-Type": "application/json",
         },
-        });
-
-        let data = await response.json();
-        let audioPlayer = document.querySelector('.audio');
-        audioPlayer.src = data.url;
+      });
+    
+      let data = await response.json();
+      audioPlayer.src = data.url;
+      sessionStorage.setItem("last_played", JSON.stringify(data.url));
+    
+      // If the audio player was previously played, resume playback from the stored time
+      if (storedPlaybackTime) {
+        audioPlayer.currentTime = parseFloat(storedPlaybackTime);
+      }
+    
+      // Handle the initial playback state
+      if (isAudioPlayed === "true") {
         audioPlayer.play();
-        sessionStorage.setItem("last_played", JSON.stringify(data.url));
-    }
+      } else {
+        audioPlayer.pause();
+      }
+    };
 
+    // Event listener for the play button
+    audioPlayer.addEventListener('play', () => {
+        sessionStorage.setItem("audio_played", "true");
+        sessionStorage.setItem("playback_time", audioPlayer.currentTime);
+    });
+
+    // Event listener for the pause button
+    audioPlayer.addEventListener('pause', () => {
+        sessionStorage.setItem("audio_played", "false");
+        sessionStorage.setItem("playback_time", audioPlayer.currentTime);
+    });
+    
     if (!lastPlayed) {
         start();
     }
-
+    
     // If there is a last played song, update the footer with its information
     if (lastPlayed) {
         let songData = JSON.parse(lastPlayed);
-
+        
         // Update the audio player source
         audioPlayer.src = songData.fileUrl;
-
+        
         // Update the music image, name, and author
         let musicImg = document.getElementById('music-img');
         musicImg.src = songData.imgUrl;
-
+        
         let musicName = document.getElementById('music-name');
         musicName.textContent = songData.name;
-
+        
         let musicAuthor = document.getElementById('music-author');
         musicAuthor.textContent = songData.author;
+        
+        if (storedPlaybackTime) {
+          audioPlayer.currentTime = parseFloat(storedPlaybackTime);
+        }
 
-        // If the audio player was previously played, resume playback from the stored time
-        if (isAudioPlayed && storedPlaybackTime) {
-            audioPlayer.currentTime = parseFloat(storedPlaybackTime);
-            
-            if (!isAudioPlayed) {
-                audioPlayer.pause();
-            }
-            else {
-                audioPlayer.play();
-            }
+        // Handle the initial playback state
+        if (isAudioPlayed === "true") {
+          audioPlayer.play();
+        } else {
+          audioPlayer.pause();
         }
     }
 
@@ -192,9 +211,4 @@
         });
     }
 
-    // Save the current playback time when leaving the page
-    window.addEventListener('beforeunload', function(event) {
-        sessionStorage.setItem("playback_time", audioPlayer.currentTime);
-        
-    });
 </script>

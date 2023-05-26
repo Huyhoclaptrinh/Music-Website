@@ -3,23 +3,32 @@ from django.template import loader
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, get_user_model
 from django.contrib.auth.models import User
 from django.contrib import messages
 from posts.models import Post, Music
 from users.models import UserRegister
+from django.contrib.auth import logout
 
 def signIn(request):
     if request.method == "POST":
-        username = request.POST["username"]
-        password = request.POST["password"]
-        user = authenticate(username=username, password=password)
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect("home")
+            if user.is_superuser:
+                # Redirect superuser to Django admin
+                return redirect('admin:index')
+            else:
+                # Redirect regular user to home page
+                return redirect('home')
         else:
-            messages.error(request, "Error")
-            return redirect("/")
+            messages.error(request, "Invalid username or password")
+            return redirect("signin")
+    
+    storage = messages.get_messages(request)
+    storage.used = True
 
     return render(request, "authentication/sign_in.html")
 
@@ -61,13 +70,17 @@ def signUp(request):
     
         user_register.set_password(user_register.password)
         user_register.save()
-        
-        messages.success(request, "Successful")
 
-        return redirect("/")
+        return redirect("signin")
+    
+    storage = messages.get_messages(request)
+    storage.used = True
     
     return render(request, "authentication/sign_up.html")
 
+def signOut(request):
+    logout(request)
+    return redirect('signin')
 
 def signUpAuth(request):
     return render(request, "authentication/sign_up_auth.html")

@@ -8,6 +8,13 @@
 				</div>
 				<div class="sign-in">
 					<h1> SIGN IN </h1>
+					{% if messages %}
+            	    	<div class="error-message">
+            	    	    {% for message in messages %}
+            	    	        <p>{{ message }}</p>
+            	    	    {% endfor %}
+            	    	</div>
+            		{% endif %}
 					<form action="{% url 'signin' %}" class="sign-in-form" method="POST">
 						{% csrf_token %}
 						<div class="email">

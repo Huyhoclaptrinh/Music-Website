@@ -12,7 +12,7 @@ def LibraryPage(request):
 
 def History(request):
     user = request.user
-    user_history = UserHistory.objects.filter(user_id=user)
+    user_history = UserHistory.objects.filter(user_id__exact=user)
     selected_date = request.GET.get(
         "selected_date"
     )  # Get the selected date from the request
@@ -87,3 +87,16 @@ def remove_song(request, library_id, song_id):
     user_library.library_id.music_id.remove(music)
 
     return redirect('library_details', library_id=library_id)
+
+def search_results(request):
+    query = request.GET.get('search_query')
+
+    # Query the Music model to retrieve matching songs
+    songs = Music.objects.filter(name__icontains=query)
+
+    context = {
+        'songs': songs,
+        'query': query
+    }
+
+    return render(request, 'main_page/search_results.html', context)
