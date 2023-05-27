@@ -129,7 +129,7 @@
       }
     };
 
-    // Event listener for the play button
+    {% comment %} // Event listener for the play button
     audioPlayer.addEventListener('play', () => {
         sessionStorage.setItem("audio_played", "true");
         sessionStorage.setItem("playback_time", audioPlayer.currentTime);
@@ -139,7 +139,7 @@
     audioPlayer.addEventListener('pause', () => {
         sessionStorage.setItem("audio_played", "false");
         sessionStorage.setItem("playback_time", audioPlayer.currentTime);
-    });
+    }); {% endcomment %}
     
     if (!lastPlayed) {
         start();
