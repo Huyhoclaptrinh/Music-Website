@@ -2,64 +2,7 @@
 {% load static %}
 <footer>
     <div class="footer-left">
-        {% comment %} <ul>
-            <li>
-                <div class="btn-toggle-warp">
-                    <button id="toggle-btn">
-                        <i class="fa-solid fa-forward fa-rotate-180"></i>
-                    </button>
-                </div>
-            </li>
-            <li>
-                <div class="btn-toggle-warp">
-                    <button id="toggle-btn">
-                        <i class="fa-solid fa-play" ></i>
-                    </button>
-                </div>
-            </li>
-            <li>
-                <div class="btn-toggle-warp">
-                    <button id="toggle-btn">
-                        <i class="fa-solid fa-forward" ></i>
-                    </button>
-                </div>
-            </li>
-            <li>
-                <div class="btn-toggle-warp">
-                    <button id="toggle-btn">
-                        <i class="fa-solid fa-shuffle"></i>
-                    </button>
-                </div>
-            </li>
-            <li>
-                <div class="btn-toggle-warp">
-                    <button id="toggle-btn">
-                        <i class="fa-solid fa-rotate-left"></i>
-                    </button>
-                </div>
-            </li>
-            <li>
-                <div class="slider_container">
-                    <div class="current-time">00:00</div>
-                    <input type="range" min="1" max="100"
-                      value="0" class="seek_slider" onchange="seekTo()">
-                    <div class="total-duration">03:00</div>
-                </div>
-            </li>
-
-            <li>
-                <div class="btn-toggle-warp">
-                    <button id="toggle-btn">
-                        <i class="fa-solid fa-headphones" ></i>
-                    </button>
-                </div>
-            </li>
-        </ul> {% endcomment %}
-        {% comment %} {% if first_time %}
-        <audio controls=""  name="media" style="margin-left: 20px;margin-bottom: 10px;width: 1230px;height:30px"><source src="{{last_played.song_file.url}}" type="audio/mpeg" ></audio>
-              {% else %} {% endcomment %}
         <audio class="audio" controls="" name="media" autoplay loop><source id="audio-source" src="" type="audio/mpeg" ></audio>
-                {% comment %} {% endif %} {% endcomment %}
     </div>
     <div class="footer-mid">
         <div class="music-img">
@@ -98,11 +41,11 @@
 </footer>
 <script>
     let audioPlayer = document.querySelector('.audio');
-    let storedPlaybackTime = sessionStorage.getItem("playback_time");
-    let isAudioPlayed = sessionStorage.getItem("audio_played");
+    let storedPlaybackTime = localStorage.getItem("playback_time");
+    let isAudioPlayed = localStorage.getItem("audio_played");
     let url = "/get_music/";
-    // Retrieve the last played song from sessionStorage
-    let lastPlayed = sessionStorage.getItem("last_played");
+    // Retrieve the last played song from localStorage
+    let lastPlayed = localStorage.getItem("last_played");
     
     const start = async function() {
       const response = await fetch(url, {
@@ -114,7 +57,7 @@
     
       let data = await response.json();
       audioPlayer.src = data.url;
-      sessionStorage.setItem("last_played", JSON.stringify(data.url));
+      localStorage.setItem("last_played", JSON.stringify(data.url));
     
       // If the audio player was previously played, resume playback from the stored time
       if (storedPlaybackTime) {
@@ -129,17 +72,21 @@
       }
     };
 
-    {% comment %} // Event listener for the play button
+    // Event listener for the play button
     audioPlayer.addEventListener('play', () => {
-        sessionStorage.setItem("audio_played", "true");
-        sessionStorage.setItem("playback_time", audioPlayer.currentTime);
+        localStorage.setItem("audio_played", "true");
     });
 
     // Event listener for the pause button
     audioPlayer.addEventListener('pause', () => {
-        sessionStorage.setItem("audio_played", "false");
-        sessionStorage.setItem("playback_time", audioPlayer.currentTime);
-    }); {% endcomment %}
+        localStorage.setItem("audio_played", "false");
+        localStorage.setItem("playback_time", audioPlayer.currentTime);
+    });
+
+    // Event listener for the timeupdate event to continuously update the stored playback time
+    audioPlayer.addEventListener('timeupdate', () => {
+        localStorage.setItem("playback_time", audioPlayer.currentTime);
+    });
     
     if (!lastPlayed) {
         start();
@@ -197,18 +144,20 @@
             let musicAuthor = document.getElementById('music-author');
             musicAuthor.textContent = author;
 
-            // Store the song data in sessionStorage
+            // Store the song data in localStorage
             let songData = {
                 fileUrl: fileUrl,
                 name: name,
                 author: author,
                 imgUrl: imgUrl
             };
-            sessionStorage.setItem("last_played", JSON.stringify(songData));
+            localStorage.setItem("last_played", JSON.stringify(songData));
 
             // Reset the stored playback time when playing a new song
-            sessionStorage.removeItem("playback_time");
+            localStorage.removeItem("playback_time");
         });
     }
-
 </script>
+
+
+
