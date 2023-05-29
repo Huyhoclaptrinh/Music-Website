@@ -5,7 +5,7 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('signin/', views.signIn, name='signin'),
+    path('', views.signIn, name='signin'),
     path('signup/', views.signUp, name='signup'),
     path('signout/', views.signOut, name='signout'),
     path('auth/', views.signUpAuth, name='auth'),
