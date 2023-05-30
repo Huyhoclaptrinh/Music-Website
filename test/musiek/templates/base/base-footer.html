@@ -40,124 +40,127 @@
     </div>
 </footer>
 <script>
-    let audioPlayer = document.querySelector('.audio');
-    let storedPlaybackTime = localStorage.getItem("playback_time");
-    let isAudioPlayed = localStorage.getItem("audio_played");
-    let url = "/get_music/";
-    // Retrieve the last played song from localStorage
-    let lastPlayed = localStorage.getItem("last_played");
-    
-    const start = async function() {
-      const response = await fetch(url, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    
-      let data = await response.json();
-      audioPlayer.src = data.url;
-      localStorage.setItem("last_played", JSON.stringify(data.url));
-    
-      // If the audio player was previously played, resume playback from the stored time
-      if (storedPlaybackTime) {
-        audioPlayer.currentTime = parseFloat(storedPlaybackTime);
-      }
-    
-      // Handle the initial playback state
-      if (isAudioPlayed === "true") {
-        audioPlayer.play();
-      } else {
-        audioPlayer.pause();
-      }
-    };
+	let audioPlayer = document.querySelector('.audio');
+	let storedPlaybackTime = localStorage.getItem("playback_time");
+	let isAudioPlayed = localStorage.getItem("audio_played");
+	let url = "/get_music/";
+	let lastPlayed = localStorage.getItem("last_played");
+  
+	const start = async function() {
+	  const response = await fetch(url, {
+		method: "GET",
+		headers: {
+		  "Content-Type": "application/json",
+		  "X-CSRFToken": getCookie("csrftoken")
+		},
+	  });
+  
+	  let data = await response.json();
+	  audioPlayer.src = data.url;
+	  localStorage.setItem("last_played", JSON.stringify(data.url));
+  
+	  if (storedPlaybackTime) {
+		audioPlayer.currentTime = parseFloat(storedPlaybackTime);
+	  }
+  
+	  if (isAudioPlayed === "true") {
+		audioPlayer.play();
+	  } else {
+		audioPlayer.pause();
+	  }
+	};
+  
+	audioPlayer.addEventListener('play', () => {
+	  localStorage.setItem("audio_played", "true");
+	});
+  
+	audioPlayer.addEventListener('pause', () => {
+	  localStorage.setItem("audio_played", "false");
+	  localStorage.setItem("playback_time", audioPlayer.currentTime);
+	});
+  
+	audioPlayer.addEventListener('timeupdate', () => {
+	  localStorage.setItem("playback_time", audioPlayer.currentTime);
+	});
+  
+	if (!lastPlayed) {
+	  start();
+	}
+  
+	if (lastPlayed) {
+	  let songData = JSON.parse(lastPlayed);
+	  audioPlayer.src = songData.fileUrl;
+  
+	  let musicImg = document.getElementById('music-img');
+	  musicImg.src = songData.imgUrl;
+  
+	  let musicName = document.getElementById('music-name');
+	  musicName.textContent = songData.name;
+  
+	  let musicAuthor = document.getElementById('music-author');
+	  musicAuthor.textContent = songData.author;
+  
+	  if (storedPlaybackTime) {
+		audioPlayer.currentTime = parseFloat(storedPlaybackTime);
+	  }
+  
+	  if (isAudioPlayed === "true") {
+		audioPlayer.play();
+	  } else {
+		audioPlayer.pause();
+	  }
+	}
+  
+	let playButtons = document.getElementsByClassName('play-btn');
+	for (let i = 0; i < playButtons.length; i++) {
+	  playButtons[i].addEventListener('click', function(event) {
+		let music_id = this.dataset.musicid;
+		let fileUrl = this.dataset.file;
+		let name = this.dataset.name;
+		let author = this.dataset.author;
+		let imgUrl = this.dataset.img;
+  
+		audioPlayer.src = fileUrl;
+  
+		let musicImg = document.getElementById('music-img');
+		musicImg.src = imgUrl;
+  
+		let musicName = document.getElementById('music-name');
+		musicName.textContent = name;
+  
+		let musicAuthor = document.getElementById('music-author');
+		musicAuthor.textContent = author;
+  
+		let songData = {
+		  fileUrl: fileUrl,
+		  name: name,
+		  author: author,
+		  imgUrl: imgUrl
+		};
+		localStorage.setItem("last_played", JSON.stringify(songData));
+  
+		localStorage.removeItem("playback_time");
+  
+		const xhr = new XMLHttpRequest();
+    	xhr.open('POST', `/save_to_history/${music_id}/`);
+    	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    	xhr.onload = function() {
+    	  if (xhr.status === 200) {
+    	    console.log(xhr.responseText);
+    	    // Handle the response from the backend if needed
 
-    // Event listener for the play button
-    audioPlayer.addEventListener('play', () => {
-        localStorage.setItem("audio_played", "true");
-    });
-
-    // Event listener for the pause button
-    audioPlayer.addEventListener('pause', () => {
-        localStorage.setItem("audio_played", "false");
-        localStorage.setItem("playback_time", audioPlayer.currentTime);
-    });
-
-    // Event listener for the timeupdate event to continuously update the stored playback time
-    audioPlayer.addEventListener('timeupdate', () => {
-        localStorage.setItem("playback_time", audioPlayer.currentTime);
-    });
-    
-    if (!lastPlayed) {
-        start();
-    }
-    
-    // If there is a last played song, update the footer with its information
-    if (lastPlayed) {
-        let songData = JSON.parse(lastPlayed);
-        
-        // Update the audio player source
-        audioPlayer.src = songData.fileUrl;
-        
-        // Update the music image, name, and author
-        let musicImg = document.getElementById('music-img');
-        musicImg.src = songData.imgUrl;
-        
-        let musicName = document.getElementById('music-name');
-        musicName.textContent = songData.name;
-        
-        let musicAuthor = document.getElementById('music-author');
-        musicAuthor.textContent = songData.author;
-        
-        if (storedPlaybackTime) {
-          audioPlayer.currentTime = parseFloat(storedPlaybackTime);
-        }
-
-        // Handle the initial playback state
-        if (isAudioPlayed === "true") {
-          audioPlayer.play();
-        } else {
-          audioPlayer.pause();
-        }
-    }
-
-    // Play button click event listener
-    let playButtons = document.getElementsByClassName('play-btn');
-    for (let i = 0; i < playButtons.length; i++) {
-        playButtons[i].addEventListener('click', function(event) {
-            let fileUrl = this.dataset.file;
-            let name = this.dataset.name;
-            let author = this.dataset.author;
-            let imgUrl = this.dataset.img;
-
-            // Update the audio player source
-            let audioPlayer = document.querySelector('.audio');
-            audioPlayer.src = fileUrl;
-
-            // Update the music image, name, and author
-            let musicImg = document.getElementById('music-img');
-            musicImg.src = imgUrl;
-
-            let musicName = document.getElementById('music-name');
-            musicName.textContent = name;
-
-            let musicAuthor = document.getElementById('music-author');
-            musicAuthor.textContent = author;
-
-            // Store the song data in localStorage
-            let songData = {
-                fileUrl: fileUrl,
-                name: name,
-                author: author,
-                imgUrl: imgUrl
-            };
-            localStorage.setItem("last_played", JSON.stringify(songData));
-
-            // Reset the stored playback time when playing a new song
-            localStorage.removeItem("playback_time");
-        });
-    }
+    	    // Update the UI to indicate that the music is saved to history
+    	    let messageElement = document.getElementById('message');
+    	    messageElement.textContent = 'Music saved to history successfully';
+    	  } else {
+    	    console.error('Error:', xhr.status);
+    	  }
+    	};
+    	xhr.send(`music_id=${music_id}`);
+		});
+	}
 </script>
+  
 
 
 

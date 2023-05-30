@@ -27,5 +27,5 @@ class UserLibrary(models.Model):
 
 
 class UserHistory(models.Model):
-    history_id = models.ForeignKey(History, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
+    history_id = models.ForeignKey(History, on_delete=models.CASCADE, null=True)
+    user_id = models.OneToOneField(UserRegister, on_delete=models.CASCADE)

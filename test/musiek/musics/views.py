@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import UserHistory, Music, UserLibrary, Library
+from .models import UserHistory, Music, UserLibrary, Library, History
 from .forms import AddSongForm
 import datetime
+from django.http import HttpResponse
+import json
+from django.utils import timezone
+from django.http import JsonResponse
 # Create your views here.
 
 
@@ -10,7 +14,7 @@ def LibraryPage(request):
     return render(request, "main_page/library.html", {'libraries': libraries})
 
 
-def History(request):
+def historyShow(request):
     user = request.user
     user_history = UserHistory.objects.filter(user_id__exact=user)
     selected_date = request.GET.get(
@@ -100,3 +104,33 @@ def search_results(request):
     }
 
     return render(request, 'main_page/search_results.html', context)
+
+def save_to_history(request, music_id):
+    if request.method == 'POST':
+        user = request.user
+        music = Music.objects.get(music_id=music_id)
+
+        user_history, _ = UserHistory.objects.get_or_create(user_id=user)
+
+        history = user_history.history_id
+        if history is None:
+            # Create a new history entry and add the music
+            history = History.objects.create(date=timezone.now())
+            history.music_id.add(music)
+            user_history.history_id = history
+            user_history.save()
+        else:
+            if music in history.music_id.all():
+                # Update the timestamp of the existing history entry
+                history.date = timezone.now()
+                history.save()
+            else:
+                # Add the music to the existing history entry
+                history.music_id.add(music)
+
+        response_data = {'message': 'Music saved to history successfully'}
+        return JsonResponse(response_data)
+        
+    else:
+        response_data = {'message': 'Invalid request method'}
+        return JsonResponse(response_data)

@@ -21,16 +21,19 @@
             <h2>Songs:</h2>
             <ul>
                 {% for song in library.music_id.all %}
-                    <li>
-                        {{ song.name }} by {{ song.author }}
-                        <button class="play-btn" data-file="{{ song.upload_file.url }}" data-name="{{ song.name }}" data-author="{{ song.author }}" data-img="{{ song.img.url }}">Play</button>
-                        {% if is_creator %}
-                            <form method="post" action="{% url 'remove_song' library_id=library.library_id song_id=song.music_id %}">
-                                {% csrf_token %}
-                                <button type="submit">Remove</button>
-                            </form>
-                        {% endif %}
-                    </li>
+                  <li>
+                    {{ song.name }} by {{ song.author }}
+                    <form method="post" action="{% url 'save_to_history' music_id=song.music_id %}">
+                      {% csrf_token %}
+                      <button type="submit" class="play-btn" data-file="{{ song.upload_file.url }}" data-name="{{ song.name }}" data-author="{{ song.author }}" data-img="{{ song.img.url }}">Play</button>
+                    </form>
+                    {% if is_creator %}
+                      <form method="post" action="{% url 'remove_song' library_id=library.library_id song_id=song.music_id %}">
+                        {% csrf_token %}
+                        <button type="submit">Remove</button>
+                      </form>
+                    {% endif %}
+                  </li>
                 {% endfor %}
             </ul>
         

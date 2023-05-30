@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from posts.models import Post, Music
 from users.models import UserRegister
+from musics.models import History, UserHistory
 from django.contrib.auth import logout
 
 def signIn(request):
@@ -87,8 +88,33 @@ def signUpAuth(request):
 
 
 def Home(request):
-    return render(request, "main_page/main_menu.html")
+    user = request.user
+    user_history = UserHistory.objects.filter(user_id=user).first()
+    
+    if user_history:
+        history = History.objects.filter(userhistory__user_id=user).order_by('-date')[:3]
+    else:
+        history = []
+
+    context = {
+        'history': history,
+    }
+    return render(request, "main_page/main_menu.html", context)
 
 
 def Setting(request):
     return render(request, "main_page/settings.html")
+
+def right_sidebar(request):
+    user = request.user
+    user_history = UserHistory.objects.filter(user_id=user).first()
+    
+    if user_history:
+        history = History.objects.filter(userhistory__user_id=user).order_by('-date')[:3]
+    else:
+        history = []
+
+    context = {
+        'history': history,
+    }
+    return render(request, 'base/base-right-content.html', context)

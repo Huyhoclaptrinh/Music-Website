@@ -14,42 +14,28 @@
             </div>
         </div>
         <div class="history-content-bottom">
+            {% for item in history %}
             <div class="song">
-                <div class="song-img"><img src="{% static 'img/user.jpg' %}" alt="lumine"></div>
-                <div class="song-detail">
-                    <div class="song-artist"><p> Lumine </p></div>
-                    <div class="song-name"><p> Dung mang com suon </p></div>
-                    <div class="song-react">
-                        <i class="fa-solid fa-play"></i>
-                        <i class="fa-regular fa-heart"></i>
-                        <i class="fa-regular fa-comment"></i>
-                    </div>
+              <div class="song-img">
+                <img src="{{ item.music_id.img.url }}" alt="{{ item.music_id.name }}">
+              </div>
+              <div class="song-detail">
+                <div class="song-artist">
+                  <p>{{ item.music_id.author }}</p>
                 </div>
-            </div>
-            <div class="song">
-                <div class="song-img"><img src="{% static 'img/user.jpg' %}" alt="lumine"></div>
-                <div class="song-detail">
-                    <div class="song-artist"><p> Lumine </p></div>
-                    <div class="song-name"><p> Dung mang com suon </p></div>
-                    <div class="song-react">
-                        <i class="fa-solid fa-play"></i>
-                        <i class="fa-regular fa-heart"></i>
-                        <i class="fa-regular fa-comment"></i>
-                    </div>
+                <div class="song-name">
+                  <p>{{ item.music_id.name }}</p>
                 </div>
-            </div>
-            <div class="song">
-                <div class="song-img"><img src="{% static 'img/user.jpg' %}" alt="lumine"></div>
-                <div class="song-detail">
-                    <div class="song-artist"><p> Lumine </p></div>
-                    <div class="song-name"><p> Dung mang com suon </p></div>
-                    <div class="song-react">
-                        <i class="fa-solid fa-play"></i>
-                        <i class="fa-regular fa-heart"></i>
-                        <i class="fa-regular fa-comment"></i>
-                    </div>
+                <div class="song-react">
+                  <i class="fa-solid fa-play"></i>
+                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-comment"></i>
                 </div>
+              </div>
             </div>
+            {% empty %}
+              <p>No history available.</p>
+            {% endfor %}
         </div>
     </div>
     <div class="friend-content">
