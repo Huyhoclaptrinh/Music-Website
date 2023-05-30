@@ -24,17 +24,15 @@
         </div>
         
         <div class="user-content col-md-3">
-            {% if user.is_authenticated %}
             <div class="account">
                 <a href="{% url 'profile' %}">
                     <div class="image">
                         <img src="{% static 'img/user.jpg' %}" alt="user">
                     </div>
 
-                    <div class="user-name">{{ user.username }}</div>
+                    <div class="user-name">{{ username }}</div>
                 </a>
             </div>
-            {% endif%}
         </div>
         <div id="menu-logo">
             
@@ -75,7 +73,7 @@
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-circle-xmark"></i>
-                                    <a href="{% url 'signin' %}">Exit</a>
+                                    <a href="{% url 'signout' %}">Exit</a>
                                 </li>
                             </ul>
                           <form class="d-flex mt-3" role="search">

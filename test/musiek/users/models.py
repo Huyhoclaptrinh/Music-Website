@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import Permission
 
 class UserRegister(AbstractUser):
     user_id = models.BigAutoField(
