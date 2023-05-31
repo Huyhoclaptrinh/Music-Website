@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import UserHistory, Music, UserLibrary, Library, History
+from .models import UserHistory, Music, UserLibrary, Library, History, HistoryEntry
 from .forms import AddSongForm
 import datetime
 from django.http import HttpResponse
@@ -115,22 +115,23 @@ def save_to_history(request, music_id):
         history = user_history.history_id
         if history is None:
             # Create a new history entry and add the music
-            history = History.objects.create(date=timezone.now())
-            history.music_id.add(music)
+            history = History.objects.create()
+            HistoryEntry.objects.create(history=history, music=music, date=timezone.now())
             user_history.history_id = history
             user_history.save()
         else:
-            if music in history.music_id.all():
+            try:
+                history_entry = history.historyentry_set.get(music=music)
                 # Update the timestamp of the existing history entry
-                history.date = timezone.now()
-                history.save()
-            else:
+                history_entry.date = timezone.now()
+                history_entry.save()
+            except HistoryEntry.DoesNotExist:
                 # Add the music to the existing history entry
-                history.music_id.add(music)
+                HistoryEntry.objects.create(history=history, music=music, date=timezone.now())
 
         response_data = {'message': 'Music saved to history successfully'}
         return JsonResponse(response_data)
-        
+
     else:
         response_data = {'message': 'Invalid request method'}
         return JsonResponse(response_data)

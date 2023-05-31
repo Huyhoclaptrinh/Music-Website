@@ -11,7 +11,7 @@ urlpatterns = [
     path('auth/', views.signUpAuth, name='auth'),
     path('home/', views.Home, name='home'),
     path('settings/', views.Setting, name='setting'),
-    path('right-sidebar/', views.right_sidebar, name='right_sidebar'),
+    # path('right-sidebar/', views.right_sidebar, name='right_sidebar'),
     
     # path('form_submit/', views.form_submit_view, name='form_submit'),
 ]

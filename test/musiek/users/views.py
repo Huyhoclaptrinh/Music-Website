@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, get_user_model
@@ -10,6 +10,7 @@ from posts.models import Post, Music
 from users.models import UserRegister
 from musics.models import History, UserHistory
 from django.contrib.auth import logout
+from django.core.exceptions import ObjectDoesNotExist
 
 def signIn(request):
     if request.method == "POST":
@@ -88,16 +89,22 @@ def signUpAuth(request):
 
 
 def Home(request):
-    user = request.user
-    user_history = UserHistory.objects.filter(user_id=user).first()
-    
-    if user_history:
-        history = History.objects.filter(userhistory__user_id=user).order_by('-date')[:3]
-    else:
-        history = []
+    try:
+        user_history = UserHistory.objects.get(user_id=request.user)
+        history = user_history.history_id
+        is_creator = user_history.user_id == request.user
+        songs = history.historyentry_set.order_by('-date')[:3] if history else []
+    except ObjectDoesNotExist:
+        user_history = None
+        history = None
+        is_creator = False
+        songs = []
 
     context = {
+        'user_history': user_history,
         'history': history,
+        'is_creator': is_creator,
+        'songs': songs,
     }
     return render(request, "main_page/main_menu.html", context)
 
@@ -105,16 +112,16 @@ def Home(request):
 def Setting(request):
     return render(request, "main_page/settings.html")
 
-def right_sidebar(request):
-    user = request.user
-    user_history = UserHistory.objects.filter(user_id=user).first()
+# def right_sidebar(request):
+#     user = request.user
+#     user_history = UserHistory.objects.filter(user_id=user).first()
     
-    if user_history:
-        history = History.objects.filter(userhistory__user_id=user).order_by('-date')[:3]
-    else:
-        history = []
+#     if user_history:
+#         history = History.objects.filter(userhistory__user_id=user).order_by('-date')[:3]
+#     else:
+#         history = []
 
-    context = {
-        'history': history,
-    }
-    return render(request, 'base/base-right-content.html', context)
+#     context = {
+#         'history': history,
+#     }
+#     return render(request, 'base/base-right-content.html', context)

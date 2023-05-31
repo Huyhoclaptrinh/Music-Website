@@ -17,7 +17,6 @@ class History(models.Model):
     history_id = models.BigAutoField(
         auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
     )
-    music_id = models.ManyToManyField(Music)
     date = models.DateField(auto_now_add=True)
 
 
@@ -29,3 +28,8 @@ class UserLibrary(models.Model):
 class UserHistory(models.Model):
     history_id = models.ForeignKey(History, on_delete=models.CASCADE, null=True)
     user_id = models.OneToOneField(UserRegister, on_delete=models.CASCADE)
+
+class HistoryEntry(models.Model):
+    history = models.ForeignKey(History, on_delete=models.CASCADE)
+    music = models.ForeignKey(Music, on_delete=models.CASCADE)
+    date = models.DateField(auto_now_add=True)

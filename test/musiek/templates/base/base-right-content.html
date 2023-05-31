@@ -14,28 +14,30 @@
             </div>
         </div>
         <div class="history-content-bottom">
-            {% for item in history %}
-            <div class="song">
-              <div class="song-img">
-                <img src="{{ item.music_id.img.url }}" alt="{{ item.music_id.name }}">
-              </div>
-              <div class="song-detail">
-                <div class="song-artist">
-                  <p>{{ item.music_id.author }}</p>
-                </div>
-                <div class="song-name">
-                  <p>{{ item.music_id.name }}</p>
-                </div>
-                <div class="song-react">
-                  <i class="fa-solid fa-play"></i>
-                  <i class="fa-regular fa-heart"></i>
-                  <i class="fa-regular fa-comment"></i>
-                </div>
-              </div>
-            </div>
-            {% empty %}
-              <p>No history available.</p>
-            {% endfor %}
+            {% if is_creator and user_history %}
+                {% for history_entry in songs %}
+                    <div class="song">
+                        <div class="song-img">
+                            <img src="{{ history_entry.music.img.url }}" alt="{{ history_entry.music.name }}">
+                        </div>
+                        <div class="song-detail">
+                            <div class="song-artist">
+                                <p>{{ history_entry.music.author }}</p>
+                            </div>
+                            <div class="song-name">
+                                <p>{{ history_entry.music.name }}</p>
+                            </div>
+                            <div class="song-react">
+                                <i class="fa-solid fa-play"></i>
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-regular fa-comment"></i>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No history available.</p>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
     <div class="friend-content">
