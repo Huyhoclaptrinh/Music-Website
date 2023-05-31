@@ -9,6 +9,14 @@ from django.urls import reverse
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
+class Comment(models.Model):
+    comment_id = models.BigAutoField(
+        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+    )
+    user_id = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
+    content = models.CharField(max_length=255)
+    date = models.DateTimeField(auto_now_add=True)
+
 class Post(models.Model):
     post_id = models.BigAutoField(
         auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
@@ -24,6 +32,7 @@ class Post(models.Model):
     total_played = models.IntegerField(default=0)
     total_likes = models.IntegerField(default=0)
     total_comments = models.IntegerField(default=0)
+    comments = models.ManyToManyField(Comment, through='PostComment')
 
     def clean(self):
         super().clean()
@@ -67,6 +76,9 @@ class Post(models.Model):
         # Call the superclass delete() method
         super().delete(*args, **kwargs)
 
+class PostComment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
 
 class Music(models.Model):
     music_id = models.BigAutoField(
@@ -121,11 +133,4 @@ def delete_music_files(sender, instance, **kwargs):
     if instance.img:
         instance.img.delete(save=False)
 
-class Comment(models.Model):
-    comment_id = models.BigAutoField(
-        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
-    )
-    user_id = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
-    post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
-    content = models.CharField(max_length=255)
-    date = models.DateField(auto_now_add=True)
+

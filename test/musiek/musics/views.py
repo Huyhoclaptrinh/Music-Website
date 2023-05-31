@@ -1,35 +1,49 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import UserHistory, Music, UserLibrary, Library, History, HistoryEntry
 from .forms import AddSongForm
-import datetime
+from datetime import datetime
 from django.http import HttpResponse
 import json
 from django.utils import timezone
 from django.http import JsonResponse
+from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
-
 
 def LibraryPage(request):
     libraries = Library.objects.all()
     return render(request, "main_page/library.html", {'libraries': libraries})
 
-
 def historyShow(request):
-    user = request.user
-    user_history = UserHistory.objects.filter(user_id__exact=user)
-    selected_date = request.GET.get(
-        "selected_date"
-    )  # Get the selected date from the request
+    try:
+        user_history = UserHistory.objects.get(user_id=request.user)
+        history = user_history.history_id
+        is_creator = user_history.user_id == request.user
 
-    if selected_date:
-        selected_datetime = datetime.datetime.strptime(selected_date, "%m/%d/%Y %I:%M %p")
-        selected_date = selected_datetime.strftime("%Y-%m-%d")
-        user_history = user_history.filter(history_id__date=selected_date)
-    return render(
-        request,
-        "main_page/history.html",
-        {"user_history": user_history, "selected_date": selected_date},
-    )
+        selected_date = request.GET.get('selected_date')
+        songs = []
+
+        if selected_date:
+            selected_date = datetime.strptime(selected_date, '%d/%m/%Y').date()
+            if history:
+                songs = history.historyentry_set.filter(date__startswith=selected_date).order_by('-date')
+        else:
+            if history:
+                songs = history.historyentry_set.order_by('-date')
+
+    except ObjectDoesNotExist:
+        user_history = None
+        history = None
+        is_creator = False
+        songs = []
+
+    context = {
+        'user_history': user_history,
+        'history': history,
+        'is_creator': is_creator,
+        'songs': songs,
+        'selected_date': selected_date,
+    }
+    return render(request, "main_page/history.html", context)
 
 def library_add(request):
     songs = Music.objects.all()

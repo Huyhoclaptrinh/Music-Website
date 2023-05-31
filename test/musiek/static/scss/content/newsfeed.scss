@@ -148,6 +148,12 @@
 .comment-section-bot {
     display: flex;
     margin-top: 20px;
+    flex-direction: column;
+
+    .comment-section-user {
+        display: flex;
+        flex-direction: row;
+    }
 
     img {
         width: 37px;

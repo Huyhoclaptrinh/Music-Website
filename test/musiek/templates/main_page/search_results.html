@@ -17,7 +17,10 @@
           <ul>
             {% for song in songs %}
               <li>{{ song.name }} by {{ song.author }}</li>
-              <button class="play-btn" data-file="{{ song.upload_file.url }}" data-name="{{ song.name }}" data-author="{{ song.author }}" data-img="{{ song.img.url }}">Play</button>
+              <form method="post" action="{% url 'save_to_history' music_id=song.music_id %}">
+                {% csrf_token %}
+                <button type="submit" class="play-btn" data-file="{{ song.upload_file.url }}" data-name="{{ song.name }}" data-author="{{ song.author }}" data-img="{{ song.img.url }}">Play</button>
+              </form>
             {% endfor %}
           </ul>
         {% else %}

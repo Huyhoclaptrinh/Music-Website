@@ -8786,7 +8786,11 @@ readers do not read off random characters that represent icons */
 
 .comment-section-bot {
   display: flex;
-  margin-top: 20px; }
+  margin-top: 20px;
+  flex-direction: column; }
+  .comment-section-bot .comment-section-user {
+    display: flex;
+    flex-direction: row; }
   .comment-section-bot img {
     width: 37px;
     height: 36px;

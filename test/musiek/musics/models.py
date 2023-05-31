@@ -32,4 +32,4 @@ class UserHistory(models.Model):
 class HistoryEntry(models.Model):
     history = models.ForeignKey(History, on_delete=models.CASCADE)
     music = models.ForeignKey(Music, on_delete=models.CASCADE)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True)

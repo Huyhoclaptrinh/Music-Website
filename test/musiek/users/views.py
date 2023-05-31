@@ -93,7 +93,12 @@ def Home(request):
         user_history = UserHistory.objects.get(user_id=request.user)
         history = user_history.history_id
         is_creator = user_history.user_id == request.user
-        songs = history.historyentry_set.order_by('-date')[:3] if history else []
+
+        if history:
+            songs = history.historyentry_set.order_by('-date')[:3]
+        else:
+            songs = []
+
     except ObjectDoesNotExist:
         user_history = None
         history = None

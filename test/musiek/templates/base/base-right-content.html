@@ -15,20 +15,25 @@
         </div>
         <div class="history-content-bottom">
             {% if is_creator and user_history %}
-                {% for history_entry in songs %}
+                {% for song in songs %}
                     <div class="song">
                         <div class="song-img">
-                            <img src="{{ history_entry.music.img.url }}" alt="{{ history_entry.music.name }}">
+                            <img src="{{ song.music.img.url }}" alt="{{ song.music.name }}">
                         </div>
                         <div class="song-detail">
                             <div class="song-artist">
-                                <p>{{ history_entry.music.author }}</p>
+                                <p>{{ song.music.author }}</p>
                             </div>
                             <div class="song-name">
-                                <p>{{ history_entry.music.name }}</p>
+                                <p>{{ song.music.name }}</p>
                             </div>
                             <div class="song-react">
-                                <i class="fa-solid fa-play"></i>
+                                <i class="fa-solid fa-play">
+                                    <form method="post" action="{% url 'save_to_history' music_id=song.music_id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="play-btn" data-file="{{ song.music.upload_file.url }}" data-name="{{ song.music.name }}" data-author="{{ song.music.author }}" data-img="{{ song.music.img.url }}"></button>
+                                    </form>
+                                </i>
                                 <i class="fa-regular fa-heart"></i>
                                 <i class="fa-regular fa-comment"></i>
                             </div>
