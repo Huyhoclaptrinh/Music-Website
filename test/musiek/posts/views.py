@@ -1,7 +1,7 @@
 from urllib.parse import urlencode
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.files.storage import FileSystemStorage
-from .models import Post, Music, Comment, PostComment
+from .models import Post, Music, Comment
 from django.core.files.storage import default_storage
 from django.http import (
     FileResponse,
@@ -10,17 +10,21 @@ from django.http import (
     HttpResponseNotFound,
     JsonResponse,
 )
-
+from django.db.models import F, Case, When
+from django.db import models, transaction
+from .forms import PostForm
+from django.utils import timezone
 
 import os
 # Create your views here.
 
 def Newsfeed(request):
-    data = Post.objects.all().order_by('-date')  # Retrieve all instances of the model
-    return render(request, "main_page/newsfeed.html", {'data': data})
+    post = Post.objects.all().order_by('-date')
+    comments = Comment.objects.filter(post__in=post).order_by('-date')
+    return render(request, "main_page/newsfeed.html", {'post': post, 'comments':comments})
 
 def getNewMusic(request):
-    music = Music.objects.first()  # Retrieve all instances of the model
+    music = Music.objects.first()
     url = music.upload_file.url
     return JsonResponse({"url": url, "status": True})
 
@@ -58,7 +62,7 @@ def UploadDetail(request):
         # Retrieve the post and access the associated userRegister model
         post = Post.objects.get(post_id=post_id)
         username = post.user_id.username  # Access the username attribute
-        recent_posts = Post.objects.filter(user_id=request.user).order_by('-date')[:5]
+        recent_posts = Post.objects.filter(user_id=request.user).order_by('-date')
         
         return render(request, "main_page/profile.html", {'recent_posts': recent_posts, 'username': username})
     
@@ -69,14 +73,16 @@ def UploadDetail(request):
     # return render(request, "upload_detail.html")
 
 def Profile(request):
-    recent_posts = Post.objects.filter(user_id=request.user).order_by('-date')[:5]
-    return render(request, "main_page/profile.html", {'recent_posts': recent_posts})
+    recent_posts = Post.objects.filter(user_id=request.user).order_by('-date')
+    comments = Comment.objects.filter(post__in=recent_posts).order_by('-date')
+    return render(request, "main_page/profile.html", {'recent_posts': recent_posts, 'comments':comments})
 
 def post_comment(request):
     if request.method == 'POST':
         content = request.POST.get('content')
         post_id = request.POST.get('post_id')
         user = request.user
+        page = request.POST.get('page')
 
         try:
             post = Post.objects.get(post_id=post_id)
@@ -85,10 +91,56 @@ def post_comment(request):
             return HttpResponse("Invalid post_id")
 
         # Create and save the comment
-        comment = Comment.objects.create(user_id=user, content=content)
-        post.comments.add(comment)
+        comment = Comment.objects.create(user_id=user, post=post, content=content)
+
+        post.total_comments = post.get_total_comments()
+        post.save()
+
+        # Determine the redirect URL based on the page value
+        if page == 'profile':
+            return redirect('profile')
+        elif page == 'newsfeed':
+            return redirect('newsfeed')
 
     return redirect('newsfeed')
+
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, comment_id=comment_id)
+    page = request.POST.get('page')
+    if comment.user_id == request.user:
+        post = comment.post
+
+        comment.delete()
+
+        post.total_comments = post.get_total_comments()
+        post.save()
+
+    if page == 'profile':
+        return redirect('profile')
+    elif page == 'newsfeed':
+        return redirect('newsfeed')
+    else:
+        return redirect('newsfeed')
+    
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, post_id=post_id)
+    if post.user_id == request.user:
+        post.delete()
+    return redirect('profile')
+
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, post_id=post_id)
+
+    if request.method == 'POST':
+        edit_form = PostForm(request.POST, instance=post)
+        if edit_form.is_valid():
+            edit_form.save()  # Save the edited post
+
+            return redirect('profile')  # Redirect to the profile page after editing the post
+    else:
+        edit_form = PostForm(instance=post)
+
+    return render(request, 'main_page/profile.html', {'edit_form': edit_form})
 
 # def UploadFile(request):
 #   return

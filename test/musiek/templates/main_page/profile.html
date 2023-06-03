@@ -37,6 +37,33 @@
                             <h2>{{post.user_id.username}}</h2>
                             <p>{{ post.date|timesince }} ago</p>
                         </div>
+                        {% if post.user_id == request.user %}
+                            <form method="post" action="{% url 'delete_post' post_id=post.post_id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="delete-post-btn">Delete Post</button>
+                            </form>
+                            <button class="edit-post-btn" onclick="showEditForm('{{ post.post_id }}')" type="button">Edit Post</button>
+                            <div id="edit-post-form-{{ post.post_id }}" style="display: none;">
+                                <div class="edit-form-container">
+                                    <div class="edit-form-header">
+                                        <h3>Edit Post</h3>
+                                        <button class="edit-form-close" onclick="hideEditForm('{{ post.post_id }}')" type="button">Close</button>
+                                    </div>
+                                    <form id="edit-form-{{ post.post_id }}" method="post" action="{% url 'edit_post' post_id=post.post_id %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" id="edit-post-id" name="post_id" value="{{ post.post_id }}">
+                                        <label for="id_name">Name:</label>
+                                        <input type="text" id="id_name" name="name" value="{{ post.name }}">
+                                        <label for="id_author">Author:</label>
+                                        <input type="text" id="id_author" name="author" value="{{ post.author }}">
+                                        <label for="id_content">Content:</label>
+                                        <textarea id="id_content" name="content">{{ post.content }}</textarea>
+                                        <button type="submit">Save</button>
+                                    </form>
+                                </div>
+                            </div>
+                        {% endif %}
+
                     </div>
                     <div class="mid-feed">
                         <div class="user-comment">{{ post.content }}</div>
@@ -53,20 +80,42 @@
                             </div>
 
                             <div class="icon-container">
-                                <i class="fa-solid fa-comment"></i>
+                                <i class="fa-solid fa-comment">{{ post.total_comments }}</i>
                                 <i class="fa-solid fa-heart"></i>
                                 <i class="fa-solid fa-share"></i>
                             </div>
                             <div class="comment-section">
                                 <div class="comment-section-top">
-                                    <input type="text" id="comment-input" placeholder="Write your comment...">
-                                    <button type="button" name="comment-submit" id="comment-submit">Send</button>
+                                    <form method="post" action="{% url 'post_comment' %}" id="comment-form">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="page" value="profile">
+                                        <input type="hidden" name="post_id" value="{{ post.post_id }}">
+                                        <input type="text" id="comment-input" name="content" placeholder="Write your comment..." required>
+                                        <button type="submit" name="comment-submit">Send</button>
+                                    </form>
                                 </div>
                                 <div class="comment-section-bot">
-                                    <img src="{% static 'img/user.jpg' %}" alt="song">
-                                    <div class="comment-container">
-                                        <div class="comment-username">KannaUwU</div>
-                                        <div class="comment-text">Nhac nhu dac cau that 🐧</div>
+                                    <div class="comment-container-wrapper">
+                                        {% for post_comment in comments %}
+                                            {% if post_comment.post == post %}
+                                                <div class="comment-section-user">
+                                                    <img src="{% static 'img/user.jpg' %}" alt="song">
+                                                    <div class="comment-container">
+                                                        <b><div class="comment-username">{{ post_comment.user_id.username }} | {{ post_comment.date|timesince }}</div></b>
+                                                        <div class="comment-text">{{ post_comment.content }}</div>
+                                                        {% if post_comment.user_id == request.user %}
+                                                            <form method="post" action="{% url 'delete_comment' comment_id=post_comment.comment_id %}">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" name="page" value="profile">
+                                                                <button type="submit" class="delete-comment-btn">Delete</button>
+                                                            </form>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        {% empty %}
+                                            <p>No comments available.</p>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
@@ -106,6 +155,43 @@
             </div>
         </div>           
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        // Function to show the edit form
+        function showEditForm(postId) {
+            // Show the edit form for the specific post
+            var formId = 'edit-post-form-' + postId;
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        // Function to hide the edit form for a specific post
+        function hideEditForm(postId) {
+            // Hide the edit form for the specific post
+            var formId = 'edit-post-form-' + postId;
+            document.getElementById(formId).style.display = 'none';
+        }
+    
+        // Add event listener to the "Edit Post" buttons
+        var editButtons = document.getElementsByClassName('edit-post-btn');
+        for (var i = 0; i < editButtons.length; i++) {
+            editButtons[i].addEventListener('click', function() {
+                var postId = this.getAttribute('data-post-id');
+                showEditForm(postId);
+            });
+        }
+        
+        // Add event listener to the "Close" button of each edit form
+        var closeButtons = document.getElementsByClassName('edit-form-close');
+        for (var i = 0; i < closeButtons.length; i++) {
+            closeButtons[i].addEventListener('click', function() {
+                var postId = this.getAttribute('data-post-id');
+                hideEditForm(postId);
+            });
+        }
+        
+    </script>
+    
 {% endblock content %}
 {% block right %}
     {% include 'base/base-profile-right-content.html' %}

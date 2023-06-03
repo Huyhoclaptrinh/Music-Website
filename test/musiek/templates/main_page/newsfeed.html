@@ -14,11 +14,11 @@
         <div class="title">
             Hear the latest post from your friends:
         </div>
-        {% for item in data %}
+        {% for item in post %}
         <div class="feed">
             <div class="top-feed">
                 <img src="{% static 'img/user.jpg' %}" alt="user">
-                <div class="user-status">{{ item.user_id.username }} posted a song {{ item.date|timesince }} ago</div>
+                <div class="user-status"><b>{{ item.user_id.username }}</b> posted a song {{ item.date|timesince }} ago</div>
             </div>
             <div class="mid-feed">
                 <div class="user-comment">{{ item.content }}</div>
@@ -30,36 +30,47 @@
                 <div class="bot-feed-right">
                     <i class="fa-solid fa-circle-play"></i>
                     <div class="song-container">
-                        
-                            <div class="author-name">{{ item.author }}</div>
-                            <div class="song-name">{{ item.name }}</div>
-                        
-                        
+                        <div class="author-name">{{ item.author }}</div>
+                        <div class="song-name">{{ item.name }}</div>
                     </div>
                     <div class="icon-container">
-                        <i class="fa-solid fa-comment"></i>
+                        <i class="fa-solid fa-comment">{{ item.total_comments }}</i>
                         <i class="fa-solid fa-heart"></i>
                         <i class="fa-solid fa-share"></i>
                     </div>
                     <div class="comment-section">
-                        <form method="post" action="{% url 'post_comment' %}" id="comment-form">
-                            {% csrf_token %}
-                            <input type="hidden" name="post_id" value="{{ item.post_id }}">
-                            <input type="text" id="comment-input" name="content" placeholder="Write your comment...">
-                            <button type="submit" name="comment-submit">Send</button>
-                        </form>
+                        <div class="comment-section-top">
+                            <form method="post" action="{% url 'post_comment' %}" id="comment-form">
+                                {% csrf_token %}
+                                <input type="hidden" name="page" value="newsfeed">
+                                <input type="hidden" name="post_id" value="{{ item.post_id }}">
+                                <input type="text" id="comment-input" name="content" placeholder="Write your comment..." required>
+                                <button type="submit" name="comment-submit">Send</button>
+                            </form>
+                        </div>
                         <div class="comment-section-bot">
-                            {% for post_comment in item.postcomment_set.all %}
-                            <div class="comment-section-user">
-                                <img src="{% static 'img/user.jpg' %}" alt="song">
-                                <div class="comment-container">
-                                    <div class="comment-username">{{ post_comment.comment.user_id.username }}</div>
-                                    <div class="comment-text">{{ post_comment.comment.content }}</div>
-                                </div>
+                            <div class="comment-container-wrapper">
+                                {% for post_comment in comments %}
+                                    {% if post_comment.post == item %}
+                                        <div class="comment-section-user">
+                                            <img src="{% static 'img/user.jpg' %}" alt="song">
+                                            <div class="comment-container">
+                                                <b><div class="comment-username">{{ post_comment.user_id.username }} | {{ post_comment.date|timesince }}</div></b>
+                                                <div class="comment-text">{{ post_comment.content }}</div>
+                                                {% if post_comment.user_id == request.user %}
+                                                    <form method="post" action="{% url 'delete_comment' comment_id=post_comment.comment_id %}">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="page" value="newsfeed">
+                                                        <button type="submit" class="delete-comment-btn">Delete</button>
+                                                    </form>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% empty %}
+                                    <p>No comments available.</p>
+                                {% endfor %}
                             </div>
-                            {% empty %}
-                                <p>No comments available.</p>
-                            {% endfor %}
                         </div>
                     </div>
                 </div>

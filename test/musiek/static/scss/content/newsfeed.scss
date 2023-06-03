@@ -150,7 +150,12 @@
     margin-top: 20px;
     flex-direction: column;
 
-    .comment-section-user {
+    .comment-container-wrapper {
+        max-height: 100px; /* Set the maximum height to limit the visible comments */
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    .comment-container-wrapper .comment-section-user {
         display: flex;
         flex-direction: row;
     }

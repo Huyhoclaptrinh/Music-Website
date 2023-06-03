@@ -160,8 +160,9 @@
     }
 
     img {
-        width: 100%; /* make the image fill its parent div */
-        height: 100%; /* set the height of the image div to 70% */
+        width: 160px;
+        max-width: 100%; /* make the image fill its parent div */
+        max-height: 100%; /* set the height of the image div to 70% */
         object-fit: cover; /* scale the image to fill its parent div */
     }
 

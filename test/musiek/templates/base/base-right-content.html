@@ -28,12 +28,12 @@
                                 <p>{{ song.music.name }}</p>
                             </div>
                             <div class="song-react">
-                                <i class="fa-solid fa-play">
-                                    <form method="post" action="{% url 'save_to_history' music_id=song.music_id %}">
-                                        {% csrf_token %}
-                                        <button type="submit" class="play-btn" data-file="{{ song.music.upload_file.url }}" data-name="{{ song.music.name }}" data-author="{{ song.music.author }}" data-img="{{ song.music.img.url }}"></button>
-                                    </form>
-                                </i>
+                                
+                                <form method="post" action="{% url 'save_to_history' music_id=song.music_id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="play-btn" data-file="{{ song.music.upload_file.url }}" data-name="{{ song.music.name }}" data-author="{{ song.music.author }}" data-img="{{ song.music.img.url }}"><i class="fa-solid fa-play"></i></button>
+                                </form>
+                                
                                 <i class="fa-regular fa-heart"></i>
                                 <i class="fa-regular fa-comment"></i>
                             </div>

@@ -8,14 +8,8 @@ from django.core.files.storage import default_storage
 from django.urls import reverse
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
-
-class Comment(models.Model):
-    comment_id = models.BigAutoField(
-        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
-    )
-    user_id = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
-    content = models.CharField(max_length=255)
-    date = models.DateTimeField(auto_now_add=True)
+from django.db.models.signals import post_save, post_delete
+from django.dispatch import receiver
 
 class Post(models.Model):
     post_id = models.BigAutoField(
@@ -32,7 +26,10 @@ class Post(models.Model):
     total_played = models.IntegerField(default=0)
     total_likes = models.IntegerField(default=0)
     total_comments = models.IntegerField(default=0)
-    comments = models.ManyToManyField(Comment, through='PostComment')
+    
+    def get_total_comments(self):
+        comment_count = Comment.objects.filter(post=self).count()
+        return comment_count
 
     def clean(self):
         super().clean()
@@ -42,6 +39,7 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         created = not self.pk
+        self.total_comments = self.get_total_comments()
         super().save(*args, **kwargs)
         if created:
             Music.objects.create(
@@ -76,9 +74,14 @@ class Post(models.Model):
         # Call the superclass delete() method
         super().delete(*args, **kwargs)
 
-class PostComment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
+class Comment(models.Model):
+    comment_id = models.BigAutoField(
+        auto_created=True, primary_key=True, serialize=False, verbose_name="ID"
+    )
+    user_id = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
+    content = models.CharField(max_length=255)
+    date = models.DateTimeField(auto_now_add=True)
 
 class Music(models.Model):
     music_id = models.BigAutoField(
@@ -97,6 +100,9 @@ class Music(models.Model):
     author = models.CharField(max_length=255, null=True)
     genre = models.CharField(max_length=255, null=True)
     img = models.ImageField(upload_to="img", null=True)
+    total_played = models.IntegerField(default=0)
+    total_likes = models.IntegerField(default=0)
+    total_comments = models.IntegerField(default=0)
 
     # def clean(self):
     #     if not self.post:
