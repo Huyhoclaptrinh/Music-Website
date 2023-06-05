@@ -33,7 +33,7 @@
         <h2>History</h2>
         <form method="GET" action="{% url 'history' %}">
             {% csrf_token %}
-            <input type="text" class="form-control" id="datepicker" name="selected_date" value="{{ selected_date|default:'' }}">
+            <input type="date" class="form-control" id="datepicker" name="selected_date" value="{{ selected_date|default:'' }}">
             <button type="submit" class="btn btn-primary">Filter</button>
         </form>
         <div>

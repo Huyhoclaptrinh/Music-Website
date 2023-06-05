@@ -23,7 +23,7 @@ def historyShow(request):
         songs = []
 
         if selected_date:
-            selected_date = datetime.strptime(selected_date, '%d/%m/%Y').date()
+            selected_date = datetime.strptime(selected_date, '%Y-%m-%d').date()
             if history:
                 songs = history.historyentry_set.filter(date__startswith=selected_date).order_by('-date')
         else:
@@ -123,6 +123,7 @@ def save_to_history(request, music_id):
     if request.method == 'POST':
         user = request.user
         music = Music.objects.get(music_id=music_id)
+        page = request.POST.get('page')
 
         user_history, _ = UserHistory.objects.get_or_create(user_id=user)
 
@@ -143,8 +144,9 @@ def save_to_history(request, music_id):
                 # Add the music to the existing history entry
                 HistoryEntry.objects.create(history=history, music=music, date=timezone.now())
 
-        response_data = {'message': 'Music saved to history successfully'}
-        return JsonResponse(response_data)
+        # response_data = {'message': 'Music saved to history successfully'}
+        # return JsonResponse(response_data)
+        return redirect('home')
 
     else:
         response_data = {'message': 'Invalid request method'}
