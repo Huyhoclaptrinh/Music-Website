@@ -28,7 +28,16 @@
                     <img src="{{ item.img.url }}" alt="song">
                 </div>
                 <div class="bot-feed-right">
-                    <i class="fa-solid fa-circle-play"></i>
+                    {% for music in musics %}
+                        {% if music.post == item %}
+                        {% comment %} <i class="fa-solid fa-circle-play"></i> {% endcomment %}
+                        <form method="post" action="{% url 'save_to_history' music_id=music.music_id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="play-btn" data-file="{{ music.upload_file.url }}" data-name="{{ music.name }}" data-author="{{ music.author }}" data-img="{{ music.img.url }}"><i class="fa-solid fa-circle-play"></i></button>
+                            
+                        </form>
+                        {% endif %}
+                    {% endfor %}
                     <div class="song-container">
                         <div class="author-name">{{ item.author }}</div>
                         <div class="song-name">{{ item.name }}</div>
