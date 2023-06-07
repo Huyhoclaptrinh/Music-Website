@@ -77,7 +77,7 @@ def Profile(request):
     recent_posts = Post.objects.filter(user_id=request.user).order_by('-date')
     musics = Music.objects.filter(post__in=recent_posts)
     comments = Comment.objects.filter(post__in=recent_posts).order_by('-date')
-    return render(request, "main_page/profile.html", {'recent_posts': recent_posts, 'comments':comments,'musics':musics })
+    return render(request, "main_page/profile.html", {'recent_posts': recent_posts, 'comments':comments, 'musics':musics })
 
 def post_comment(request):
     if request.method == 'POST':
