@@ -72,6 +72,7 @@ def signUp(request):
     
         user_register.set_password(user_register.password)
         user_register.save()
+        messages.success(request, "Successfully created account: " + username + ". Please log in!")
 
         return redirect("signin")
     

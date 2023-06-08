@@ -163,7 +163,7 @@ MEDIA_ROOT_IMG = os.path.join(MEDIA_ROOT, 'img')
 
 AUTH_USER_MODEL = "users.UserRegister"
 
-DATE_INPUT_FORMATS = ['%d-%m-%Y']
+DATE_INPUT_FORMATS = ['%d-%M-%Y']
 
 
 # Default primary key field type
