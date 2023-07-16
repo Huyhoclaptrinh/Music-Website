@@ -16,11 +16,11 @@ class UserRegister(AbstractUser):
     wall = models.ImageField(upload_to="img", default=None)
 
     def __str__(self):
-        return self.username + " Object"
+        return str(self.user_id)
 
 # class MusicRecommend(models.Model):
 
-class FriendRecommend(models.Model):
-    data_id = models.AutoField(primary_key=True)
-    user_id = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
-    meta_data = models.TextField()
+# class FriendRecommend(models.Model):
+#     data_id = models.AutoField(primary_key=True)
+#     user_id = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
+#     meta_data = models.TextField()

@@ -99,43 +99,18 @@
                 <div class="recommend-slider-bot">
                     <div class="wrapper">
                         <div class="carousel">
-                        
+                            {% for recommendation in recommendations %}
                             <div class="image-and-detail">
                                 <div class="image-with-bg">
-                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                    <img src="{{ recommendation.img.url }}" alt="{{ recommendation.name }}">
                                 </div>
                                 <div class="detail">
-                                    <h3>KICK BACK</h3>
-                                    <p>Kenshi Yonezu</p>
+                                    <h3>{{ recommendation.name }}</h3>
+                                    <p>{{ recommendation.author }}</p>
                                 </div>
                             </div>
-                            <div class="image-and-detail">
-                                <div class="image-with-bg">
-                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                </div>
-                                <div class="detail">
-                                    <h3>KICK BACK</h3>
-                                    <p>Kenshi Yonezu</p>
-                                </div>
-                            </div>
-                            <div class="image-and-detail">
-                                <div class="image-with-bg">
-                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                </div>
-                                <div class="detail">
-                                    <h3>KICK BACK</h3>
-                                    <p>Kenshi Yonezu</p>
-                                </div>
-                            </div>
-                            <div class="image-and-detail">
-                                <div class="image-with-bg">
-                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
-                                </div>
-                                <div class="detail">
-                                    <h3>KICK BACK</h3>
-                                    <p>Kenshi Yonezu</p>
-                                </div>
-                            </div>
+                            {% endfor %}
+                            
                         </div>
                     </div>   
                 </div>

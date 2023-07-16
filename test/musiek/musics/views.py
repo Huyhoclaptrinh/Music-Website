@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import UserHistory, Music, UserLibrary, Library, History, HistoryEntry
+from posts.models import UserSongInteraction
 from .forms import AddSongForm
 from datetime import datetime
 from django.utils import timezone
@@ -129,6 +130,15 @@ def save_to_history(request, music_id):
         page = request.POST.get('page')
 
         user_history, _ = UserHistory.objects.get_or_create(user_id=user)
+        interaction, created = UserSongInteraction.objects.get_or_create(user=user, music=music)
+
+        interaction.listens += 1
+        interaction.save()
+
+        # Update the Post model's total_played field
+        post = music.post
+        post.total_played += 1
+        post.save()
 
         history = user_history.history_id
         if history is None:

@@ -1,7 +1,7 @@
 from urllib.parse import urlencode
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.files.storage import FileSystemStorage
-from .models import Post, Music, Comment
+from .models import Post, Music, Comment, UserSongInteraction
 from django.core.files.storage import default_storage
 from django.http import (
     FileResponse,
@@ -143,6 +143,38 @@ def edit_post(request, post_id):
         edit_form = PostForm(instance=post)
 
     return render(request, 'main_page/profile.html', {'edit_form': edit_form})
+
+def like_song(request, music_id):
+    if request.method == 'POST':
+        music = Music.objects.get(music_id=music_id)
+        user = request.user
+        
+        # Check if a UserSongInteraction instance exists for this user and song
+        interaction, created = UserSongInteraction.objects.get_or_create(user=user, music=music)
+
+        # Update the likes field
+        if created or not interaction.likes:
+        # If the interaction is created for the first time or the previous state was not liked,
+        # update the likes field and increase the total_likes count
+            interaction.likes = True
+            interaction.save()
+
+            # Update the Post model's total_likes field
+            post = music.post
+            post.total_likes += 1
+            post.save()
+        else:
+            # If the interaction already existed and the previous state was liked,
+            # remove the like and decrease the total_likes count
+            interaction.likes = False
+            interaction.save()
+
+            # Update the Post model's total_likes field
+            post = music.post
+            post.total_likes -= 1
+            post.save()
+
+        return redirect('home')
 
 # def UploadFile(request):
 #   return
