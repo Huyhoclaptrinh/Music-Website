@@ -44,8 +44,15 @@
                     </div>
                     <div class="icon-container">
                         <i class="fa-solid fa-comment">{{ item.total_comments }}</i>
-                        <i class="fa-solid fa-heart"></i>
-                        <i class="fa-solid fa-share"></i>
+                        {% for music in musics %}
+                            {% if music.post == item %}
+                                <form method="post" action="{% url 'like_song' music_id=music.music_id %}">
+                                    {% csrf_token %}
+                                    <button type="submit"><i class="fa-solid fa-heart">{{ item.total_likes }}</i></button>
+                                </form>
+                            {% endif %}
+                        {% endfor %}    
+                        <i class="fa-solid fa-share">{{ item.total_played }}</i>
                     </div>
                     <div class="comment-section">
                         <div class="comment-section-top">

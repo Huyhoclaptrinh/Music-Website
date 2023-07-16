@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
-from .models import UserRegister, FriendRecommend
+from .models import UserRegister
 
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
@@ -14,7 +14,7 @@ class UserRegisterAdmin(UserAdmin):
     list_display = ['username', 'fullname', 'email','password','gender','birthday','avatar','wall']
 
 # admin.site.register(UserRegister)
-admin.site.register(FriendRecommend)
+# admin.site.register(FriendRecommend)
 
 # Register User admin using the custom admin class
 admin.site.register(UserRegister, UserRegisterAdmin)

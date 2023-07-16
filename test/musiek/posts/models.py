@@ -26,6 +26,9 @@ class Post(models.Model):
     total_played = models.IntegerField(default=0)
     total_likes = models.IntegerField(default=0)
     total_comments = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.user_id.username + " posts " + self.name
     
     def get_total_comments(self):
         comment_count = Comment.objects.filter(post=self).count()
@@ -58,6 +61,8 @@ class Post(models.Model):
                 music_instance.author = self.author
                 music_instance.genre = self.genre
                 music_instance.img = self.img
+                music_instance.total_played = self.total_played
+                music_instance.total_likes = self.total_likes
                 music_instance.save()
 
     def delete(self, *args, **kwargs):
@@ -83,11 +88,13 @@ class Comment(models.Model):
     content = models.CharField(max_length=255)
     date = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.user_id.username + " comment on " + self.post.name
+
 class Music(models.Model):
     music_id = models.BigAutoField(
         auto_created=True, serialize=False, primary_key=True, verbose_name="ID"
     )
-
     post = models.ForeignKey(
         "Post",
         on_delete=models.CASCADE,
@@ -102,7 +109,7 @@ class Music(models.Model):
     img = models.ImageField(upload_to="img", null=True)
     total_played = models.IntegerField(default=0)
     total_likes = models.IntegerField(default=0)
-    total_comments = models.IntegerField(default=0)
+    # total_comments = models.IntegerField(default=0)
 
     # def clean(self):
     #     if not self.post:
@@ -129,6 +136,15 @@ class Music(models.Model):
         
     def __str__(self):
         return self.name + " by " + self.author
+
+class UserSongInteraction(models.Model):
+    user = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
+    music = models.ForeignKey(Music, on_delete=models.CASCADE)
+    listens = models.PositiveIntegerField(default=0)
+    likes = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.username + " interact with " + self.music.name + " by " + self.music.author
     
 @receiver(post_delete, sender=Music)
 def delete_music_files(sender, instance, **kwargs):
