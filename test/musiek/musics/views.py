@@ -3,11 +3,14 @@ from .models import UserHistory, Music, UserLibrary, Library, History, HistoryEn
 from posts.models import UserSongInteraction
 from .forms import AddSongForm
 from datetime import datetime
-from django.http import HttpResponse
-import json
 from django.utils import timezone
 from django.http import JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
+import os
+from django.conf import settings
+from .recognize import recognize_audio
+
+
 # Create your views here.
 
 def LibraryPage(request):
@@ -161,3 +164,22 @@ def save_to_history(request, music_id):
     else:
         response_data = {'message': 'Invalid request method'}
         return JsonResponse(response_data)
+
+
+def sound_recognition(request):
+    if request.method == 'POST':
+        audio_file = request.FILES.get('audio')
+        file_path = os.path.join(settings.MEDIA_ROOT, 'recorded.wav')
+
+        # Save the audio file
+        with open(file_path, 'wb') as f:
+            for chunk in audio_file.chunks():
+                f.write(chunk)
+
+        # Perform sound recognition on the saved file
+        matched_song_name = recognize_audio(file_path)
+
+        # Return the matched song name as JSON response
+        return JsonResponse({'song_name': matched_song_name})
+
+    return JsonResponse({'song_name': 'Unknown'})
