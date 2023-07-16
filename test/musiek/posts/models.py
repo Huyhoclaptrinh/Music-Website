@@ -139,4 +139,14 @@ def delete_music_files(sender, instance, **kwargs):
     if instance.img:
         instance.img.delete(save=False)
 
+class UserSongInteraction(models.Model):
+    user = models.ForeignKey(UserRegister, on_delete=models.CASCADE)
+    music = models.ForeignKey(Music, on_delete=models.CASCADE)
+    listens = models.PositiveIntegerField(default=0)
+    likes = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.username + " interact with " + self.music.name + " by " + self.music.author
+
+
 
