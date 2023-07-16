@@ -1,0 +1,148 @@
+{% extends 'base/base-musiek.html' %}
+{% block header %}
+    {% include 'base/base-header.html' %}
+{% endblock header %}
+{% block footer %}
+    {% include 'base/base-footer.html' %}
+{% endblock footer %}
+{% block left %}
+    {% include 'base/base-left-content.html' %}
+{% endblock left %}
+{% block content %}
+    {% load static %}
+    {% load sass_tags %}
+    <div class="mid-bar">
+        <div class="friend-slider">
+            <div class="friend-slider-word">
+                <h2>People you might know</h2>
+            </div>
+            
+            <div class="friend-slider-info">
+                <div class="playlist-slider-bot">
+                    <div class="wrapper">
+                        <i id="left" class="fa-solid fa-angle-left"></i>
+                        <div class="carousel">
+                            <div class="image-and-detail">
+                                <div class="image-with-bg">
+                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                </div>
+                                <div class="detail">
+                                    <h3>KannaUwU</h3>
+                                    <p>100000 followers</p>
+                                </div>
+                            </div>
+                            <div class="image-and-detail">
+                                <div class="image-with-bg">
+                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                </div>
+                                <div class="detail">
+                                    <h3>KannaUwU</h3>
+                                    <p>100000 followers</p>
+                                </div>
+                            </div>
+                            <div class="image-and-detail">
+                                <div class="image-with-bg">
+                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                </div>
+                                <div class="detail">
+                                    <h3>KannaUwU</h3>
+                                    <p>100000 followers</p>
+                                </div>
+                            </div>
+                            <div class="image-and-detail">
+                                <div class="image-with-bg">
+                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                </div>
+                                <div class="detail">
+                                    <h3>KannaUwU</h3>
+                                    <p>100000 followers</p>
+                                </div>
+                            </div>
+                            <div class="image-and-detail">
+                                <div class="image-with-bg">
+                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                </div>
+                                <div class="detail">
+                                    <h3>KannaUwU</h3>
+                                    <p>100000 followers</p>
+                                </div>
+                            </div>
+                            <div class="image-and-detail">
+                                <div class="image-with-bg">
+                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                </div>
+                                <div class="detail">
+                                    <h3>KannaUwU</h3>
+                                    <p>100000 followers</p>
+                                </div>
+                            </div>
+                            <div class="image-and-detail">
+                                <div class="image-with-bg">
+                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                </div>
+                                <div class="detail">
+                                    <h3>KannaUwU</h3>
+                                    <p>100000 followers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <i id="right" class="fa-solid fa-angle-right"></i>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <div class="recommend-slider">
+            <div class="recommend-slider-word">
+                <h2>More of what you like</h2>
+            </div>
+            <div class="recommend-slider-info">
+                <div class="recommend-slider-bot">
+                    <div class="wrapper">
+                        <div class="carousel">
+                        
+                            <div class="image-and-detail">
+                                <div class="image-with-bg">
+                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                </div>
+                                <div class="detail">
+                                    <h3>KICK BACK</h3>
+                                    <p>Kenshi Yonezu</p>
+                                </div>
+                            </div>
+                            <div class="image-and-detail">
+                                <div class="image-with-bg">
+                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                </div>
+                                <div class="detail">
+                                    <h3>KICK BACK</h3>
+                                    <p>Kenshi Yonezu</p>
+                                </div>
+                            </div>
+                            <div class="image-and-detail">
+                                <div class="image-with-bg">
+                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                </div>
+                                <div class="detail">
+                                    <h3>KICK BACK</h3>
+                                    <p>Kenshi Yonezu</p>
+                                </div>
+                            </div>
+                            <div class="image-and-detail">
+                                <div class="image-with-bg">
+                                    <img src="{% static 'img/user.jpg' %}" alt="lumine">
+                                </div>
+                                <div class="detail">
+                                    <h3>KICK BACK</h3>
+                                    <p>Kenshi Yonezu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block right %}
+    {% include 'base/base-right-content.html'%}
+{% endblock right %}

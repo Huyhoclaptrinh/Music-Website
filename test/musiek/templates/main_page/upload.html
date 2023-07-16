@@ -1,0 +1,41 @@
+{% extends 'base/base-musiek.html' %}
+{% block header %}
+    {% include 'base/base-header.html' %}
+{% endblock header %}
+{% block footer %}
+    {% include 'base/base-footer.html' %}
+{% endblock footer %}
+{% block left %}
+    <div class="left-bar"></div>
+{% endblock left %}
+{% block content %}
+    {% load static %}
+    <div class="mid-bar">
+        <div class="upload-content">
+            <div class="upload-left"></div>
+            <div class="upload-mid">
+                <div class="upload">
+                    <h1>Upload your track or album here</h1>
+                    <div class="btn-container">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="button-wrap">
+                                <label class ="new-button" for="btn-upload"> 
+                                    <p>Upload</p> 
+                                <input id="btn-upload" type="file" name="document">
+                            </div>
+                            <div class="button-wrap-submit">
+                                <label class ="new-button-submit" for="btn-submit">  
+                                <input class ="btn-submit" id="btn-submit" type="submit" >
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="upload-right"></div>
+        </div>
+    </div>
+{% endblock content %}
+{% block right %}
+    <div class="right-bar"></div> 
+{% endblock right %}

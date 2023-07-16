@@ -1,0 +1,120 @@
+// Poppins
+// _______________________________
+@include font-face(
+$family-name: $font-family-name__poppins,
+$font-name: 'Poppins-Regular',
+$font-weight: 400
+);
+
+@include font-face(
+$family-name: $font-family-name__poppins,
+$font-name: 'Poppins-Medium',
+$font-weight: 500
+);
+//
+// JosefinSans
+// _______________________________
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-Regular',
+$font-weight: 400
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-Thin',
+$font-weight: 100
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-ThinItalic',
+$font-weight: 100,
+$font-style: italic
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-ExtraLight',
+$font-weight: 200
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-ExtraLightItalic',
+$font-weight: 200,
+$font-style: italic
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-Light',
+$font-weight: 300
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-LightItalic',
+$font-weight: 300,
+$font-style: italic
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-Regular',
+$font-weight: 400
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-Italic',
+$font-weight: 400,
+$font-style: italic
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-Medium',
+$font-weight: 500
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-MediumItalic',
+$font-weight: 500,
+$font-style: italic
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-SemiBold',
+$font-weight: 600
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-SemiBoldItalic',
+$font-weight: 600,
+$font-style: italic
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-Bold',
+$font-weight: 700
+);
+
+@include font-face(
+$family-name: $font-family-name__josefin-sans,
+$font-name: 'JosefinSans-BoldItalic',
+$font-weight: 700,
+$font-style: italic
+);
+//
+// Lato
+// _______________________________
+@include font-face(
+$family-name: $font-family-name__lato,
+$font-name: 'Lato-Regular',
+$font-weight: 400
+);

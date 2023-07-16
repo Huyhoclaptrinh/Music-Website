@@ -26,17 +26,20 @@
                         <button type="text" class="search-sbm">
                             <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
                         </button>
-                        <div class="search-mic">
+                        <button type="text" class="micro-sbm">
                             <i class="fa-solid fa-microphone"></i>
-                        </div>
+                        </button>
                     </form>
                 </div>
                 <div class="user-content">
                     <div class="account">
-                        <div class="image">
-                            <img src="./assets/img/user.jpg" alt="user">
-                        </div>
-                        <div class="user-name">Nghia Hoang</div>
+                        <a href="profile.html">
+                            <div class="image">
+                                <img src="./assets/img/user.jpg" alt="user">
+                            </div>
+
+                            <div class="user-name">Nghia Hoang</div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -45,7 +48,7 @@
 
         <!-- START CONTENT -->
         <section>
-            <div class="left-bar"></div>
+            <div  class="left-bar"></div>
             <div class="mid-bar">
                 <div class="upload-content">
                     <div class="upload-left"></div>
@@ -65,9 +68,9 @@
                                 </div>
                                 <div class="detail-content-top-right">
                                     <p>Title</p>
-                                    <input type="text">
+                                    <input type="text" >
                                     <p>Artist</p>
-                                    <input type="text">
+                                    <input type="text" >
                                     <p>Genre</p>
                                     <select name="None" id="cars">
                                         <option value="volvo">None</option>
@@ -95,6 +98,48 @@
                                     Submit
                                 </button>
                             </div>
+
+                            
+                        </div>
+                        <div class="detail-content-mobile">
+                            <div class="image-setup">
+                                <div class="btn-container">
+                                    <div class="button-wrap">
+                                      <label class ="new-button" for="btn-upload">
+                                        <p> Upload </p> 
+                                      <input id="btn-upload" type="file" >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p>Title</p>
+                            <input type="text" class="detail-input">
+                            <p>Artist</p>
+                            <input type="text" class="detail-input">
+                            <p>Genre</p>
+                            <select name="None" id="cars">
+                                <option value="volvo">None</option>
+                                <option value="D">Dung</option>
+                                <option value="M">Mang</option>
+                                <option value="C">Com</option>
+                                <option value="S">Suon</option>
+                            </select>
+                            <p>Caption</p>
+                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <div class="privacy">
+                                <p>Privacy:</p>
+                                <input type="radio" id="age1" name="age" value="60">
+                                <label for="privacy1">Public</label>
+                                <input type="radio" id="age2" name="age" value="60">
+                                <label for="privacy2">Private</label>
+                            </div>
+
+                            <button class="btn-cancel">
+                                Cancel
+                            </button>
+                            <button class="btn-submit">
+                                Submit
+                            </button>
                         </div>
                     </div>
                     <div class="upload-right"></div>

@@ -1,0 +1,166 @@
+{% load sass_tags %}
+{% load static %}
+<footer>
+    <div class="footer-left">
+        <audio class="audio" controls="" name="media" autoplay loop><source id="audio-source" src="" type="audio/mpeg" ></audio>
+    </div>
+    <div class="footer-mid">
+        <div class="music-img">
+            <img id="music-img" src="">
+        </div>
+        <div class="music-content">
+            <p id="music-name"></p>
+            <p id="music-author"></p>
+        </div>
+    </div>
+    <div class="footer-right">
+        <ul>
+            <li>
+                <div class="btn-toggle-warp">
+                    <button id="toggle-btn">
+                        <i class="fa-solid fa-heart" ></i>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <div class="btn-toggle-warp">
+                    <button id="toggle-btn">
+                        <i class="fa-solid fa-user-plus" ></i>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <div class="btn-toggle-warp">
+                    <button id="toggle-btn">
+                        <i class="fa-solid fa-music" ></i>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script>
+	let audioPlayer = document.querySelector('.audio');
+	let storedPlaybackTime = localStorage.getItem("playback_time");
+	let isAudioPlayed = localStorage.getItem("audio_played");
+	let url = "/get_music/";
+	let lastPlayed = localStorage.getItem("last_played");
+  
+	const start = async function() {
+	  const response = await fetch(url, {
+		method: "GET",
+		headers: {
+		  "Content-Type": "application/json",
+		  "X-CSRFToken": getCookie("csrftoken")
+		},
+	  });
+  
+	  let data = await response.json();
+	  audioPlayer.src = data.url;
+	  localStorage.setItem("last_played", JSON.stringify(data.url));
+  
+	  if (storedPlaybackTime) {
+		audioPlayer.currentTime = parseFloat(storedPlaybackTime);
+	  }
+  
+	  if (isAudioPlayed === "true") {
+		audioPlayer.play();
+	  } else {
+		audioPlayer.pause();
+	  }
+	};
+  
+	audioPlayer.addEventListener('play', () => {
+	  localStorage.setItem("audio_played", "true");
+	});
+  
+	audioPlayer.addEventListener('pause', () => {
+	  localStorage.setItem("audio_played", "false");
+	  localStorage.setItem("playback_time", audioPlayer.currentTime);
+	});
+  
+	audioPlayer.addEventListener('timeupdate', () => {
+	  localStorage.setItem("playback_time", audioPlayer.currentTime);
+	});
+  
+	if (!lastPlayed) {
+	  start();
+	}
+  
+	if (lastPlayed) {
+	  let songData = JSON.parse(lastPlayed);
+	  audioPlayer.src = songData.fileUrl;
+  
+	  let musicImg = document.getElementById('music-img');
+	  musicImg.src = songData.imgUrl;
+  
+	  let musicName = document.getElementById('music-name');
+	  musicName.textContent = songData.name;
+  
+	  let musicAuthor = document.getElementById('music-author');
+	  musicAuthor.textContent = songData.author;
+  
+	  if (storedPlaybackTime) {
+		audioPlayer.currentTime = parseFloat(storedPlaybackTime);
+	  }
+  
+	  if (isAudioPlayed === "true") {
+		audioPlayer.play();
+	  } else {
+		audioPlayer.pause();
+	  }
+	}
+  
+	let playButtons = document.getElementsByClassName('play-btn');
+	for (let i = 0; i < playButtons.length; i++) {
+	  playButtons[i].addEventListener('click', function(event) {
+		let music_id = this.dataset.musicid;
+		let fileUrl = this.dataset.file;
+		let name = this.dataset.name;
+		let author = this.dataset.author;
+		let imgUrl = this.dataset.img;
+  
+		audioPlayer.src = fileUrl;
+  
+		let musicImg = document.getElementById('music-img');
+		musicImg.src = imgUrl;
+  
+		let musicName = document.getElementById('music-name');
+		musicName.textContent = name;
+  
+		let musicAuthor = document.getElementById('music-author');
+		musicAuthor.textContent = author;
+  
+		let songData = {
+		  fileUrl: fileUrl,
+		  name: name,
+		  author: author,
+		  imgUrl: imgUrl
+		};
+		localStorage.setItem("last_played", JSON.stringify(songData));
+  
+		localStorage.removeItem("playback_time");
+  
+		const xhr = new XMLHttpRequest();
+    	xhr.open('POST', `/save_to_history/${music_id}/`);
+    	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    	xhr.onload = function() {
+    	  if (xhr.status === 200) {
+    	    console.log(xhr.responseText);
+    	    // Handle the response from the backend if needed
+
+    	    // Update the UI to indicate that the music is saved to history
+    	    let messageElement = document.getElementById('message');
+    	    messageElement.textContent = 'Music saved to history successfully';
+    	  } else {
+    	    console.error('Error:', xhr.status);
+    	  }
+    	};
+    	xhr.send(`music_id=${music_id}`);
+		});
+	}
+</script>
+  
+
+
+

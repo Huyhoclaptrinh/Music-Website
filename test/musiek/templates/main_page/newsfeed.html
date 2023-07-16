@@ -1,0 +1,116 @@
+{% extends 'base/base-musiek.html' %}
+{% block header %}
+    {% include 'base/base-header.html' %}
+{% endblock header %}
+{% block footer %}
+    {% include 'base/base-footer.html' %}
+{% endblock footer %}
+{% block left %}
+    {% include 'base/base-left-content.html' %}
+{% endblock left %}
+{% block content %}
+    {% load static %}
+    <div class="mid-bar">
+        <div class="title">
+            Hear the latest post from your friends:
+        </div>
+        {% for item in post %}
+        <div class="feed">
+            <div class="top-feed">
+                <img src="{% static 'img/user.jpg' %}" alt="user">
+                <div class="user-status"><b>{{ item.user_id.username }}</b> posted a song {{ item.date|timesince }} ago</div>
+            </div>
+            <div class="mid-feed">
+                <div class="user-comment">{{ item.content }}</div>
+            </div>
+            <div class="bot-feed">
+                <div class="bot-feed-left">
+                    <img src="{{ item.img.url }}" alt="song">
+                </div>
+                <div class="bot-feed-right">
+                    {% for music in musics %}
+                        {% if music.post == item %}
+                        {% comment %} <i class="fa-solid fa-circle-play"></i> {% endcomment %}
+                        <form method="post" action="{% url 'save_to_history' music_id=music.music_id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="play-btn" data-file="{{ music.upload_file.url }}" data-name="{{ music.name }}" data-author="{{ music.author }}" data-img="{{ music.img.url }}"><i class="fa-solid fa-circle-play"></i></button>
+                            
+                        </form>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="song-container">
+                        <div class="author-name">{{ item.author }}</div>
+                        <div class="song-name">{{ item.name }}</div>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fa-solid fa-comment">{{ item.total_comments }}</i>
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-solid fa-share"></i>
+                    </div>
+                    <div class="comment-section">
+                        <div class="comment-section-top">
+                            <form method="post" action="{% url 'post_comment' %}" id="comment-form">
+                                {% csrf_token %}
+                                <input type="hidden" name="page" value="newsfeed">
+                                <input type="hidden" name="post_id" value="{{ item.post_id }}">
+                                <input type="text" id="comment-input" name="content" placeholder="Write your comment..." required>
+                                <button type="submit" name="comment-submit">Send</button>
+                            </form>
+                        </div>
+                        <div class="comment-section-bot">
+                            <div class="comment-container-wrapper">
+                                {% for post_comment in comments %}
+                                    {% if post_comment.post == item %}
+                                        <div class="comment-section-user">
+                                            <img src="{% static 'img/user.jpg' %}" alt="song">
+                                            <div class="comment-container">
+                                                <b><div class="comment-username">{{ post_comment.user_id.username }} | {{ post_comment.date|timesince }}</div></b>
+                                                <div class="comment-text">{{ post_comment.content }}</div>
+                                                {% if post_comment.user_id == request.user %}
+                                                    <form method="post" action="{% url 'delete_comment' comment_id=post_comment.comment_id %}">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="page" value="newsfeed">
+                                                        <button type="submit" class="delete-comment-btn">Delete</button>
+                                                    </form>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% empty %}
+                                    <p>No comments available.</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="song-container-mobile">
+                    <i class="fa-solid fa-circle-play"></i>
+                    <div class="author-name-mobile">Kenshi Yonezu</div>
+                    <div class="song-name-mobile">KICK BACK</div>
+                </div>
+                <div class="icon-container-mobile">
+                    <i class="fa-solid fa-comment"></i>
+                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-share"></i>
+                </div>
+                <div class="comment-section-mobile">
+                    <div class="comment-section-top-mobile">
+                        <input type="text" id="comment-input-mobile" placeholder="Write your comment...">
+                        <button type="button" name="comment-submit" id="comment-submit-mobile">Send</button>
+                    </div>
+                    <div class="comment-section-bot-mobile">
+                        <img src="{% static 'img/user.jpg' %}" alt="song">
+                        <div class="comment-container-mobile">
+                            <div class="comment-username-mobile">KannaUwU</div>
+                            <div class="comment-text-mobile">Nhac nhu dac cau that 🐧</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
+{% block right %}
+    {% include 'base/base-right-content.html' %}
+{% endblock right %}

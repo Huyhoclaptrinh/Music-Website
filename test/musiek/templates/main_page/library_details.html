@@ -1,0 +1,60 @@
+{% extends 'base/base-musiek.html' %}
+{% block header %}
+    {% include 'base/base-header.html' %}
+{% endblock header %}
+{% block footer %}
+    {% include 'base/base-footer.html' %}
+{% endblock footer %}
+{% block left %}
+    {% load static %}
+    <div class="left-bar"></div>
+{% endblock left %}
+{% block content %}
+    {% load static %}
+    <div class="mid-bar">
+        <div class="library-details">
+            <h1>{{ library.name }}</h1>
+            <!-- Display additional library details here -->
+        
+            <p>Created by: {{ user_library.user_id.username }}</p>
+        
+            <h2>Songs:</h2>
+            <ul>
+                {% for song in library.music_id.all %}
+                  <li>
+                    {{ song.name }} by {{ song.author }}
+                    <form method="post" action="{% url 'save_to_history' music_id=song.music_id %}">
+                      {% csrf_token %}
+                      <button type="submit" class="play-btn" data-file="{{ song.upload_file.url }}" data-name="{{ song.name }}" data-author="{{ song.author }}" data-img="{{ song.img.url }}">Play</button>
+                    </form>
+                    {% if is_creator %}
+                      <form method="post" action="{% url 'remove_song' library_id=library.library_id song_id=song.music_id %}">
+                        {% csrf_token %}
+                        <button type="submit">Remove</button>
+                      </form>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+            </ul>
+        
+            {% if is_creator %}
+                <h2>Add Songs:</h2>
+                <form method="post" action="{% url 'library_details' library_id=library.library_id %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Add Songs</button>
+                </form>
+                <form method="post" action="{% url 'delete_library' library_id=library.library_id %}">
+                    {% csrf_token %}
+                    <button type="submit">Delete Library</button>
+                </form>
+            {% else %}
+                <p>This is not your library, so you cannot modify it.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}
+{% block right %}
+    {% load static %}
+    <div class="right-bar"></div>
+{% endblock right %}

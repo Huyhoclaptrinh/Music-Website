@@ -1,0 +1,28 @@
+{% load sass_tags %}
+{% load static %}
+<div class="left-bar">
+    <nav>
+        <ul>
+            <li {% if "/home/" in request.path %}class="active"{% endif %}>
+                <i class="fa-sharp fa-solid fa-house" ></i>
+                <a {% if "/home/" in request.path %}class="active"{% endif %} href="{% url 'home' %}">Home</a>
+            </li>
+            <li {% if "/newsfeed/" in request.path %}class="active"{% endif %}>
+                <i class="fa-sharp fa-solid fa-rss" ></i>
+                <a {% if "/newsfeed/" in request.path %}class="active"{% endif %} href="{% url 'newsfeed' %}">Newsfeed</a>
+            </li>
+            <li {% if "/library/" in request.path %}class="active"{% endif %}>
+                <i class="fa-solid fa-list" ></i>
+                <a {% if "/library/" in request.path %}class="active"{% endif %} href="{% url 'library' %}">Library</a>
+            </li>
+            <li {% if "/settings/" in request.path %}class="active"{% endif %}>
+                <i class="fa-solid fa-gear" ></i>
+                <a {% if "/settings/" in request.path %}class="active"{% endif %} href="{% url 'setting' %}">Settings</a>
+            </li>
+            <li>
+                <i class="fa-solid fa-circle-xmark"></i>
+                <a href="{% url 'signout' %}">Exit</a>
+            </li>
+        </ul>
+    </nav>
+</div>
