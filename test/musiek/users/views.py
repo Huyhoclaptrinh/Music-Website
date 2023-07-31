@@ -12,7 +12,7 @@ from musics.models import History, UserHistory
 from django.contrib.auth import logout
 from django.core.exceptions import ObjectDoesNotExist
 # from posts.preprocessing import make_recommendations, build_recommendation_model
-from posts.preprocessing2 import preprocess_data, tune_hyperparameters, train_model, make_recommendations
+# from posts.preprocessing2 import preprocess_data, tune_hyperparameters, train_model, make_recommendations
 
 
 def signIn(request):
@@ -108,12 +108,12 @@ def Home(request):
         history = None
         is_creator = False
         songs = []
-    trainset = preprocess_data()
-    model, rmse = tune_hyperparameters(trainset)
-    trained_model = train_model(trainset, model)
+    # trainset = preprocess_data()
+    # model, rmse = tune_hyperparameters(trainset)
+    # trained_model = train_model(trainset, model)
 
-    user_id = request.user  # Replace with the actual user ID
-    recommendations = make_recommendations(user_id, trained_model, top_n=5)
+    # user_id = request.user  # Replace with the actual user ID
+    # recommendations = make_recommendations(user_id, trained_model, top_n=5)
    
     # user = UserRegister.objects.get(user_id=user_id)
     
@@ -123,7 +123,7 @@ def Home(request):
         'is_creator': is_creator,
         'songs': songs,
         # 'user': user,
-        'recommendations': recommendations,
+        # 'recommendations': recommendations,
     }
     return render(request, "main_page/main_menu.html", context)
 
