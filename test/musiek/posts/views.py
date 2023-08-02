@@ -57,15 +57,15 @@ def UploadDetail(request):
 
         post.save()
         
-        # Access the ID of the saved post
-        post_id = post.post_id
+        # # Access the ID of the saved post
+        # post_id = post.post_id
         
-        # Retrieve the post and access the associated userRegister model
-        post = Post.objects.get(post_id=post_id)
-        username = post.user_id.username  # Access the username attribute
-        recent_posts = Post.objects.filter(user_id=request.user).order_by('-date')
+        # # Retrieve the post and access the associated userRegister model
+        # post = Post.objects.get(post_id=post_id)
+        # username = post.user_id.username  # Access the username attribute
+        # recent_posts = Post.objects.filter(user_id=request.user).order_by('-date')
         
-        return render(request, "main_page/profile.html", {'recent_posts': recent_posts, 'username': username})
+        return redirect('profile')
     
     else:
         # Render the upload form template

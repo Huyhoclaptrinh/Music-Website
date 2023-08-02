@@ -169,6 +169,11 @@
     padding-bottom: 10px;
 }
 
+.profile-content-bottom {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
 .profile-content-bottom .user-status h2 p{
     position: relative;
     float: left;

@@ -9207,7 +9207,7 @@ section {
 .mid-bar {
   width: 60%;
   background-color: white;
-  max-height: 450px;
+  max-height: 1590px;
   overflow-y: auto; }
 
 .right-bar {
@@ -9427,6 +9427,10 @@ section {
   text-align: right;
   margin-left: auto;
   padding-bottom: 10px; }
+
+.profile-content-bottom {
+  max-height: 400px;
+  overflow-y: auto; }
 
 .profile-content-bottom .user-status h2 p {
   position: relative;

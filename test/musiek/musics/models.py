@@ -12,6 +12,9 @@ class Library(models.Model):
     name = models.CharField(max_length=255, null=True)
     music_id = models.ManyToManyField(Music)
 
+    def __str__(self):
+        return self.name
+
 
 class History(models.Model):
     history_id = models.BigAutoField(

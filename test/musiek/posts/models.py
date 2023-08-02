@@ -126,13 +126,13 @@ class Music(models.Model):
         # else:
         super().save(*args, **kwargs)
 
-    # def delete(self, using=None, keep_parents=False):
-    #     if self.post is None:
-    #         super().delete(using, keep_parents)
-    #     else:
-    #         raise ValidationError(
-    #             "Cannot delete the Music instance while the corresponding Post still exists."
-    #         )
+    def delete(self, using=None, keep_parents=False):
+        if self.post is None:
+            super().delete(using, keep_parents)
+        else:
+            raise ValidationError(
+                "Cannot delete the Music instance while the corresponding Post still exists."
+            )
         
     def __str__(self):
         return self.name + " by " + self.author
