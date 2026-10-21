@@ -1,0 +1,246 @@
+{% load sass_tags %}
+{% load static %}
+<header>
+    <div class="header-content container-fluid">
+        <div class="logo col-md-3">
+            <a href="{% url 'home' %}">
+                <h1>MUSIEK</h1>
+            </a>
+        </div>
+        <div class="search">
+            <form class="d-flex col-md-6 w-75" role="search" action="{% url 'search_results' %}">
+                <input id="searchInput" class="form-control me-2 w-100 p-2" type="search" placeholder="Search" aria-label="Search" name="search_query" required>
+                {% csrf_token %}
+                <button class="btn p-2" type="submit" style="background-color: #202A44; color:white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                  </svg>
+                </button>
+                <button id="recordButton" class="btn p-2" type="button" style="background-color: #202A44; color:white"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic-fill"  viewBox="0 0 16 16">
+                    <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>
+                    <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                  </svg>
+                </button>
+            </form>
+        </div>
+        
+        <div class="user-content col-md-3">
+            {% if user.is_authenticated %}
+            <div class="account">
+                <a href="{% url 'profile' %}">
+                    <div class="image">
+                        <img src="{% static 'img/user.jpg' %}" alt="user">
+                    </div>
+
+                    <div class="user-name">{{ user.username }}</div>
+                </a>
+            </div>
+            {% endif%}
+        </div>
+        <div id="menu-logo">
+            
+            <nav class="navbar navbar-dark fixed-top" style="background-color: #202A44;">
+                <div class="container-fluid">
+                  <a class="navbar-brand text-uppercase" href="#">musiek</a>
+                    
+                  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                    <div class="offcanvas-header">
+                        <div class="float-start">
+                            <a href= {% url 'profile' %}>
+                                <img class="mt-1 ms-1" width="100" src="{% static 'img/user.jpg' %}" alt="user">
+                            </a>
+                        </div>
+                      <button type="button" class="btn-close btn-close-white mt-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div id="navigator">
+                        <div class="offcanvas-body">
+                            <ul>
+                                <li>
+                                    <i class="fa-sharp fa-solid fa-house" ></i>
+                                    <a href="{% url 'home' %}">Home</a>
+                                </li>
+                                <li>
+                                    <i class="fa-sharp fa-solid fa-rss" ></i>
+                                    <a href="{% url 'newsfeed' %}">Newsfeed</a>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-list" ></i>
+                                    <a href="{% url 'library' %}">Library</a>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-gear" ></i>
+                                    <a href="{% url 'setting' %}">Settings</a>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                    <a href="{% url 'signin' %}">Exit</a>
+                                </li>
+                            </ul>
+                          <form class="d-flex mt-3" role="search">
+                            <input class="form-control me-2 w-100 p-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn p-2" type="submit" style="background:#202A44;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" style="color: white;" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg></button>
+                                <button class="btn p-2 ms-1" type="submit" style="background:#202A44;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic-fill" style="color: white;" viewBox="0 0 16 16">
+                                    <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>
+                                    <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                                </svg></button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    
+                </div>
+            </nav>
+            <script>
+                jQuery(document).ready(function(){
+                    jQuery('#navbar-toggle').on('click', function(event) {        
+                        jQuery('#navigator').toggle('show');
+                    });
+                });
+
+                const recordButton = document.getElementById('recordButton');
+                const searchInput = document.getElementById('searchInput');
+
+                function encodeWAV(samples, sampleRate) {
+                    const buffer = new ArrayBuffer(44 + samples.length * 2);
+                    const view = new DataView(buffer);
+
+                    function writeString(offset, string) {
+                        for (let i = 0; i < string.length; i++) {
+                            view.setUint8(offset + i, string.charCodeAt(i));
+                        }
+                    }
+
+                    // RIFF chunk descriptor
+                    writeString(0, 'RIFF');
+                    view.setUint32(4, 36 + samples.length * 2, true);
+                    writeString(8, 'WAVE');
+
+                    // fmt sub-chunk (16-bit linear PCM)
+                    writeString(12, 'fmt ');
+                    view.setUint32(16, 16, true);
+                    view.setUint16(20, 1, true); // PCM
+                    view.setUint16(22, 1, true); // Mono
+                    view.setUint32(24, sampleRate, true);
+                    view.setUint32(28, sampleRate * 2, true);
+                    view.setUint16(32, 2, true);
+                    view.setUint16(34, 16, true);
+
+                    // data sub-chunk
+                    writeString(36, 'data');
+                    view.setUint32(40, samples.length * 2, true);
+
+                    // 16-bit PCM samples
+                    let offset = 44;
+                    for (let i = 0; i < samples.length; i++, offset += 2) {
+                        let s = Math.max(-1, Math.min(1, samples[i]));
+                        view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+                    }
+
+                    return new Blob([view], { type: 'audio/wav' });
+                }
+
+                let isRecording = false;
+
+                async function startRecording(event) {
+                    if (event) event.preventDefault();
+                    if (isRecording) return;
+
+                    const csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0]?.value || '';
+
+                    try {
+                        const stream = await navigator.mediaDevices.getUserMedia({
+                            audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false }
+                        });
+
+                        isRecording = true;
+                        const originalPlaceholder = searchInput.placeholder;
+                        searchInput.value = '';
+                        searchInput.placeholder = '🎙️ Listening to music... (7 seconds)';
+                        recordButton.style.backgroundColor = '#d9534f'; // red indicator
+
+                        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                        const source = audioCtx.createMediaStreamSource(stream);
+                        const processor = audioCtx.createScriptProcessor(4096, 1, 1);
+                        const recordedBuffers = [];
+
+                        processor.onaudioprocess = (e) => {
+                            if (!isRecording) return;
+                            const channelData = e.inputBuffer.getChannelData(0);
+                            recordedBuffers.push(new Float32Array(channelData));
+                        };
+
+                        source.connect(processor);
+                        processor.connect(audioCtx.destination);
+
+                        // Record for 7 seconds (optimal for Shazam-like fast recognition)
+                        setTimeout(async () => {
+                            isRecording = false;
+                            searchInput.placeholder = 'Analyzing with Deep Learning...';
+                            recordButton.style.backgroundColor = '#202A44';
+
+                            // Stop streams
+                            processor.disconnect();
+                            source.disconnect();
+                            stream.getTracks().forEach(track => track.stop());
+                            const sampleRate = audioCtx.sampleRate;
+                            await audioCtx.close();
+
+                            // Flatten all sample chunks
+                            const totalSamples = recordedBuffers.reduce((acc, b) => acc + b.length, 0);
+                            const flatSamples = new Float32Array(totalSamples);
+                            let offset = 0;
+                            for (const b of recordedBuffers) {
+                                flatSamples.set(b, offset);
+                                offset += b.length;
+                            }
+
+                            // Encode to real RIFF/WAV
+                            const wavBlob = encodeWAV(flatSamples, sampleRate);
+
+                            // Send to Django
+                            const formData = new FormData();
+                            formData.append('audio', wavBlob, 'recorded.wav');
+                            formData.append('csrfmiddlewaretoken', csrfToken);
+
+                            fetch('/sound_recognition/', {
+                                method: 'POST',
+                                body: formData
+                            })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.song_name && data.song_name !== 'Unknown') {
+                                    searchInput.value = data.song_name;
+                                } else {
+                                    searchInput.value = 'Unknown Song';
+                                }
+                                searchInput.placeholder = originalPlaceholder;
+                            })
+                            .catch(err => {
+                                console.error('Sound recognition error:', err);
+                                searchInput.value = 'Recognition Error';
+                                searchInput.placeholder = originalPlaceholder;
+                            });
+
+                        }, 7000);
+
+                    } catch (err) {
+                        console.error('Microphone access denied or error:', err);
+                        alert('Microphone permission denied or not available.');
+                    }
+                }
+
+                if (recordButton) {
+                    recordButton.addEventListener('click', startRecording);
+                }
+
+
+            </script>
+            
+        </div>
+    </div>
+</header>

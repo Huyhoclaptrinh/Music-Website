@@ -1,0 +1,174 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    /* max-width: 100%; */
+    /* min-height: 20%; */
+    background-color: #202A44;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    z-index: 98;
+    margin-top: auto;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    
+    .footer-left {
+        display: flex;
+        text-align: center;
+        width: fit-content;
+        align-items: center;
+        margin-left: 20px;
+
+        .audio {
+            width: 800px;
+            height: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 20px;
+            margin-bottom: 0;
+
+            li {
+                display:inline-block; 
+                p {
+                    padding: 10px 20px; 
+                }
+            }
+        }
+
+        i {
+            padding: 10px 20px;
+        }
+    }
+
+    .footer-mid {
+        display: flex;
+        width: 10%;
+        
+        .music-img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .music-content p {
+            color: white;
+            width: 60%;
+        }
+    }
+
+    .footer-right {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-bottom: 0;
+
+            li {
+                display:inline-block; 
+                p {
+                    padding: 10px 20px; 
+                }
+            }
+        }
+    }
+
+    i {
+        padding: 10px 20px;
+        color: #FFFFFF;
+    }
+}
+
+
+
+/* Define the slider width so that it scales properly */
+.slider_container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7px;
+  }
+   
+  /* Modify the appearance of the slider */
+.seek_slider {
+    width: 395px;
+}
+
+/* Modify the appearance of the slider */
+.seek_slider, .volume_slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 5px;
+    background: black;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+   
+/* Modify the appearance of the slider thumb */
+.seek_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: white;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+   
+/* Change the opacity when mouse is hovered */
+.seek_slider:hover {
+    opacity: 1.0;
+  }
+
+.current-time,.total-duration {
+  padding: 10px;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 525px) {
+
+}
+@media screen and (max-width: 900px) {
+    footer {
+        justify-content: space-between;
+    }
+
+    footer .footer-left {
+        width: 50%;
+    }
+
+    .footer-left .slider_container {
+        display: none;
+    }
+
+    .footer-left .fa-shuffle {
+        display: none;
+    }
+
+    .footer-left .fa-rotate-left {
+        display: none;
+    }
+
+    .footer-left .fa-headphones {
+        display: none;
+    }
+
+    .footer-right {
+        display: none !important;
+    }
+}

@@ -1,0 +1,50 @@
+{% extends 'base/base-musiek.html' %}
+{% block header %}
+    {% include 'base/base-header.html' %}
+{% endblock header %}
+{% block footer %}
+    {% include 'base/base-footer.html' %}
+{% endblock footer %}
+{% block left %}
+    {% load static %}
+    <div class="left-bar"></div>
+{% endblock left %}
+{% block content %}
+    {% load static %}
+    <div class="mid-bar">
+        <h2>Create your Library</h2>
+        <form method="post" action="{% url 'library_add' %}" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <input type="text" name="library_name" placeholder="Enter library name" required>
+            {% for song in songs %}
+                <label>
+                    <input type="checkbox" name="selected_songs" value="{{ song.music_id }}">
+                    {{ song.name }} by
+                    {{ song.author }}
+                </label>
+            {% endfor %}
+            </select>
+            <button type="submit">Submit</button>
+        </form>        
+    </div>
+    <script>
+        function validateForm() {
+            var checkboxes = document.getElementsByName("selected_songs");
+            var isChecked = false;
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    isChecked = true;
+                    break;
+                }
+            }
+            if (!isChecked) {
+                alert("Please select at least one song.");
+                return false;
+            }
+        }
+    </script>  
+{% endblock content %}
+{% block right %}
+    {% load static %}
+    <div class="right-bar"></div>
+{% endblock right %}

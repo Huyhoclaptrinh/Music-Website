@@ -1,0 +1,43 @@
+{% extends 'base/base-musiek.html' %}
+{% block auth %}
+	{% load static %}
+	<div class="wrapper">
+			<div class="sign-in-container">
+				<div class="title-box">
+					<h1>MUSIEK</h1>
+				</div>
+				<div class="sign-in">
+					<h1> SIGN IN </h1>
+					{% if messages %}
+            	    	<div class="error-message">
+            	    	    {% for message in messages %}
+            	    	        <p>{{ message }}</p>
+            	    	    {% endfor %}
+            	    	</div>
+            		{% endif %}
+					<form action="{% url 'signin' %}" class="sign-in-form" method="POST">
+						{% csrf_token %}
+						<div class="email">
+							<label for="fname">Username:</label>
+							<div class="email-input">
+								<input name="username" id="id_email" required><br>
+							</div>
+						</div>
+						<div class="pass">
+							<label for="lname">Password:</label>
+							<div class="pass-input">
+								<input type="Password" name="password" id="id_password" required><br>
+							</div>
+						</div>
+						<div class="link-sign-up">
+							<a href="{% url 'signup' %}"> Don't have an account? Sign up</a>
+						</div>
+						<button class="button" type="submit"> Enter </button>
+					</form> 
+					{% comment %} <form action="{% url 'home' %}"> {% endcomment %}
+					{% comment %} <button class="button" type="submit"> Enter </button> {% endcomment %}
+					{% comment %} </form> {% endcomment %}
+				</div>
+			</div>
+	</div>
+{% endblock auth %}
